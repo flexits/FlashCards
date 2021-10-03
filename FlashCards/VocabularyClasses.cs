@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 
 namespace FlashCards
 {
@@ -15,23 +16,29 @@ namespace FlashCards
         string comment;
         string native_lang;
         string foreign_lang;
-        //Image stackimg;
+        Image picture;
         //byte[] dblob;
         int stacklength;
 
         bool errorflag = false;
         int[] card_ids;
 
-        public VocabStack()
+        public VocabStack(Int64 id, string name, string native_lang, string foreign_lang, byte[] picture, string comment)
+        //constructor for database object materialization
         {
-            /*
-             * A parameterless default constructor or 
-             * one matching signature (System.Int64 id, System.String name, 
-             * System.String native_lang, System.String foreign_lang, 
-             * System.Byte[] picture, System.String comment, 
-             * System.Int64 member_count) is required for 
-             * FlashCards.VocabStack materialization
-             */
+            if (id >= 0)
+            {
+                this.id = Convert.ToInt32(id);
+            }
+            this.name = name;
+            this.native_lang = native_lang;
+            this.foreign_lang = foreign_lang;
+            this.comment = comment;
+            if (picture != null && picture.Length > 0)
+            {
+                this.picture = Image.FromStream(new MemoryStream(picture));
+            }
+            stacklength = DbOperations.CardsCountInStack(this.id);
         }
 
         public VocabStack(int id)
@@ -82,6 +89,11 @@ namespace FlashCards
             return null;
         }
 
+        public int Id
+        {
+            get { return id; }
+        }
+
         public string Name
         {
             get { return name; }
@@ -109,13 +121,18 @@ namespace FlashCards
         public int StackLength
         {
             get { return stacklength; }
-            set
-            {
-                if (value >= 0)
-                {
-                    stacklength = value;
-                }
-            }
+        }
+
+        /*public byte[] Dblob
+        {
+            get { return dblob; }
+            set { dblob = value; }
+        }*/
+
+        public Image Picture
+        {
+            get { return picture; }
+            set { picture = value; }
         }
 
         public bool ErrorFlag
@@ -128,42 +145,62 @@ namespace FlashCards
     {
         int id;
         int stack_id;
-        string word_foreign;
-        string word_native;
+        string native_word;
+        string foreign_word;
         string comment;
-        Image cardimg;
+        string hyperlink;
+        //Image cardimg;
+        byte[] dblobimage;
+        byte[] dblobsound;
+
+        public VocabCard(Int64 id, Int64 stack_id, string native_word, string foreign_word, string comment, byte[] dblobimage, byte[] dblobsound, string hyperlink)
+        //constructor for database object materialization
+        {
+            if (id >= 0)
+            {
+                this.id = Convert.ToInt32(id);
+            }
+            if (stack_id >= 0)
+            {
+                this.stack_id = Convert.ToInt32(id);
+            }
+            this.native_word = native_word;
+            this.foreign_word = foreign_word;
+            this.comment = comment;
+            this.dblobimage = dblobimage;
+            this.dblobsound = dblobsound;
+            this.hyperlink = hyperlink;
+        }
 
         public VocabCard(int stack_id, int card_id)
         {
             this.id = card_id;
             this.stack_id = stack_id;
-            word_foreign = "Example 1";
-            word_native = "Пример1";
+            foreign_word = "Example 1";
+            native_word = "Пример1";
             comment = "comment1";
         }
 
         public string WordForeign
         {
-            get
-            {
-                return word_foreign;
-            }
+            get { return foreign_word; }
+            set { foreign_word = value; }
         }
-
         public string WordNative
         {
-            get
-            {
-                return word_native;
-            }
+            get { return native_word; }
+            set { native_word = value; }
         }
-
         public string Comment
         {
-            get
-            {
-                return comment;
-            }
+            get { return comment; }
+            set { comment = value; }
+        }
+
+        public string Hyperlink
+        {
+            get { return hyperlink; }
+            set { hyperlink = value; }
         }
     }
 }

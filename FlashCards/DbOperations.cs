@@ -22,6 +22,12 @@ namespace FlashCards
             return dbconn.Query<VocabStack>(query).AsList();
         }
 
+        public static int CardsCountInStack(int stack_id)
+        {
+            string query = "SELECT COUNT(*) FROM cards WHERE stack_id = " + stack_id;
+            return dbconn.ExecuteScalar<int>(query);
+        }
+
         //TODO:
         //get stack by id
         //get cards ids by stack id

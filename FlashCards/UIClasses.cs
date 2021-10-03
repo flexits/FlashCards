@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
-using System.Globalization;
+﻿using System.Windows.Forms;
 using System.Resources;
 using System.Reflection;
 

@@ -30,6 +30,11 @@ namespace FlashCards
             currentStack = stack;
             labelTitle.Text = currentStack.Name;
             labelCounter.Text = currentStack.StackLength.ToString();
+            /*if (currentStack.Dblob != null && currentStack.Dblob.Length > 0)
+            {
+                pictureBox1.Image = BlobConvertor.BlobToImage(stack.Dblob);
+            }*/
+            pictureBox1.Image = stack.Picture;
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
