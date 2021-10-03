@@ -24,15 +24,13 @@ namespace FlashCards
 
         public VocabStack()
         {
-            //parameterless default constructor
             /*
-             * System.InvalidOperationException: "
              * A parameterless default constructor or 
              * one matching signature (System.Int64 id, System.String name, 
              * System.String native_lang, System.String foreign_lang, 
              * System.Byte[] picture, System.String comment, 
              * System.Int64 member_count) is required for 
-             * FlashCards.VocabStack materialization"
+             * FlashCards.VocabStack materialization
              */
         }
 

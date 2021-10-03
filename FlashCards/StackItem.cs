@@ -19,17 +19,6 @@ namespace FlashCards
 
         VocabStack currentStack;
         bool isSelected;
-        public StackItem(int stack_id)
-        {
-            InitializeComponent();
-            isSelected = false;
-            panel1.BackColor = ColorScheme.Default.Brown3;
-            labelTitle.ForeColor = ColorScheme.Default.DarkGreen1;
-            labelCounter.ForeColor = ColorScheme.Default.LightBrown2;
-            currentStack = new VocabStack(stack_id);
-            labelTitle.Text = currentStack.Name;
-            labelCounter.Text = currentStack.StackLength.ToString();
-        }
 
         public StackItem(VocabStack stack)
         {

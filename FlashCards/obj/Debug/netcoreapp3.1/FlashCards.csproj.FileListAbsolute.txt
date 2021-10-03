@@ -23,7 +23,6 @@ C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\bin\Debug\netcoreapp3.
 C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\FlashCards.runtimeconfig.dev.json
 C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\FlashCards.dll
 C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\FlashCards.pdb
-C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.csproj.AssemblyReference.cache
 C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.FormMain.resources
 C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.FormSettings.resources
 C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.FormStacksBrowser.resources
