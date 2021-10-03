@@ -17,7 +17,6 @@ namespace FlashCards
         string native_lang;
         string foreign_lang;
         Image picture;
-        //byte[] dblob;
         int stacklength;
 
         bool errorflag = false;
@@ -122,12 +121,6 @@ namespace FlashCards
         {
             get { return stacklength; }
         }
-
-        /*public byte[] Dblob
-        {
-            get { return dblob; }
-            set { dblob = value; }
-        }*/
 
         public Image Picture
         {
