@@ -4,7 +4,6 @@ C:\Users\4d414\source\repos\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\FlashC
 C:\Users\4d414\source\repos\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\FlashCards.runtimeconfig.dev.json
 C:\Users\4d414\source\repos\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\FlashCards.dll
 C:\Users\4d414\source\repos\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\FlashCards.pdb
-C:\Users\4d414\source\repos\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.csproj.AssemblyReference.cache
 C:\Users\4d414\source\repos\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.FormMain.resources
 C:\Users\4d414\source\repos\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.csproj.GenerateResource.cache
 C:\Users\4d414\source\repos\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.GeneratedMSBuildEditorConfig.editorconfig
@@ -17,3 +16,4 @@ C:\Users\4d414\source\repos\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashC
 C:\Users\4d414\source\repos\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.FormStacksBrowser.resources
 C:\Users\4d414\source\repos\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.FormSettings.resources
 C:\Users\4d414\source\repos\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.lang.lang_ru.resources
+C:\Users\4d414\source\repos\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.StackItem.resources

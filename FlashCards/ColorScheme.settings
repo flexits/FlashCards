@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FlashCards" GeneratedClassName="ColorScheme">
+  <Profiles />
+  <Settings>
+    <Setting Name="Brown1" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">188, 108, 37</Value>
+    </Setting>
+    <Setting Name="Brown2" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">221, 161, 94</Value>
+    </Setting>
+    <Setting Name="Brown3" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">212, 163, 115</Value>
+    </Setting>
+    <Setting Name="LightBrown1" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">250, 237, 205</Value>
+    </Setting>
+    <Setting Name="LightBrown2" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">254, 250, 224</Value>
+    </Setting>
+    <Setting Name="DarkGreen1" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">40, 54, 24</Value>
+    </Setting>
+    <Setting Name="DarkGreen2" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">96, 108, 56</Value>
+    </Setting>
+    <Setting Name="LightGreen1" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">204, 213, 174</Value>
+    </Setting>
+    <Setting Name="LightGreen2" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">233, 237, 201</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -13,17 +13,11 @@ namespace FlashCards
         public FormSettings()
         {
             InitializeComponent();
-            LoadLocale();
-            LoadSettings();
-        }
-
-        private void LoadLocale()
-        {
-            if (customLocales.UseDefaulLang)
+            if (customLocales.TranslationNeeded)
             {
-                return;
+                customLocales.TranslateControlsTextProp(Controls);
             }
-            buttonSave.Text = customLocales.GetTranslation(buttonSave.Text);
+            LoadSettings();
         }
 
         private void LoadSettings()

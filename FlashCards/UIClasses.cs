@@ -8,17 +8,31 @@ using System.Reflection;
 
 namespace FlashCards
 {
+    /*
+     * Application UI-related classes
+     */
+
     static class MDIFormControls
     {
         static Form activeForm = null;
+        static Panel panelParent = null;
 
-        public static void openFormInPanel(Panel panelParent, Form formChild)
+        public static Panel PanelParent
+        //set parent panel for all app's forms 
+        {
+            get { return panelParent; }
+            set { panelParent = value; }
+        }
+
+        public static void openFormInPanel(Form formChild)
+        //open new form in a panel (only one form at a time)
+        //previously opened form is automatically closed
         {
             if (activeForm != null)
             {
                 activeForm.Close();
             }
-            if (formChild == null)
+            if (formChild == null || panelParent == null)
             {
                 return;
             }
@@ -34,27 +48,40 @@ namespace FlashCards
 
     static class customLocales
     {
-        static CultureInfo currentCultureInfo;
         static string currentLocale;
-        static bool usingDefaultLang;
+        static bool translationNeeded;
         static customLocales()
         {
+            //get needed language from the app settings
             switch (Properties.Settings.Default.UseLocale)
             {
                 case "Русский":
                     currentLocale = "ru";
-                    usingDefaultLang = false;
+                    translationNeeded = true;
                     break;
                 case "Английский":
                 default:
                     currentLocale = "en";
-                    usingDefaultLang = true;
+                    translationNeeded = false;
                     break;
             }
-            currentCultureInfo = CultureInfo.GetCultureInfo(currentLocale);
+        }
+
+        public static void TranslateControlsTextProp(Control.ControlCollection controls)
+        //iterate over controls and translate their .Text property if .Tag contains "TextTranslatable"
+        {
+            foreach (Control cl in controls)
+            {
+                if (cl.Tag != null && cl.Tag.ToString().Contains("TextTranslatable"))
+                {
+                    cl.Text = GetTranslation(cl.Text);
+                }
+            }
         }
 
         public static string GetTranslation(string str)
+        //return the translation of str from FlashCards.lang.lang_* corresponding to the app language setting
+        //or echo str back if any error
         {
             string translation;
             try
@@ -73,14 +100,6 @@ namespace FlashCards
             return translation;
         }
 
-        public static CultureInfo CurrentCultureInfo
-        {
-            get
-            {
-                return currentCultureInfo;
-            }
-        }
-
         public static string CurrentLocale
         {
             get
@@ -89,11 +108,11 @@ namespace FlashCards
             }
         }
 
-        public static bool UseDefaulLang
+        public static bool TranslationNeeded
         {
             get
             {
-                return usingDefaultLang;
+                return translationNeeded;
             }
         }
 

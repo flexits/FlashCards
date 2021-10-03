@@ -15,16 +15,24 @@ namespace FlashCards
         public FormMain()
         {
             InitializeComponent();
+            //translate controls' text
+            if (customLocales.TranslationNeeded)
+            {
+                customLocales.TranslateControlsTextProp(Controls);
+                customLocales.TranslateControlsTextProp(panelNavi.Controls);
+            }
+            //set parent panel for all forms
+            MDIFormControls.PanelParent = panelContainer;
         }
 
         private void buttonStacks_Click(object sender, EventArgs e)
         {
-            MDIFormControls.openFormInPanel(panelContainer, new FormStacksBrowser());
+            MDIFormControls.openFormInPanel(new FormStacksBrowser());
         }
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
-            MDIFormControls.openFormInPanel(panelContainer, new FormSettings());
+            MDIFormControls.openFormInPanel(new FormSettings());
         }
     }
 }

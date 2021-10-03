@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Drawing;
 
 namespace FlashCards
 {
+    /*
+     * Cards, stacks and related stuff
+     */
+
     class VocabStack
     {
         int id;
@@ -11,6 +15,8 @@ namespace FlashCards
         string comment;
         string lang_native;
         string lang_foreign;
+        Image stackimg;
+        
 
         bool errorflag = false;
 
@@ -22,7 +28,7 @@ namespace FlashCards
             this.id = id;
 
             //get info from db
-            name = "Stack_name";
+            name = "Stack_name_"+id.ToString();
             comment = "Stack_comment";
 
             //get relevant cards from db by stack_id and their count
@@ -105,7 +111,7 @@ namespace FlashCards
         string word_foreign;
         string word_native;
         string comment;
-        //add some binary type for an image
+        Image cardimg;
 
         public VocabCard(int stack_id, int card_id)
         {

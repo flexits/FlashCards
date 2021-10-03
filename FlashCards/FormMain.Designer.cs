@@ -63,6 +63,7 @@ namespace FlashCards
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(200, 68);
             this.buttonSettings.TabIndex = 1;
+            this.buttonSettings.Tag = "TextTranslatable";
             this.buttonSettings.Text = "Settings";
             this.buttonSettings.UseVisualStyleBackColor = true;
             this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
@@ -75,6 +76,7 @@ namespace FlashCards
             this.buttonStacks.Name = "buttonStacks";
             this.buttonStacks.Size = new System.Drawing.Size(200, 68);
             this.buttonStacks.TabIndex = 0;
+            this.buttonStacks.Tag = "TextTranslatable";
             this.buttonStacks.Text = "Stacks";
             this.buttonStacks.UseVisualStyleBackColor = true;
             this.buttonStacks.Click += new System.EventHandler(this.buttonStacks_Click);
