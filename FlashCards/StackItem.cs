@@ -31,6 +31,18 @@ namespace FlashCards
             labelCounter.Text = currentStack.StackLength.ToString();
         }
 
+        public StackItem(VocabStack stack)
+        {
+            InitializeComponent();
+            isSelected = false;
+            panel1.BackColor = ColorScheme.Default.Brown3;
+            labelTitle.ForeColor = ColorScheme.Default.DarkGreen1;
+            labelCounter.ForeColor = ColorScheme.Default.LightBrown2;
+            currentStack = stack;
+            labelTitle.Text = currentStack.Name;
+            labelCounter.Text = currentStack.StackLength.ToString();
+        }
+
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             //invoke stack view/edit form

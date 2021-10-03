@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Data.SqlClient;
+using Dapper;
 
 namespace FlashCards
 {
@@ -13,9 +15,20 @@ namespace FlashCards
     {
         public FormStacksBrowser()
         {
-            //https://metanit.com/sharp/adonetcore/4.1.php
-
             InitializeComponent();
+
+            string connstr = "Data Source=fcrd.db;Version=3;";
+            string query = "SELECT * FROM stacks";
+            SQLiteConnection conn = new SQLiteConnection(connstr);
+            SQLiteCommand cmd = new SQLiteCommand(query, conn);
+            List<VocabStack> lst = (List<VocabStack>)conn.Query<VocabStack>(query);
+            foreach (VocabStack vst in lst)
+            {
+                StackItem sti = new StackItem(vst);
+                flowLayoutPanel1.Controls.Add(sti);
+            }
+            /*
+            //https://metanit.com/sharp/adonetcore/4.1.php
             string connstr = "Data Source=fcrd.db;Version=3;";
             string query = "SELECT COUNT(*) FROM stacks";
             SQLiteConnection conn = new SQLiteConnection(connstr);
@@ -31,7 +44,7 @@ namespace FlashCards
             {
                 reader.Read();
             }
-            int result = reader.GetInt32(0);
+            int stackcounter = reader.GetInt32(0);
             reader.Close();
             if (conn.State == ConnectionState.Open)
             {
@@ -40,16 +53,14 @@ namespace FlashCards
 
             //get stack_ids from database
             //populate panel with stackitems
-            int stackcounter = result;
             int[] stack_ids = new int[stackcounter];
-            stack_ids[0] = 0;
-            stack_ids[1] = 1;
-            stack_ids[2] = 2;
             foreach (int stack_id in stack_ids)
             {
+                //lets better pass the stack object instead of id!
                 StackItem sti = new StackItem(stack_id);
                 flowLayoutPanel1.Controls.Add(sti);
             }
+            */
         }
     }
 }

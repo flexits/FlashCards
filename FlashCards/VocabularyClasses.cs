@@ -8,20 +8,24 @@ namespace FlashCards
      * Cards, stacks and related stuff
      */
 
-    class VocabStack
+    public class VocabStack
     {
         int id;
         string name;
         string comment;
-        string lang_native;
-        string lang_foreign;
-        Image stackimg;
-        
+        string native_lang;
+        string foreign_lang;
+        //Image stackimg;
+        //byte[] dblob;
+        int stacklength;
 
         bool errorflag = false;
-
-        int stacklength;
         int[] card_ids;
+
+        public VocabStack()
+        {
+            //parameterless default constructor
+        }
 
         public VocabStack(int id)
         {
@@ -73,38 +77,47 @@ namespace FlashCards
 
         public string Name
         {
-            get
-            {
-                return name;
-            }
+            get { return name; }
+            set { name = value; }
         }
 
         public string Comment
         {
-            get
-            {
-                return comment;
-            }
+            get { return comment; }
+            set { comment = value; }
+        }
+
+        public string NativeLang
+        {
+            get { return native_lang; }
+            set { native_lang = value; }
+        }
+
+        public string ForeignLang
+        {
+            get { return foreign_lang; }
+            set { foreign_lang = value; }
         }
 
         public int StackLength
         {
-            get
+            get { return stacklength; }
+            set
             {
-                return stacklength;
+                if (value >= 0)
+                {
+                    stacklength = value;
+                }
             }
         }
 
         public bool ErrorFlag
         {
-            get
-            {
-                return errorflag;
-            }
+            get { return errorflag; }
         }
     }
 
-    class VocabCard
+    public class VocabCard
     {
         int id;
         int stack_id;
