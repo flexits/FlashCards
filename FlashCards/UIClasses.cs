@@ -11,6 +11,14 @@ namespace FlashCards
     /*
      * Application UI-related classes
      */
+    static class TestClass
+    {
+        static int dummy = 0;
+        public static int Dummy { get; set; }
+
+        jkljk;ljk;kllk
+
+    }
 
     static class MDIFormControls
     {
