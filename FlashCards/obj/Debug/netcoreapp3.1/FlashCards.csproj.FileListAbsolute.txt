@@ -37,3 +37,10 @@ C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.
 C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.dll
 C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.pdb
 C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.genruntimeconfig.cache
+C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\fcrd.db
+C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
+C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\4d414\Source\Repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.csproj.CopyComplete

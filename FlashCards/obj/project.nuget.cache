@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "pcLDNgzLBOT8a03bSfGaFFwdcNDtTD5ULqmQuTNm+NhgvNprgBSs5U4trhgTnd8Fk+m0b4je1b5yvQGsmrkr/g==",
+  "dgSpecHash": "1vUPALwhl2jubT+KqzXZnJm/cRGMyt8CjZUdb9SEBXK1ue84C/0AIy2c3umGh9gMjFVktTjsje5Tsxp8MEShLQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\4d414\\Source\\Repos\\flexits\\FlashCards\\FlashCards\\FlashCards.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\4d414\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.115\\stub.system.data.sqlite.core.netstandard.1.0.115.nupkg.sha512",
+    "C:\\Users\\4d414\\.nuget\\packages\\system.data.sqlite.core\\1.0.115\\system.data.sqlite.core.1.0.115.nupkg.sha512"
+  ],
   "logs": []
 }
