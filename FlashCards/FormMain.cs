@@ -30,9 +30,14 @@ namespace FlashCards
             MDIFormControls.openFormInPanel(new FormStacksBrowser());
         }
 
-        private void buttonSettings_Click(object sender, EventArgs e)
+        private void buttonSettings_Click_1(object sender, EventArgs e)
         {
             MDIFormControls.openFormInPanel(new FormSettings());
+        }
+
+        private void buttonQiuz_Click(object sender, EventArgs e)
+        {
+            MDIFormControls.openFormInPanel(null);
         }
     }
 }

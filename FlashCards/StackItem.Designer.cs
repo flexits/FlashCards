@@ -40,6 +40,7 @@ namespace FlashCards
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.buttonEdit);
             this.panel1.Controls.Add(this.labelCounter);
             this.panel1.Controls.Add(this.labelTitle);
@@ -100,7 +101,7 @@ namespace FlashCards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.Controls.Add(this.panel1);
             this.Name = "StackItem";
             this.Size = new System.Drawing.Size(256, 128);

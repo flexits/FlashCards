@@ -20,6 +20,8 @@ namespace FlashCards
                 StackItem sti = new StackItem(vst);
                 flowLayoutPanel1.Controls.Add(sti);
             }
+
+            //upon selection change deselect others
         }
     }
 }

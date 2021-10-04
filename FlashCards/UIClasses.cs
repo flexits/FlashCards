@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using System.Resources;
 using System.Reflection;
+using System.Drawing;
 
 namespace FlashCards
 {
@@ -112,5 +113,28 @@ namespace FlashCards
             }
         }
 
+    }
+
+    static class CustomColors
+    {       
+        public static Color MellowApricot
+        {
+            get { return Color.FromArgb(255, 191, 105); }
+        }
+
+        public static Color OrangePeel
+        {
+            get { return Color.FromArgb(255, 159, 28); }
+        }
+
+        public static Color TiffanyBlue
+        {
+            get { return Color.FromArgb(46, 196, 182); }
+        }
+
+        public static Color LightCyan
+        {
+            get { return Color.FromArgb(203, 243, 240); }
+        }
     }
 }
