@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ColorScheme.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ColorScheme.settings" />
     <None Remove="fcrd.db" />
   </ItemGroup>
 
@@ -22,11 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="ColorScheme.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ColorScheme.settings</DependentUpon>
-    </Compile>
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
@@ -47,10 +47,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ColorScheme.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>ColorScheme.Designer.cs</LastGenOutput>
-    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -13,9 +13,9 @@ namespace FlashCards
         public FormSettings()
         {
             InitializeComponent();
-            if (customLocales.TranslationNeeded)
+            if (CustomLocales.TranslationNeeded)
             {
-                customLocales.TranslateControlsTextProp(Controls);
+                CustomLocales.TranslateControlsTextProp(Controls);
             }
             LoadSettings();
         }

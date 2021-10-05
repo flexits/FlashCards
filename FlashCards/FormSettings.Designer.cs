@@ -46,7 +46,9 @@ namespace FlashCards
             // 
             // comboBoxLang
             // 
+            this.comboBoxLang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
             this.comboBoxLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxLang.FormattingEnabled = true;
             this.comboBoxLang.Items.AddRange(new object[] {
             "English",
@@ -59,6 +61,9 @@ namespace FlashCards
             // 
             // buttonSave
             // 
+            this.buttonSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
+            this.buttonSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Location = new System.Drawing.Point(12, 205);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
@@ -71,7 +76,7 @@ namespace FlashCards
             // labelRestartWarning
             // 
             this.labelRestartWarning.AutoSize = true;
-            this.labelRestartWarning.ForeColor = System.Drawing.Color.Salmon;
+            this.labelRestartWarning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
             this.labelRestartWarning.Location = new System.Drawing.Point(232, 15);
             this.labelRestartWarning.Name = "labelRestartWarning";
             this.labelRestartWarning.Size = new System.Drawing.Size(232, 15);

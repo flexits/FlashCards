@@ -2,6 +2,7 @@
 using System.Resources;
 using System.Reflection;
 using System.Drawing;
+using System.Linq;
 
 namespace FlashCards
 {
@@ -9,10 +10,11 @@ namespace FlashCards
      * Application UI-related classes
      */
 
-    static class MDIFormControls
+    internal static class MDIFormControls
+    //open forms in panel container
     {
-        static Form activeForm = null;
-        static Panel panelParent = null;
+        private static Form activeForm = null;
+        private static Panel panelParent = null;
 
         public static Panel PanelParent
         //set parent panel for all app's forms 
@@ -21,7 +23,7 @@ namespace FlashCards
             set { panelParent = value; }
         }
 
-        public static void openFormInPanel(Form formChild)
+        public static void OpenFormInPanel(Form formChild)
         //open new form in a panel (only one form at a time)
         //previously opened form is automatically closed
         {
@@ -43,11 +45,12 @@ namespace FlashCards
         }
     }
 
-    static class customLocales
+    internal static class CustomLocales
+    //UI strings translations class
     {
-        static string currentLocale;
-        static bool translationNeeded;
-        static customLocales()
+        private static readonly string currentLocale;
+        private static readonly bool translationNeeded;
+        static CustomLocales()
         {
             //get needed language from the app settings
             switch (Properties.Settings.Default.UseLocale)
@@ -99,42 +102,37 @@ namespace FlashCards
 
         public static string CurrentLocale
         {
-            get
-            {
-                return currentLocale;
-            }
+            get { return currentLocale; }
         }
 
         public static bool TranslationNeeded
         {
-            get
-            {
-                return translationNeeded;
-            }
+            get { return translationNeeded; }
         }
 
     }
 
-    static class CustomColors
-    {       
-        public static Color MellowApricot
+    internal static class MenuVisualSelections
+    //make controls in a panel behave like a menu with selected item highlight
+    {
+        public static void BtnSelect(Button btnselected, Panel container)
+        //change background of the clicked button to highlight it
         {
-            get { return Color.FromArgb(255, 191, 105); }
+            btnselected.BackColor = CustomColors.TiffanyBlue;
+            foreach (Button btn in container.Controls.OfType<Button>().Where(btn => btn != btnselected))
+            {
+                btn.BackColor = CustomColors.LightCyan;
+            }
         }
+    }
 
-        public static Color OrangePeel
-        {
-            get { return Color.FromArgb(255, 159, 28); }
-        }
-
-        public static Color TiffanyBlue
-        {
-            get { return Color.FromArgb(46, 196, 182); }
-        }
-
-        public static Color LightCyan
-        {
-            get { return Color.FromArgb(203, 243, 240); }
-        }
+    internal static class CustomColors
+    //colors definition
+    //https://coolors.co/ff9f1c-ffbf69-ffffff-cbf3f0-2ec4b6
+    {
+        public static Color MellowApricot => Color.FromArgb(255, 191, 105);
+        public static Color OrangePeel => Color.FromArgb(255, 159, 28);
+        public static Color TiffanyBlue => Color.FromArgb(46, 196, 182);
+        public static Color LightCyan => Color.FromArgb(203, 243, 240);
     }
 }

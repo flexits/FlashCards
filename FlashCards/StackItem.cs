@@ -37,7 +37,7 @@ namespace FlashCards
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             //open stack view/edit form
-            MDIFormControls.openFormInPanel(new FormSettings());
+            MDIFormControls.OpenFormInPanel(new FormSettings());
         }
 
         private void StackItem_MouseClick(object sender, MouseEventArgs e)
@@ -62,7 +62,7 @@ namespace FlashCards
         private void StackItem_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             //open stack view/edit form
-            MDIFormControls.openFormInPanel(new FormSettings());
+            MDIFormControls.OpenFormInPanel(new FormSettings());
         }
     }
 }

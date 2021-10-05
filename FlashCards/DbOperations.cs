@@ -11,9 +11,9 @@ namespace FlashCards
      * Database operations classes
      */
 
-    static class DbOperations
+    internal static class DbOperations
     {
-        static string connstr = "Data Source=fcrd.db;Version=3;";
+        private static readonly string connstr = "Data Source=fcrd.db;Version=3;";
         static SQLiteConnection dbconn = new SQLiteConnection(connstr);
         public static List<VocabStack> GetAllStacks()
         //return all existing stacks 

@@ -16,10 +16,10 @@ namespace FlashCards
         {
             InitializeComponent();
             //translate controls' text
-            if (customLocales.TranslationNeeded)
+            if (CustomLocales.TranslationNeeded)
             {
-                customLocales.TranslateControlsTextProp(Controls);
-                customLocales.TranslateControlsTextProp(panelNavi.Controls);
+                CustomLocales.TranslateControlsTextProp(Controls);
+                CustomLocales.TranslateControlsTextProp(panelNavi.Controls);
             }
             //set parent panel for all forms
             MDIFormControls.PanelParent = panelContainer;
@@ -27,17 +27,20 @@ namespace FlashCards
 
         private void buttonStacks_Click(object sender, EventArgs e)
         {
-            MDIFormControls.openFormInPanel(new FormStacksBrowser());
+            MenuVisualSelections.BtnSelect(sender as Button, panelNavi);
+            MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
         }
 
         private void buttonSettings_Click_1(object sender, EventArgs e)
         {
-            MDIFormControls.openFormInPanel(new FormSettings());
+            MenuVisualSelections.BtnSelect(sender as Button, panelNavi);
+            MDIFormControls.OpenFormInPanel(new FormSettings());
         }
 
         private void buttonQiuz_Click(object sender, EventArgs e)
         {
-            MDIFormControls.openFormInPanel(null);
+            MenuVisualSelections.BtnSelect(sender as Button, panelNavi);
+            MDIFormControls.OpenFormInPanel(null);
         }
     }
 }

@@ -11,18 +11,18 @@ namespace FlashCards
 
     public class VocabStack
     {
-        int id;
-        string name;
-        string comment;
-        string native_lang;
-        string foreign_lang;
-        Image picture;
-        int stacklength;
+        private readonly int id;
+        private string name;
+        private string comment;
+        private string native_lang;
+        private string foreign_lang;
+        private Image picture;
+        private int stacklength;
 
         bool errorflag = false;
         int[] card_ids;
 
-        public VocabStack(Int64 id, string name, string native_lang, string foreign_lang, byte[] picture, string comment)
+        public VocabStack(long id, string name, string native_lang, string foreign_lang, byte[] picture, string comment)
         //constructor for database object materialization
         {
             if (id >= 0)
@@ -71,7 +71,7 @@ namespace FlashCards
             }
         }
 
-        bool CheckIndex(int index)
+        private bool CheckIndex(int index)
         {
             if (index >= 0 & index < stacklength)
             {
@@ -136,17 +136,17 @@ namespace FlashCards
 
     public class VocabCard
     {
-        int id;
-        int stack_id;
-        string native_word;
-        string foreign_word;
-        string comment;
-        string hyperlink;
+        private readonly int id;
+        private int stack_id;
+        private string native_word;
+        private string foreign_word;
+        private string comment;
+        private string hyperlink;
         //Image cardimg;
-        byte[] dblobimage;
-        byte[] dblobsound;
+        private byte[] dblobimage;
+        private byte[] dblobsound;
 
-        public VocabCard(Int64 id, Int64 stack_id, string native_word, string foreign_word, string comment, byte[] dblobimage, byte[] dblobsound, string hyperlink)
+        public VocabCard(long id, long stack_id, string native_word, string foreign_word, string comment, byte[] dblobimage, byte[] dblobsound, string hyperlink)
         //constructor for database object materialization
         {
             if (id >= 0)
