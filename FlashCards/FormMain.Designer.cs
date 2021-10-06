@@ -47,8 +47,9 @@ namespace FlashCards
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(800, 48);
+            this.panelHeader.Size = new System.Drawing.Size(784, 48);
             this.panelHeader.TabIndex = 2;
+            this.panelHeader.Visible = false;
             // 
             // labelTitle
             // 
@@ -70,7 +71,7 @@ namespace FlashCards
             this.panelNavi.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNavi.Location = new System.Drawing.Point(0, 48);
             this.panelNavi.Name = "panelNavi";
-            this.panelNavi.Size = new System.Drawing.Size(200, 402);
+            this.panelNavi.Size = new System.Drawing.Size(200, 413);
             this.panelNavi.TabIndex = 4;
             // 
             // buttonSettings
@@ -134,14 +135,14 @@ namespace FlashCards
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(200, 48);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(600, 402);
+            this.panelContainer.Size = new System.Drawing.Size(584, 413);
             this.panelContainer.TabIndex = 5;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panelNavi);
             this.Controls.Add(this.panelHeader);

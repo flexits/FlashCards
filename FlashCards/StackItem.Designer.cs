@@ -45,9 +45,9 @@ namespace FlashCards
             this.panel1.Controls.Add(this.labelCounter);
             this.panel1.Controls.Add(this.labelTitle);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 122);
+            this.panel1.Size = new System.Drawing.Size(250, 120);
             this.panel1.TabIndex = 0;
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseClick);
             this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
@@ -103,8 +103,9 @@ namespace FlashCards
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "StackItem";
-            this.Size = new System.Drawing.Size(256, 128);
+            this.Size = new System.Drawing.Size(260, 130);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseClick);
             this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             this.panel1.ResumeLayout(false);

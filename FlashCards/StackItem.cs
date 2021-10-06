@@ -15,19 +15,42 @@ namespace FlashCards
          */
 
         // object represented by this control
-        VocabStack currentStack;
-        // selection state - true if the control was highlighted by mouse click
-        bool isSelected;
+        private readonly VocabStack currentStack;
 
-        public bool SelectionState
+        // true if this control is selected by user
+        public bool IsSelected { get; private set; }
+        // controls are selected by a first click and deselected by the second one
+        // upon each click the event is invoked to deselect other controls
+        public event EventHandler SelectionChanged;
+
+        public void DeselectItem()
         {
-            get { return isSelected; }
+            IsSelected = false;
+            BackColor = CustomColors.TiffanyBlue;
+        }
+
+        public void SelectItem()
+        {
+            IsSelected = true;
+            BackColor = CustomColors.OrangePeel;
+        }
+
+        public void ToggleSelection()
+        {
+            if (IsSelected)
+            {
+                DeselectItem();
+            }
+            else
+            {
+                SelectItem();
+            }
         }
 
         public StackItem(VocabStack stack)
         {
             InitializeComponent();
-            isSelected = false;
+            IsSelected = false;
             currentStack = stack;
             labelTitle.Text = currentStack.Name;
             labelCounter.Text = currentStack.StackLength.ToString();
@@ -42,27 +65,14 @@ namespace FlashCards
 
         private void StackItem_MouseClick(object sender, MouseEventArgs e)
         {
-            if (isSelected)
-            {
-                //de-select
-                isSelected = false;
-                //change outline colour
-                this.BackColor = CustomColors.TiffanyBlue;
-                
-            }
-            else
-            {
-                //select
-                isSelected = true;
-                this.BackColor = CustomColors.OrangePeel;
-            }
-            //invoke SelectionChanged
+            ToggleSelection();
+            SelectionChanged?.Invoke(this, e);
         }
 
         private void StackItem_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             //open stack view/edit form
-            MDIFormControls.OpenFormInPanel(new FormSettings());
+            //MDIFormControls.OpenFormInPanel(new FormSettings());
         }
     }
 }
