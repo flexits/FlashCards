@@ -66,7 +66,7 @@ namespace FlashCards
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Location = new System.Drawing.Point(12, 205);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(100, 30);
             this.buttonSave.TabIndex = 2;
             this.buttonSave.Tag = "TextTranslatable";
             this.buttonSave.Text = "Save";

@@ -10,7 +10,7 @@ namespace FlashCards
 {
     public partial class FormStacksEditor : Form
     {
-        private readonly VocabStack currentStack;
+        private VocabStack currentStack;
         public FormStacksEditor(VocabStack stack)
         {
             if (stack == null)
@@ -34,7 +34,23 @@ namespace FlashCards
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            Close();
+            //return to stacks browser
+            MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            //update object
+            currentStack.Name = textBoxTitle.Text;
+            currentStack.NativeLang = textBoxNative.Text;
+            currentStack.ForeignLang = textBoxForeign.Text;
+            currentStack.Comment = textBoxComment.Text;
+            //picture
+            //update db
+            DbOperations.UpdateStack(currentStack);
+            //return to stacks browser
+            MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
+
         }
     }
 }

@@ -15,7 +15,7 @@ namespace FlashCards
          */
 
         // object represented by this control
-        private readonly VocabStack currentStack;
+        private VocabStack currentStack;
 
         // true if this control is selected by user
         public bool IsSelected { get; private set; }
