@@ -50,6 +50,7 @@ namespace FlashCards
         public StackItem(VocabStack stack)
         {
             InitializeComponent();
+
             IsSelected = false;
             currentStack = stack;
             labelTitle.Text = currentStack.Name;
@@ -60,7 +61,7 @@ namespace FlashCards
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             //open stack view/edit form
-            MDIFormControls.OpenFormInPanel(new FormSettings());
+            MDIFormControls.OpenFormInPanel(new FormStacksEditor(currentStack));
         }
 
         private void StackItem_MouseClick(object sender, MouseEventArgs e)

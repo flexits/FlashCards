@@ -61,11 +61,56 @@ namespace FlashCards.lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Отменить.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Примечание:.
+        /// </summary>
+        public static string Comment_ {
+            get {
+                return ResourceManager.GetString("Comment:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Иностраный язык:.
+        /// </summary>
+        public static string Foreign_language_ {
+            get {
+                return ResourceManager.GetString("Foreign language:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Родной язык:.
+        /// </summary>
+        public static string Native_language_ {
+            get {
+                return ResourceManager.GetString("Native language:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Сохранить.
         /// </summary>
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Выберите иконку:.
+        /// </summary>
+        public static string Select_icon_ {
+            get {
+                return ResourceManager.GetString("Select icon:", resourceCulture);
             }
         }
         
@@ -84,6 +129,15 @@ namespace FlashCards.lang {
         public static string Stacks {
             get {
                 return ResourceManager.GetString("Stacks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Название:.
+        /// </summary>
+        public static string Title_ {
+            get {
+                return ResourceManager.GetString("Title:", resourceCulture);
             }
         }
     }

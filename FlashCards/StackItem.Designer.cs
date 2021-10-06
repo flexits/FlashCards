@@ -66,7 +66,7 @@ namespace FlashCards
             // 
             this.labelCounter.AutoSize = true;
             this.labelCounter.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCounter.Location = new System.Drawing.Point(150, 93);
+            this.labelCounter.Location = new System.Drawing.Point(160, 90);
             this.labelCounter.Name = "labelCounter";
             this.labelCounter.Size = new System.Drawing.Size(64, 21);
             this.labelCounter.TabIndex = 2;
@@ -77,10 +77,10 @@ namespace FlashCards
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTitle.Location = new System.Drawing.Point(73, 3);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(52, 30);
+            this.labelTitle.Size = new System.Drawing.Size(54, 30);
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "Title";
             this.labelTitle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseClick);
