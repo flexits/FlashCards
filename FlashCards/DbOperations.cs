@@ -14,7 +14,8 @@ namespace FlashCards
     internal static class DbOperations
     {
         private static readonly string connstr = "Data Source=fcrd.db;Version=3;";
-        static SQLiteConnection dbconn = new SQLiteConnection(connstr);
+        private static readonly SQLiteConnection dbconn = new SQLiteConnection(connstr);
+        
         public static List<VocabStack> GetAllStacks()
         //return all existing stacks 
         {
@@ -24,36 +25,40 @@ namespace FlashCards
 
         public static int CardsCountInStack(int stack_id)
         {
-            string query = "SELECT COUNT(*) FROM cards WHERE stack_id = " + stack_id;
-            return dbconn.ExecuteScalar<int>(query);
+            string query = "SELECT COUNT(*) FROM cards WHERE stack_id = @stackid";
+            return dbconn.ExecuteScalar<int>(query, new { stackid = stack_id });
         }
 
         public static int UpdateStack(VocabStack modifiedstack)
         {
-            string query = "UPDATE stacks ";
-            query += "SET name = '" + modifiedstack.Name;
-            query += "', native_lang = '" + modifiedstack.NativeLang;
-            query += "', foreign_lang = '" + modifiedstack.ForeignLang;
-            query += "', comment = '" + modifiedstack.Comment;
-            //picture
-            query += "' WHERE id = " + modifiedstack.Id;
-            return dbconn.ExecuteScalar<int>(query);
+            DynamicParameters parameters = new DynamicParameters();
+            string query = "UPDATE stacks SET name = @name, native_lang = @native_lang, foreign_lang = @foreign_lang, comment = @comment, picture = @picture WHERE id = @stackid";
+            parameters.Add("name", modifiedstack.Name);
+            parameters.Add("native_lang", modifiedstack.NativeLang);
+            parameters.Add("foreign_lang", modifiedstack.ForeignLang);
+            parameters.Add("comment", modifiedstack.Comment);
+            parameters.Add("picture", ImageConversion.ImgToByte(modifiedstack.Picture));
+            parameters.Add("stackid", modifiedstack.Id);
+            return dbconn.ExecuteScalar<int>(query, parameters);
         }
 
         public static int AddStack(VocabStack modifiedstack)
         {
-            string query = "INSERT INTO stacks (name, native_lang, foreign_lang, comment) VALUES ('";
+            DynamicParameters parameters = new DynamicParameters();
+            string query = "INSERT INTO stacks (name, native_lang, foreign_lang, comment, picture) VALUES (@name, @native_lang, @foreign_lang, @comment, @picture)";
+            parameters.Add("name", modifiedstack.Name);
+            parameters.Add("native_lang", modifiedstack.NativeLang);
+            parameters.Add("foreign_lang", modifiedstack.ForeignLang);
+            parameters.Add("comment", modifiedstack.Comment);
+            parameters.Add("picture", ImageConversion.ImgToByte(modifiedstack.Picture));
+            return dbconn.ExecuteScalar<int>(query, parameters);
+            /*string query = "INSERT INTO stacks (name, native_lang, foreign_lang, comment) VALUES ('";
             query += modifiedstack.Name + "', '";
             query += modifiedstack.NativeLang + "', '";
             query += modifiedstack.ForeignLang +"', '";
             query += modifiedstack.Comment + "')";
             //picture
-            return dbconn.ExecuteScalar<int>(query);
+            return dbconn.ExecuteScalar<int>(query);*/
         }
-
-        //TODO:
-        //get stack by id
-        //get cards ids by stack id
-        //get card by id
     }
 }

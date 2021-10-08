@@ -33,10 +33,7 @@ namespace FlashCards
             this.native_lang = native_lang;
             this.foreign_lang = foreign_lang;
             this.comment = comment;
-            if (picture != null && picture.Length > 0)
-            {
-                this.picture = Image.FromStream(new MemoryStream(picture));
-            }
+            this.picture = ImageConversion.ByteToImg(picture);
             stacklength = DbOperations.CardsCountInStack(this.id);
         }
 

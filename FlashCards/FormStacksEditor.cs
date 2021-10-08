@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace FlashCards
 {
@@ -41,16 +42,46 @@ namespace FlashCards
         private void buttonSave_Click(object sender, EventArgs e)
         {
             //update object
+            //check if changed
             currentStack.Name = textBoxTitle.Text;
             currentStack.NativeLang = textBoxNative.Text;
             currentStack.ForeignLang = textBoxForeign.Text;
             currentStack.Comment = textBoxComment.Text;
             //picture
+            if (pictureBox1.Image != null)
+            {
+                if (currentStack.Picture == null || !currentStack.Picture.Equals(pictureBox1.Image))
+                {
+                    currentStack.Picture = pictureBox1.Image;
+                }
+            }
             //update db
             DbOperations.UpdateStack(currentStack);
             //return to stacks browser
             MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
 
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            Image image;
+            try
+            {
+                //byte[] imgarr = File.ReadAllBytes(openFileDialog1.FileName);
+                //image = ImageConversion.ByteToImg(imgarr);
+                image = Image.FromFile(openFileDialog1.FileName);
+                //FOrmats?!
+            }
+            catch
+            {
+                return;
+            }
+            pictureBox1.Image = image;
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
         }
     }
 }

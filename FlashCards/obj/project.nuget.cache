@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kwd4bc562F7TfzCZowS8/az506awQ8GFr281HY9qkQ/i87vjbuosFUsiIah/YZHkRPTcb+DuKNath88VpHos0Q==",
+  "dgSpecHash": "/hfuShUfaN7B52NO8al02vES1RSp/PkCnOqNRRPaMANDx6a0GmsOxdlOTYsw8YjA00fNTALZVM5pYyu1oMNzIA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\4d414\\Source\\Repos\\flexits\\FlashCards\\FlashCards\\FlashCards.csproj",
+  "projectFilePath": "C:\\Users\\4d414\\source\\repos\\flexits\\FlashCards\\FlashCards\\FlashCards.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\4d414\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\4d414\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.115\\stub.system.data.sqlite.core.netstandard.1.0.115.nupkg.sha512",
