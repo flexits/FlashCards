@@ -42,20 +42,12 @@ namespace FlashCards
         private void buttonSave_Click(object sender, EventArgs e)
         {
             //update object
-            //check if changed
+            //TODO length validation
             currentStack.Name = textBoxTitle.Text;
             currentStack.NativeLang = textBoxNative.Text;
             currentStack.ForeignLang = textBoxForeign.Text;
             currentStack.Comment = textBoxComment.Text;
-            //picture
-            if (pictureBox1.Image != null)
-            {
-                if (currentStack.Picture == null || !currentStack.Picture.Equals(pictureBox1.Image))
-                {
-                    currentStack.Picture = pictureBox1.Image;
-                }
-            }
-            //update db
+            currentStack.Picture = pictureBox1.Image;
             DbOperations.UpdateStack(currentStack);
             //return to stacks browser
             MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
@@ -70,7 +62,8 @@ namespace FlashCards
                 //byte[] imgarr = File.ReadAllBytes(openFileDialog1.FileName);
                 //image = ImageConversion.ByteToImg(imgarr);
                 image = Image.FromFile(openFileDialog1.FileName);
-                //FOrmats?!
+                //TODO FOrmats?!
+                //TODO resize!!
             }
             catch
             {

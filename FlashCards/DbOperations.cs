@@ -24,12 +24,14 @@ namespace FlashCards
         }
 
         public static int CardsCountInStack(int stack_id)
+        //return the number of cardst relevant to a particular stack
         {
             string query = "SELECT COUNT(*) FROM cards WHERE stack_id = @stackid";
             return dbconn.ExecuteScalar<int>(query, new { stackid = stack_id });
         }
 
         public static int UpdateStack(VocabStack modifiedstack)
+        //update the stack record
         {
             DynamicParameters parameters = new DynamicParameters();
             string query = "UPDATE stacks SET name = @name, native_lang = @native_lang, foreign_lang = @foreign_lang, comment = @comment, picture = @picture WHERE id = @stackid";
@@ -43,6 +45,7 @@ namespace FlashCards
         }
 
         public static int AddStack(VocabStack modifiedstack)
+        //insert new stack record
         {
             DynamicParameters parameters = new DynamicParameters();
             string query = "INSERT INTO stacks (name, native_lang, foreign_lang, comment, picture) VALUES (@name, @native_lang, @foreign_lang, @comment, @picture)";
