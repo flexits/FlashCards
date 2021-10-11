@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace FlashCards
 {
-    public partial class FormStacksBrowser : Form
+    public partial class FormStacksBrowser : CustomBrowserForm
     {
         public FormStacksBrowser()
         {
@@ -21,21 +21,6 @@ namespace FlashCards
                 sti.SelectionChanged += new EventHandler(StackItemSelectChanged);
                 flowLayoutPanel1.Controls.Add(sti);
             }
-        }
-
-        private void StackItemSelectChanged(object sender, EventArgs e)
-        //when a stack is selected, deselect all others
-        {
-            if ((sender as StackItem).IsSelected)
-            {
-                foreach (StackItem sti in flowLayoutPanel1.Controls)
-                {
-                    if (sti != (sender as StackItem))
-                    {
-                        sti.DeselectItem();
-                    }
-                }
-            } 
         }
     }
 }

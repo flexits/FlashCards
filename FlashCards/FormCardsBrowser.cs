@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace FlashCards
 {
-    public partial class FormCardsBrowser : Form
+    public partial class FormCardsBrowser : CustomBrowserForm
     {
         public FormCardsBrowser()
         {

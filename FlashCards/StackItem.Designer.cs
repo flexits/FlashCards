@@ -49,7 +49,6 @@ namespace FlashCards
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 120);
             this.panel1.TabIndex = 0;
-            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseClick);
             this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             // 
             // buttonEdit
@@ -71,7 +70,6 @@ namespace FlashCards
             this.labelCounter.Size = new System.Drawing.Size(64, 21);
             this.labelCounter.TabIndex = 2;
             this.labelCounter.Text = "Items: 0";
-            this.labelCounter.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseClick);
             this.labelCounter.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             // 
             // labelTitle
@@ -83,7 +81,6 @@ namespace FlashCards
             this.labelTitle.Size = new System.Drawing.Size(54, 30);
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "Title";
-            this.labelTitle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseClick);
             this.labelTitle.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             // 
             // pictureBox1
@@ -94,19 +91,16 @@ namespace FlashCards
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseClick);
             this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             // 
             // StackItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "StackItem";
             this.Size = new System.Drawing.Size(260, 130);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseClick);
             this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

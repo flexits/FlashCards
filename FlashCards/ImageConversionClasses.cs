@@ -9,7 +9,7 @@ namespace FlashCards
     /*
      * Image processing classes:
      * - conversion to/from byte[]
-     * - resizing
+     * - TODO resizing
      */
     class ImageConversion
     {

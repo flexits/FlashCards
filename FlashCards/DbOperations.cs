@@ -7,11 +7,10 @@ using Dapper;
 
 namespace FlashCards
 {
+    internal static class DbOperations
     /*
      * Database operations classes
      */
-
-    internal static class DbOperations
     {
         private static readonly string connstr = "Data Source=fcrd.db;Version=3;";
         private static readonly SQLiteConnection dbconn = new SQLiteConnection(connstr);
@@ -24,7 +23,7 @@ namespace FlashCards
         }
 
         public static int CardsCountInStack(int stack_id)
-        //return the number of cardst relevant to a particular stack
+        //return the number of cards relevant to a particular stack
         {
             string query = "SELECT COUNT(*) FROM cards WHERE stack_id = @stackid";
             return dbconn.ExecuteScalar<int>(query, new { stackid = stack_id });

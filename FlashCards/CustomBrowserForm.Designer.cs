@@ -1,7 +1,7 @@
 ﻿
 namespace FlashCards
 {
-    partial class FormCardsBrowser
+    partial class CustomBrowserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,13 @@ namespace FlashCards
         {
             this.SuspendLayout();
             // 
-            // FormCardsBrowser
+            // CustomBrowserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 411);
-            this.Name = "FormCardsBrowser";
-            this.Text = "FormCardsBrowser";
+            this.Name = "CustomBrowserForm";
+            this.Text = "CustomBrowserForm";
             this.ResumeLayout(false);
 
         }
