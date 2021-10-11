@@ -22,11 +22,42 @@ namespace FlashCards
             return dbconn.Query<VocabStack>(query).AsList();
         }
 
-        public static int CardsCountInStack(int stack_id)
+        /*public static int CardsCountInStack(int stack_id)
         //return the number of cards relevant to a particular stack
         {
             string query = "SELECT COUNT(*) FROM cards WHERE stack_id = @stackid";
             return dbconn.ExecuteScalar<int>(query, new { stackid = stack_id });
+        }*/
+
+        public static List<VocabCard> GetAllCardsInStack(int stack_id)
+        //return all cards relevant to a particular stack
+        {
+            string query = "SELECT * FROM cards WHERE stack_id = @stackid ORDER BY id ASC";
+            return dbconn.Query<VocabCard>(query, new { stackid = stack_id }).AsList();
+        }
+
+        public static int[] GetCardIdsInStack(int stack_id)
+        //return all cards' ids relevant to a particular stack
+        {
+            string query = "SELECT id FROM cards WHERE stack_id = @stackid ORDER BY id ASC";
+            List<long> cards = dbconn.Query<long>(query, new { stackid = stack_id }).AsList();
+            if (cards == null && cards.Count <= 0)
+            {
+                return null;
+            }
+            int[] result = new int[cards.Count];
+            for (int i=0; i<cards.Count; i++)
+            {
+                result[i] = Convert.ToInt32(cards[i]);
+            }
+            return result;
+        }
+
+        public static VocabCard GetCardById(int card_id)
+        //return particular card
+        {
+            string query = "SELECT * FROM cards WHERE id = @cardid";
+            return dbconn.QuerySingleOrDefault<VocabCard>(query, new { cardid = card_id });
         }
 
         public static int UpdateStack(VocabStack modifiedstack)

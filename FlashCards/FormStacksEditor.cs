@@ -78,5 +78,10 @@ namespace FlashCards
         {
             openFileDialog1.ShowDialog();
         }
+
+        private void buttonCards_Click(object sender, EventArgs e)
+        {
+            MDIFormControls.OpenFormInPanel(new FormCardsBrowser(currentStack));
+        }
     }
 }

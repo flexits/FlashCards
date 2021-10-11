@@ -4,6 +4,9 @@
     <ShowAllFiles>false</ShowAllFiles>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="CardItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="CustomBrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -17,10 +17,7 @@ namespace FlashCards
         private string native_lang;
         private string foreign_lang;
         private Image picture;
-        private int stacklength;
-
-        bool errorflag = false;
-        int[] card_ids;
+        private int[] card_ids;
 
         public VocabStack(long id, string name, string native_lang, string foreign_lang, byte[] picture, string comment)
         //constructor for database object materialization
@@ -34,37 +31,16 @@ namespace FlashCards
             this.foreign_lang = foreign_lang;
             this.comment = comment;
             this.picture = ImageConversion.ByteToImg(picture);
-            stacklength = DbOperations.CardsCountInStack(this.id);
+            //stacklength = DbOperations.CardsCountInStack(this.id);
             //get relevant cards from db by stack_id and their count
-            card_ids = new int[stacklength];
-            for (int i = 0; i < stacklength; i++)
-            {
-                //actual ids from db here
-                //card_ids[i] = i;
-            }
+            card_ids = DbOperations.GetCardIdsInStack(this.id);
         }
-
-        public VocabCard this[int index]
+        public IEnumerator<VocabCard> GetEnumerator()
         {
-            get
+            foreach (int cid in card_ids)
             {
-                if (CheckIndex(index))
-                {
-                    //get card from db by its id
-                    return new VocabCard(id, card_ids[index]);
-                }
-                return null;
+                yield return DbOperations.GetCardById(cid);
             }
-        }
-
-        private bool CheckIndex(int index)
-        {
-            if (index >= 0 & index < stacklength)
-            {
-                return true;
-            }
-            errorflag = true;
-            return false;
         }
 
         public VocabCard GetUniqCard()
@@ -105,7 +81,7 @@ namespace FlashCards
 
         public int StackLength
         {
-            get { return stacklength; }
+            get { return card_ids.Length; }
         }
 
         public Image Picture
@@ -113,26 +89,20 @@ namespace FlashCards
             get { return picture; }
             set { picture = value; }
         }
-
-        public bool ErrorFlag
-        {
-            get { return errorflag; }
-        }
     }
 
     public class VocabCard
     {
-        private readonly int id;
+        private int id;
         private int stack_id;
         private string native_word;
         private string foreign_word;
         private string comment;
         private string hyperlink;
-        //Image cardimg;
-        private byte[] dblobimage;
-        private byte[] dblobsound;
+        private Image picture;
+        private byte[] sound;
 
-        public VocabCard(long id, long stack_id, string native_word, string foreign_word, string comment, byte[] dblobimage, byte[] dblobsound, string hyperlink)
+        public VocabCard(long id, long stack_id, string native_word, string foreign_word, string comment, byte[] picture, byte[] sound, string hyperlink)
         //constructor for database object materialization
         {
             if (id >= 0)
@@ -146,18 +116,9 @@ namespace FlashCards
             this.native_word = native_word;
             this.foreign_word = foreign_word;
             this.comment = comment;
-            this.dblobimage = dblobimage;
-            this.dblobsound = dblobsound;
+            this.picture = ImageConversion.ByteToImg(picture);
+            this.sound = sound;
             this.hyperlink = hyperlink;
-        }
-
-        public VocabCard(int stack_id, int card_id)
-        {
-            this.id = card_id;
-            this.stack_id = stack_id;
-            foreign_word = "Example 1";
-            native_word = "Пример1";
-            comment = "comment1";
         }
 
         public string WordForeign
