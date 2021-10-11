@@ -149,5 +149,23 @@ namespace FlashCards.lang {
                 return ResourceManager.GetString("Title:", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Перевод:.
+        /// </summary>
+        public static string Translation_ {
+            get {
+                return ResourceManager.GetString("Translation:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Слово:.
+        /// </summary>
+        public static string Word_ {
+            get {
+                return ResourceManager.GetString("Word:", resourceCulture);
+            }
+        }
     }
 }

@@ -40,7 +40,7 @@ namespace FlashCards
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
             this.panel1.Controls.Add(this.buttonEdit);
             this.panel1.Controls.Add(this.labelCounter);
             this.panel1.Controls.Add(this.labelTitle);
@@ -49,6 +49,7 @@ namespace FlashCards
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 120);
             this.panel1.TabIndex = 0;
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
             this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             // 
             // buttonEdit
@@ -70,6 +71,7 @@ namespace FlashCards
             this.labelCounter.Size = new System.Drawing.Size(64, 21);
             this.labelCounter.TabIndex = 2;
             this.labelCounter.Text = "Items: 0";
+            this.labelCounter.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
             this.labelCounter.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             // 
             // labelTitle
@@ -81,6 +83,7 @@ namespace FlashCards
             this.labelTitle.Size = new System.Drawing.Size(54, 30);
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "Title";
+            this.labelTitle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
             this.labelTitle.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             // 
             // pictureBox1
@@ -91,6 +94,7 @@ namespace FlashCards
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
             this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             // 
             // StackItem
@@ -101,6 +105,7 @@ namespace FlashCards
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "StackItem";
             this.Size = new System.Drawing.Size(260, 130);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
             this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

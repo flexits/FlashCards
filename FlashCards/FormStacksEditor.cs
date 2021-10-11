@@ -44,7 +44,6 @@ namespace FlashCards
         private void buttonSave_Click(object sender, EventArgs e)
         {
             //update object
-            //TODO length validation
             currentStack.Name = textBoxTitle.Text;
             currentStack.NativeLang = textBoxNative.Text;
             currentStack.ForeignLang = textBoxForeign.Text;

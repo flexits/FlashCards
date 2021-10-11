@@ -15,23 +15,22 @@ namespace FlashCards
          */
 
         // object represented by this control
-        private VocabStack currentStack;
 
         public StackItem(VocabStack stack)
         {
             InitializeComponent();
 
-            IsSelected = false;
             currentStack = stack;
             labelTitle.Text = currentStack.Name;
             labelCounter.Text = currentStack.StackLength.ToString();
-            pictureBox1.Image = stack.Picture;
+            pictureBox1.Image = currentStack.Picture;
+        }
 
-            panel1.MouseClick += OnClick;
-            labelTitle.MouseClick += OnClick;
-            labelCounter.MouseClick += OnClick;
-            pictureBox1.MouseClick += OnClick;
-            MouseClick += OnClick;
+        private VocabStack currentStack;
+
+        private void OnItemSelection(object sender, MouseEventArgs e)
+        {
+            IsSelected = true;
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -43,7 +42,8 @@ namespace FlashCards
         private void StackItem_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             //open stack view/edit form
-            //MDIFormControls.OpenFormInPanel(new FormSettings());
+            MDIFormControls.OpenFormInPanel(new FormStacksEditor(currentStack));
+            //TODO change behaviour in settings: is it needed to edit by dblclick
         }
     }
 }

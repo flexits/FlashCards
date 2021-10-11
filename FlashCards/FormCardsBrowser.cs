@@ -16,18 +16,10 @@ namespace FlashCards
             //get all cards from db relevant to stack_id and create a control for each
             foreach (VocabCard card in stack)
             {
-                Label lbl = new Label();
-                lbl.Text = card.WordForeign;
-                flowLayoutPanel1.Controls.Add(lbl);
+                CardItem crd = new CardItem(card);
+                crd.SelectionChanged += new EventHandler(ChildItemSelectChanged);
+                flowLayoutPanel1.Controls.Add(crd);
             }
-            /*
-            foreach (VocabStack vst in stacks)
-            {
-                StackItem sti = new StackItem(vst);
-                sti.SelectionChanged += new EventHandler(StackItemSelectChanged);
-                flowLayoutPanel1.Controls.Add(sti);
-            }
-             */
         }
     }
 }

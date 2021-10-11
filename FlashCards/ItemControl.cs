@@ -13,6 +13,7 @@ namespace FlashCards
     * Generic logic of custom UI items, representing stacks and cards:
     * - visual selection/deselection
     * - invoking event upon selection change
+    * - executing method upon selection loss
     */
     {
         public ItemControl()
@@ -21,40 +22,41 @@ namespace FlashCards
         }
 
         // true if this control is selected by user
-        public bool IsSelected { get; set; }
-
-        public void DeselectItem()
+        private bool SelectedState = false;
+        public bool IsSelected
         {
-            IsSelected = false;
-            BackColor = CustomColors.TiffanyBlue;
+            get { return SelectedState; }
+            set
+            {
+                if (value != SelectedState)
+                {
+                    ToggleSelection();
+                }
+            }
         }
 
-        protected void SelectItem()
-        {
-            IsSelected = true;
-            BackColor = CustomColors.OrangePeel;
-        }
-
-        protected void ToggleSelection()
+        private void ToggleSelection()
+        //selecf if not selected, deselect otherwise
         {
             if (IsSelected)
             {
-                DeselectItem();
+                SaveChangesOnDeselect();
+                SelectedState = false;
+                BackColor = CustomColors.TiffanyBlue;
             }
             else
             {
-                SelectItem();
+                SelectedState = true;
+                BackColor = CustomColors.OrangePeel;
             }
+            SelectionChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        // controls are selected by a first click and deselected by the second one
+        // controls are selected by a first click; next clicks are ignored
         // upon each click the event is invoked to deselect other controls
         public event EventHandler SelectionChanged;
 
-        protected void OnClick(object sender, MouseEventArgs e)
-        {
-            ToggleSelection();
-            SelectionChanged?.Invoke(this, e);
-        }
+        virtual protected void SaveChangesOnDeselect() { }
+        // do some work upon selection loss
     }
 }

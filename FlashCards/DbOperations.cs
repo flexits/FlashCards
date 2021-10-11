@@ -22,7 +22,8 @@ namespace FlashCards
             return dbconn.Query<VocabStack>(query).AsList();
         }
 
-        /*public static int CardsCountInStack(int stack_id)
+        /* not needed anymore
+        public static int CardsCountInStack(int stack_id)
         //return the number of cards relevant to a particular stack
         {
             string query = "SELECT COUNT(*) FROM cards WHERE stack_id = @stackid";
@@ -41,10 +42,6 @@ namespace FlashCards
         {
             string query = "SELECT id FROM cards WHERE stack_id = @stackid ORDER BY id ASC";
             List<long> cards = dbconn.Query<long>(query, new { stackid = stack_id }).AsList();
-            if (cards == null && cards.Count <= 0)
-            {
-                return null;
-            }
             int[] result = new int[cards.Count];
             for (int i=0; i<cards.Count; i++)
             {

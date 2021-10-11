@@ -18,7 +18,7 @@ namespace FlashCards
             foreach (VocabStack vst in stacks)
             {
                 StackItem sti = new StackItem(vst);
-                sti.SelectionChanged += new EventHandler(StackItemSelectChanged);
+                sti.SelectionChanged += new EventHandler(ChildItemSelectChanged);
                 flowLayoutPanel1.Controls.Add(sti);
             }
         }

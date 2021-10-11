@@ -36,6 +36,7 @@ namespace FlashCards
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
             this.Name = "ItemControl";
             this.ResumeLayout(false);
 
