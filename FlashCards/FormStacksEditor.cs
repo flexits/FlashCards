@@ -23,6 +23,8 @@ namespace FlashCards
             if (CustomLocales.TranslationNeeded)
             {
                 CustomLocales.TranslateControlsTextProp(Controls);
+                openFileDialog1.Title = CustomLocales.GetTranslation(openFileDialog1.Title);
+
             }
 
             textBoxTitle.Text = stack.Name;

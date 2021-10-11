@@ -97,6 +97,15 @@ namespace FlashCards.lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Открыть изображение....
+        /// </summary>
+        public static string Open_picture___ {
+            get {
+                return ResourceManager.GetString("Open picture...", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Сохранить.
         /// </summary>
         public static string Save {

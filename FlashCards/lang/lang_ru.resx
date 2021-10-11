@@ -129,6 +129,9 @@
   <data name="Native language:" xml:space="preserve">
     <value>Родной язык:</value>
   </data>
+  <data name="Open picture..." xml:space="preserve">
+    <value>Открыть изображение...</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Сохранить</value>
   </data>

@@ -35,23 +35,12 @@ namespace FlashCards
             this.comment = comment;
             this.picture = ImageConversion.ByteToImg(picture);
             stacklength = DbOperations.CardsCountInStack(this.id);
-        }
-
-        public VocabStack(int id)
-        {
-            this.id = id;
-
-            //get info from db
-            name = "Stack_name_"+id.ToString();
-            comment = "Stack_comment";
-
             //get relevant cards from db by stack_id and their count
-            stacklength = 1;
             card_ids = new int[stacklength];
             for (int i = 0; i < stacklength; i++)
             {
                 //actual ids from db here
-                card_ids[i] = i;
+                //card_ids[i] = i;
             }
         }
 

@@ -169,6 +169,7 @@ namespace FlashCards
             // 
             this.openFileDialog1.DefaultExt = "*.jpg";
             this.openFileDialog1.Filter = "Image files|*.jpg;*.png;*.gif|All files|*.*";
+            this.openFileDialog1.Title = "Open picture...";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // label1
