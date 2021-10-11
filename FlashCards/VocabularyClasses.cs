@@ -31,8 +31,6 @@ namespace FlashCards
             this.foreign_lang = foreign_lang;
             this.comment = comment;
             this.picture = ImageConversion.ByteToImg(picture);
-            //stacklength = DbOperations.CardsCountInStack(this.id);
-            //get relevant cards from db by stack_id and their count
             card_ids = DbOperations.GetCardIdsInStack(this.id);
         }
         public IEnumerator<VocabCard> GetEnumerator()
@@ -141,6 +139,12 @@ namespace FlashCards
         {
             get { return hyperlink; }
             set { hyperlink = value; }
+        }
+
+        public Image Picture
+        {
+            get { return picture; }
+            set { picture = value; }
         }
     }
 }
