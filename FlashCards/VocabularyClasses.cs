@@ -119,6 +119,11 @@ namespace FlashCards
             this.hyperlink = hyperlink;
         }
 
+        public int Id
+        {
+            get { return id; }
+        }
+
         public string WordForeign
         {
             get { return foreign_word; }

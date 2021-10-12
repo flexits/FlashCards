@@ -43,6 +43,13 @@ namespace FlashCards
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            foreach (Control tb in Controls)
+            {
+                if (tb.GetType() == typeof(TextBox))
+                {
+                    tb.Text = tb.Text.Trim();
+                }
+            }
             //update object
             currentStack.Name = textBoxTitle.Text;
             currentStack.NativeLang = textBoxNative.Text;
@@ -81,6 +88,11 @@ namespace FlashCards
         private void buttonCards_Click(object sender, EventArgs e)
         {
             MDIFormControls.OpenFormInPanel(new FormCardsBrowser(currentStack));
+        }
+
+        private void textBox_Leave(object sender, EventArgs e)
+        {
+            (sender as TextBox).Text = (sender as TextBox).Text.Trim();
         }
     }
 }

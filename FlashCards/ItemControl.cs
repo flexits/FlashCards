@@ -46,6 +46,7 @@ namespace FlashCards
             }
             else
             {
+                SetFocusOnSelect();
                 SelectedState = true;
                 BackColor = CustomColors.OrangePeel;
             }
@@ -55,6 +56,9 @@ namespace FlashCards
         // controls are selected by a first click; next clicks are ignored
         // upon each click the event is invoked to deselect other controls
         public event EventHandler SelectionChanged;
+
+        virtual protected void SetFocusOnSelect() { }
+        // do some work upon selection
 
         virtual protected void SaveChangesOnDeselect() { }
         // do some work upon selection loss

@@ -65,6 +65,7 @@ namespace FlashCards
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(161, 23);
             this.textBoxTitle.TabIndex = 1;
+            this.textBoxTitle.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // labelTitle
             // 
@@ -82,6 +83,7 @@ namespace FlashCards
             this.textBoxNative.Name = "textBoxNative";
             this.textBoxNative.Size = new System.Drawing.Size(161, 23);
             this.textBoxNative.TabIndex = 3;
+            this.textBoxNative.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // labelImage
             // 
@@ -109,6 +111,7 @@ namespace FlashCards
             this.textBoxForeign.Name = "textBoxForeign";
             this.textBoxForeign.Size = new System.Drawing.Size(161, 23);
             this.textBoxForeign.TabIndex = 6;
+            this.textBoxForeign.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // labelForeign
             // 
@@ -126,6 +129,7 @@ namespace FlashCards
             this.textBoxComment.Name = "textBoxComment";
             this.textBoxComment.Size = new System.Drawing.Size(161, 23);
             this.textBoxComment.TabIndex = 8;
+            this.textBoxComment.Leave += new System.EventHandler(this.textBox_Leave);
             // 
             // labelComment
             // 

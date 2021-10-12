@@ -82,13 +82,19 @@ namespace FlashCards
             parameters.Add("comment", modifiedstack.Comment);
             parameters.Add("picture", ImageConversion.ImgToByte(modifiedstack.Picture));
             return dbconn.ExecuteScalar<int>(query, parameters);
-            /*string query = "INSERT INTO stacks (name, native_lang, foreign_lang, comment) VALUES ('";
-            query += modifiedstack.Name + "', '";
-            query += modifiedstack.NativeLang + "', '";
-            query += modifiedstack.ForeignLang +"', '";
-            query += modifiedstack.Comment + "')";
-            //picture
-            return dbconn.ExecuteScalar<int>(query);*/
+        }
+
+        public static int UpdateCard(VocabCard modifiedcard)
+        //update the card record
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            string query = "UPDATE cards SET native_word = @native_word, foreign_word = @foreign_word, comment = @comment, picture = @picture WHERE id = @cardid";
+            parameters.Add("native_word", modifiedcard.WordNative);
+            parameters.Add("foreign_word", modifiedcard.WordForeign);
+            parameters.Add("comment", modifiedcard.Comment);
+            parameters.Add("picture", ImageConversion.ImgToByte(modifiedcard.Picture));
+            parameters.Add("cardid", modifiedcard.Id);
+            return dbconn.ExecuteScalar<int>(query, parameters);
         }
     }
 }

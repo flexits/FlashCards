@@ -62,27 +62,36 @@ namespace FlashCards
             // 
             // textBoxComment
             // 
+            this.textBoxComment.AllowDrop = true;
             this.textBoxComment.Location = new System.Drawing.Point(225, 70);
+            this.textBoxComment.MaxLength = 128;
             this.textBoxComment.Name = "textBoxComment";
             this.textBoxComment.Size = new System.Drawing.Size(195, 23);
             this.textBoxComment.TabIndex = 11;
             this.textBoxComment.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
+            this.textBoxComment.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // textBoxTranslation
             // 
+            this.textBoxTranslation.AllowDrop = true;
             this.textBoxTranslation.Location = new System.Drawing.Point(225, 41);
+            this.textBoxTranslation.MaxLength = 128;
             this.textBoxTranslation.Name = "textBoxTranslation";
             this.textBoxTranslation.Size = new System.Drawing.Size(195, 23);
             this.textBoxTranslation.TabIndex = 10;
             this.textBoxTranslation.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
+            this.textBoxTranslation.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // textBoxWord
             // 
+            this.textBoxWord.AllowDrop = true;
             this.textBoxWord.Location = new System.Drawing.Point(225, 12);
+            this.textBoxWord.MaxLength = 128;
             this.textBoxWord.Name = "textBoxWord";
             this.textBoxWord.Size = new System.Drawing.Size(195, 23);
             this.textBoxWord.TabIndex = 9;
             this.textBoxWord.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
+            this.textBoxWord.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // labelComment
             // 

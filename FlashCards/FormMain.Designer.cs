@@ -30,6 +30,9 @@ namespace FlashCards
         private void InitializeComponent()
         {
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.buttonMaximize = new System.Windows.Forms.Button();
+            this.buttonMinimize = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelNavi = new System.Windows.Forms.Panel();
             this.buttonSettings = new System.Windows.Forms.Button();
@@ -43,13 +46,59 @@ namespace FlashCards
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.panelHeader.Controls.Add(this.buttonMaximize);
+            this.panelHeader.Controls.Add(this.buttonMinimize);
+            this.panelHeader.Controls.Add(this.buttonClose);
             this.panelHeader.Controls.Add(this.labelTitle);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(784, 48);
             this.panelHeader.TabIndex = 2;
-            this.panelHeader.Visible = false;
+            this.panelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelHeader_MouseDown);
+            // 
+            // buttonMaximize
+            // 
+            this.buttonMaximize.FlatAppearance.BorderSize = 0;
+            this.buttonMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMaximize.Location = new System.Drawing.Point(697, 6);
+            this.buttonMaximize.Name = "buttonMaximize";
+            this.buttonMaximize.Size = new System.Drawing.Size(36, 36);
+            this.buttonMaximize.TabIndex = 3;
+            this.buttonMaximize.UseVisualStyleBackColor = true;
+            this.buttonMaximize.Visible = false;
+            // 
+            // buttonMinimize
+            // 
+            this.buttonMinimize.FlatAppearance.BorderSize = 0;
+            this.buttonMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.buttonMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMinimize.Image = global::FlashCards.Properties.Resources.minimize_light;
+            this.buttonMinimize.Location = new System.Drawing.Point(655, 6);
+            this.buttonMinimize.Name = "buttonMinimize";
+            this.buttonMinimize.Size = new System.Drawing.Size(36, 36);
+            this.buttonMinimize.TabIndex = 2;
+            this.buttonMinimize.UseVisualStyleBackColor = true;
+            this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
+            this.buttonMinimize.MouseEnter += new System.EventHandler(this.buttonMinimize_MouseEnter);
+            this.buttonMinimize.MouseLeave += new System.EventHandler(this.buttonMinimize_MouseLeave);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Image = global::FlashCards.Properties.Resources.close_light;
+            this.buttonClose.Location = new System.Drawing.Point(739, 6);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(36, 36);
+            this.buttonClose.TabIndex = 1;
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            this.buttonClose.MouseEnter += new System.EventHandler(this.buttonClose_MouseEnter);
+            this.buttonClose.MouseLeave += new System.EventHandler(this.buttonClose_MouseLeave);
             // 
             // labelTitle
             // 
@@ -143,10 +192,11 @@ namespace FlashCards
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ControlBox = false;
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panelNavi);
             this.Controls.Add(this.panelHeader);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.Text = "FlashCards";
@@ -165,6 +215,9 @@ namespace FlashCards
         private System.Windows.Forms.Button buttonQiuz;
         private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Button buttonMaximize;
+        private System.Windows.Forms.Button buttonMinimize;
     }
 }
 

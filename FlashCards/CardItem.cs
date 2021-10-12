@@ -59,10 +59,48 @@ namespace FlashCards
             openFileDialog1.ShowDialog();
         }
 
+        protected override void SetFocusOnSelect()
+        {
+            bool focus = false;
+            foreach (Control cl in panel1.Controls)
+            {
+                if (cl.CanFocus && cl.ContainsFocus)
+                {
+                    focus = true;
+                }
+            }
+            if (!focus)
+            {
+                panel1.Focus();
+            }
+        }
+
         protected override void SaveChangesOnDeselect()
         {
-            _ = MessageBox.Show(currentCard.WordForeign);
+            foreach (Control tb in panel1.Controls)
+            {
+                if (tb.GetType() == typeof(TextBox))
+                {
+                    tb.Text = tb.Text.Trim();
+                }
+            }
             //if there were changes, update db
+            if (textBoxWord.Text != currentCard.WordForeign ||
+                textBoxTranslation.Text != currentCard.WordNative ||
+                textBoxComment.Text != currentCard.Comment ||
+                pictureBox1.Image != pictureBox1.Image)
+            {
+                currentCard.WordForeign = textBoxWord.Text;
+                currentCard.WordNative = textBoxTranslation.Text;
+                currentCard.Comment = textBoxComment.Text;
+                currentCard.Picture = pictureBox1.Image;
+                DbOperations.UpdateCard(currentCard);
+            }
+        }
+
+        private void TextBox_Leave(object sender, EventArgs e)
+        {
+            (sender as TextBox).Text = (sender as TextBox).Text.Trim();
         }
     }
 }
