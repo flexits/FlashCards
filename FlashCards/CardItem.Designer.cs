@@ -157,9 +157,9 @@ namespace FlashCards
             // 
             // CardItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(30, 3, 3, 10);
             this.Name = "CardItem";
             this.Size = new System.Drawing.Size(454, 116);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);

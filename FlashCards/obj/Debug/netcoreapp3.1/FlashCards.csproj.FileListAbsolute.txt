@@ -48,5 +48,4 @@ C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.ItemControl.resources
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.CustomBrowserForm.resources
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.CardItem.resources
-C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.csproj.AssemblyReference.cache
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.Properties.Resources.resources

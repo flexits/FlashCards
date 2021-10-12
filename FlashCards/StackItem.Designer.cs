@@ -102,7 +102,7 @@ namespace FlashCards
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 10);
             this.Name = "StackItem";
             this.Size = new System.Drawing.Size(260, 130);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);

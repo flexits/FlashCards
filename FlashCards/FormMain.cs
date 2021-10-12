@@ -44,6 +44,7 @@ namespace FlashCards
             MDIFormControls.OpenFormInPanel(null);
         }
 
+        //Make panelHeader behave as a window header
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImport("user32.dll")]
@@ -61,33 +62,63 @@ namespace FlashCards
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
+        //custom button to close app
         {
             Application.Exit();
+            //TODO minimize to tray
         }
 
         private void buttonMinimize_Click(object sender, EventArgs e)
+        //custom button to miminize app
         {
             WindowState = FormWindowState.Minimized;
         }
 
+        //long and ugly workaround to change buttons' images on mouse actions
+        //it'd be much shorter with imagelist, but the control spoils semi-trasparent backgrounds https://stackoverflow.com/a/50688895
         private void buttonMinimize_MouseEnter(object sender, EventArgs e)
         {
-            buttonMinimize.Image = Properties.Resources.minimize_yellow;
+            (sender as Button).Image = Properties.Resources.minimize_yellow;
         }
 
         private void buttonMinimize_MouseLeave(object sender, EventArgs e)
         {
-            buttonMinimize.Image = Properties.Resources.minimize_light;
+            (sender as Button).Image = Properties.Resources.minimize_light;
         }
 
         private void buttonClose_MouseEnter(object sender, EventArgs e)
         {
-            buttonClose.Image = Properties.Resources.close_yellow;
+            (sender as Button).Image = Properties.Resources.close_yellow;
         }
 
         private void buttonClose_MouseLeave(object sender, EventArgs e)
         {
-            buttonClose.Image = Properties.Resources.close_light;
+            (sender as Button).Image = Properties.Resources.close_light;
+        }
+
+        private void buttonStacks_MouseEnter(object sender, EventArgs e)
+        {
+            (sender as Button).Image = Properties.Resources.stack_light;
+        }
+
+        private void buttonStacks_MouseLeave(object sender, EventArgs e)
+        {
+            (sender as Button).Image = Properties.Resources.stack_green;
+        }
+
+        private void buttonSettings_MouseEnter(object sender, EventArgs e)
+        {
+            (sender as Button).Image = Properties.Resources.settings_light;
+        }
+
+        private void buttonSettings_MouseLeave(object sender, EventArgs e)
+        {
+            (sender as Button).Image = Properties.Resources.settings_green;
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            buttonStacks.PerformClick();
         }
     }
 }

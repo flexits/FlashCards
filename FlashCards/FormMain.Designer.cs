@@ -29,6 +29,7 @@ namespace FlashCards
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelHeader = new System.Windows.Forms.Panel();
             this.buttonMaximize = new System.Windows.Forms.Button();
             this.buttonMinimize = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@ namespace FlashCards
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonQiuz = new System.Windows.Forms.Button();
             this.buttonStacks = new System.Windows.Forms.Button();
+            this.panelBottom = new System.Windows.Forms.Panel();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
             this.panelNavi.SuspendLayout();
@@ -132,14 +134,19 @@ namespace FlashCards
             this.buttonSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSettings.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSettings.Image = global::FlashCards.Properties.Resources.settings_green;
+            this.buttonSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSettings.Location = new System.Drawing.Point(0, 136);
             this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonSettings.Size = new System.Drawing.Size(200, 64);
             this.buttonSettings.TabIndex = 2;
             this.buttonSettings.Tag = "TextTranslatable";
             this.buttonSettings.Text = "Settings";
             this.buttonSettings.UseVisualStyleBackColor = true;
             this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click_1);
+            this.buttonSettings.MouseEnter += new System.EventHandler(this.buttonSettings_MouseEnter);
+            this.buttonSettings.MouseLeave += new System.EventHandler(this.buttonSettings_MouseLeave);
             // 
             // buttonQiuz
             // 
@@ -152,6 +159,7 @@ namespace FlashCards
             this.buttonQiuz.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonQiuz.Location = new System.Drawing.Point(0, 68);
             this.buttonQiuz.Name = "buttonQiuz";
+            this.buttonQiuz.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonQiuz.Size = new System.Drawing.Size(200, 68);
             this.buttonQiuz.TabIndex = 1;
             this.buttonQiuz.Tag = "TextTranslatable";
@@ -168,38 +176,53 @@ namespace FlashCards
             this.buttonStacks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.buttonStacks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStacks.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonStacks.Image = global::FlashCards.Properties.Resources.stack_green;
+            this.buttonStacks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonStacks.Location = new System.Drawing.Point(0, 0);
             this.buttonStacks.Name = "buttonStacks";
+            this.buttonStacks.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonStacks.Size = new System.Drawing.Size(200, 68);
             this.buttonStacks.TabIndex = 0;
             this.buttonStacks.Tag = "TextTranslatable";
             this.buttonStacks.Text = "Stacks";
             this.buttonStacks.UseVisualStyleBackColor = true;
             this.buttonStacks.Click += new System.EventHandler(this.buttonStacks_Click);
+            this.buttonStacks.MouseEnter += new System.EventHandler(this.buttonStacks_MouseEnter);
+            this.buttonStacks.MouseLeave += new System.EventHandler(this.buttonStacks_MouseLeave);
+            // 
+            // panelBottom
+            // 
+            this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
+            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBottom.Location = new System.Drawing.Point(200, 451);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Size = new System.Drawing.Size(584, 10);
+            this.panelBottom.TabIndex = 6;
             // 
             // panelContainer
             // 
-            this.panelContainer.AutoScroll = true;
             this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(200, 48);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(584, 413);
-            this.panelContainer.TabIndex = 5;
+            this.panelContainer.Size = new System.Drawing.Size(584, 403);
+            this.panelContainer.TabIndex = 7;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
-            this.ControlBox = false;
             this.Controls.Add(this.panelContainer);
+            this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.panelNavi);
             this.Controls.Add(this.panelHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.Text = "FlashCards";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelNavi.ResumeLayout(false);
@@ -211,13 +234,14 @@ namespace FlashCards
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Panel panelNavi;
         private System.Windows.Forms.Button buttonStacks;
-        private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.Button buttonQiuz;
         private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonMaximize;
         private System.Windows.Forms.Button buttonMinimize;
+        private System.Windows.Forms.Panel panelBottom;
+        private System.Windows.Forms.Panel panelContainer;
     }
 }
 
