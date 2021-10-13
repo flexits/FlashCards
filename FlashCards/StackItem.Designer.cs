@@ -65,6 +65,8 @@ namespace FlashCards
             this.labelLang.TabIndex = 5;
             this.labelLang.Text = "EN-US / RUS";
             this.labelLang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelLang.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
+            this.labelLang.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             // 
             // labelComment
             // 
@@ -75,6 +77,8 @@ namespace FlashCards
             this.labelComment.TabIndex = 4;
             this.labelComment.Text = "Comment\r\n";
             this.labelComment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelComment.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
+            this.labelComment.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.StackItem_MouseDoubleClick);
             // 
             // buttonEdit
             // 
