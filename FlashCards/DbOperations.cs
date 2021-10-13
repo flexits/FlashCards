@@ -84,6 +84,15 @@ namespace FlashCards
             return dbconn.ExecuteScalar<int>(query, parameters);
         }
 
+        public static int RemoveStack(int stack_id)
+        {
+            string query = "DELETE FROM cards WHERE stack_id = @stackid";
+            int affectedrows = dbconn.Execute(query, new { stackid = stack_id });
+            query = "DELETE FROM stacks WHERE id = @stackid";
+            affectedrows += dbconn.Execute(query, new { stackid = stack_id });
+            return affectedrows;
+        }
+
         public static int UpdateCard(VocabCard modifiedcard)
         //update the card record
         {
@@ -94,6 +103,19 @@ namespace FlashCards
             parameters.Add("comment", modifiedcard.Comment);
             parameters.Add("picture", ImageConversion.ImgToByte(modifiedcard.Picture));
             parameters.Add("cardid", modifiedcard.Id);
+            return dbconn.ExecuteScalar<int>(query, parameters);
+        }
+
+        public static int AddCard(VocabCard modifiedcard)
+        //insert new card record
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            string query = "INSERT INTO cards (stack_id, native_word, foreign_word, comment, picture) VALUES (@stack_id, @native_word, @foreign_word, @comment, @picture)";
+            parameters.Add("native_word", modifiedcard.WordNative);
+            parameters.Add("foreign_word", modifiedcard.WordForeign);
+            parameters.Add("comment", modifiedcard.Comment);
+            parameters.Add("picture", ImageConversion.ImgToByte(modifiedcard.Picture));
+            parameters.Add("stack_id", modifiedcard.StackId);
             return dbconn.ExecuteScalar<int>(query, parameters);
         }
     }

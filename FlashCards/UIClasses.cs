@@ -100,6 +100,15 @@ namespace FlashCards
             return translation;
         }
 
+        public static string GetShortString(string source, int maxlength)
+        {
+            if (source.Length > maxlength)
+            {
+                return source.Substring(0, maxlength - 1);
+            }
+            return source;
+        }
+
         public static string CurrentLocale
         {
             get { return currentLocale; }

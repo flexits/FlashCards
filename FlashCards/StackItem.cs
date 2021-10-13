@@ -17,10 +17,17 @@ namespace FlashCards
         {
             InitializeComponent();
 
+            if (CustomLocales.TranslationNeeded)
+            {
+                labelCounter.Text = CustomLocales.GetTranslation(labelCounter.Text);
+            }
+
             currentStack = stack;
             labelTitle.Text = currentStack.Name;
-            labelCounter.Text = currentStack.StackLength.ToString();
+            labelComment.Text = currentStack.Comment;
+            labelCounter.Text += " " + currentStack.StackLength.ToString();
             pictureBox1.Image = currentStack.Picture;
+            labelLang.Text = CustomLocales.GetShortString(currentStack.ForeignLang, 6) + " / " + CustomLocales.GetShortString(currentStack.NativeLang, 6);
         }
 
         private VocabStack currentStack;
@@ -38,9 +45,8 @@ namespace FlashCards
 
         private void StackItem_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            //open stack view/edit form
-            MDIFormControls.OpenFormInPanel(new FormStacksEditor(currentStack));
-            //TODO change behaviour in settings: is it needed to edit by dblclick
+            //open cards view/edit form
+            MDIFormControls.OpenFormInPanel(new FormCardsBrowser(currentStack));
         }
     }
 }

@@ -124,6 +124,18 @@ namespace FlashCards
             get { return id; }
         }
 
+        public int StackId
+        {
+            get { return stack_id; }
+            set
+            {
+                if (value >= 0)
+                {
+                    stack_id = value;
+                }
+            }
+        }
+
         public string WordForeign
         {
             get { return foreign_word; }

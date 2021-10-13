@@ -70,11 +70,38 @@ namespace FlashCards.lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Карточек:.
+        /// </summary>
+        public static string Cards_ {
+            get {
+                return ResourceManager.GetString("Cards:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Примечание:.
         /// </summary>
         public static string Comment_ {
             get {
                 return ResourceManager.GetString("Comment:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удаление файла.
+        /// </summary>
+        public static string Delete_file {
+            get {
+                return ResourceManager.GetString("Delete file", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактирование стопки.
+        /// </summary>
+        public static string Editing_stack {
+            get {
+                return ResourceManager.GetString("Editing stack", resourceCulture);
             }
         }
         
@@ -102,6 +129,15 @@ namespace FlashCards.lang {
         public static string Open_picture___ {
             get {
                 return ResourceManager.GetString("Open picture...", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалено записей:.
+        /// </summary>
+        public static string Records_removed_ {
+            get {
+                return ResourceManager.GetString("Records removed:", resourceCulture);
             }
         }
         
@@ -165,6 +201,44 @@ namespace FlashCards.lang {
         public static string Word_ {
             get {
                 return ResourceManager.GetString("Word:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вы собираетесь удалить карточку со всем её содержимым. Это действие нельзя отменить. Продолжить всё равно?.
+        /// </summary>
+        public static string You_re_going_to_delete_card_with_all_its_contents__This_action_can_t_be_undone__Continue_anyway_ {
+            get {
+                return ResourceManager.GetString("You\'re going to delete card with all its contents. This action can\'t be undone. C" +
+                        "ontinue anyway?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вы собираетесь удалить картинку. Это действие нельзя отменить. Продолжить всё равно? .
+        /// </summary>
+        public static string You_re_going_to_delete_picture__This_action_can_t_be_undone__Continue_anyway_ {
+            get {
+                return ResourceManager.GetString("You\'re going to delete picture. This action can\'t be undone. Continue anyway?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вы собираетесь удалить стопку со всеми карточками. Это действие нельзя отменить. Продолжить всё равно?.
+        /// </summary>
+        public static string You_re_going_to_delete_stack_with_all_cards_in_it__This_action_can_t_be_undone__Continue_anyway_ {
+            get {
+                return ResourceManager.GetString("You\'re going to delete stack with all cards in it. This action can\'t be undone. C" +
+                        "ontinue anyway?", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
+        public static string ее {
+            get {
+                return ResourceManager.GetString("ее", resourceCulture);
             }
         }
     }

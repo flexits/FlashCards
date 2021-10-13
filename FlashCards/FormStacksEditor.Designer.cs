@@ -203,19 +203,22 @@ namespace FlashCards
             this.buttonDelete.Tag = "TextTranslatable";
             this.buttonDelete.Text = "Delete stack";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonImgRemove
             // 
-            this.buttonImgRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
-            this.buttonImgRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
-            this.buttonImgRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.buttonImgRemove.BackColor = System.Drawing.Color.White;
+            this.buttonImgRemove.BackgroundImage = global::FlashCards.Properties.Resources.minus;
+            this.buttonImgRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
+            this.buttonImgRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
+            this.buttonImgRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.buttonImgRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonImgRemove.Location = new System.Drawing.Point(73, 102);
+            this.buttonImgRemove.Location = new System.Drawing.Point(122, 84);
             this.buttonImgRemove.Name = "buttonImgRemove";
-            this.buttonImgRemove.Size = new System.Drawing.Size(64, 23);
+            this.buttonImgRemove.Size = new System.Drawing.Size(28, 28);
             this.buttonImgRemove.TabIndex = 17;
-            this.buttonImgRemove.Text = "Clear";
             this.buttonImgRemove.UseVisualStyleBackColor = false;
+            this.buttonImgRemove.Click += new System.EventHandler(this.buttonImgRemove_Click);
             // 
             // FormStacksEditor
             // 

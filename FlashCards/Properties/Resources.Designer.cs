@@ -83,6 +83,16 @@ namespace FlashCards.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edit_p {
+            get {
+                object obj = ResourceManager.GetObject("edit_p", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minimize_dark {
             get {
                 object obj = ResourceManager.GetObject("minimize_dark", resourceCulture);
@@ -106,6 +116,16 @@ namespace FlashCards.Properties {
         internal static System.Drawing.Bitmap minimize_yellow {
             get {
                 object obj = ResourceManager.GetObject("minimize_yellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minus {
+            get {
+                object obj = ResourceManager.GetObject("minus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
