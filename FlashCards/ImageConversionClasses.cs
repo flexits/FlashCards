@@ -56,6 +56,20 @@ namespace FlashCards
             }
         }
 
+        public static Image ImgFromFile(string filename)
+        {
+            //TODO check format
+            //TODO resize
+            try
+            {
+                return Image.FromFile(filename);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         //TODO resize 
         //https://stackoverflow.com/questions/1922040/how-to-resize-an-image-c-sharp/
         //https://github.com/kleisauke/net-vips/

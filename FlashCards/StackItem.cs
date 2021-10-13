@@ -9,13 +9,10 @@ using System.Windows.Forms;
 namespace FlashCards
 {
     public partial class StackItem : ItemControl
+    /*
+     * Custom UI item to represent a stack
+     */
     {
-        /*
-         * Custom UI item to represent a stack
-         */
-
-        // object represented by this control
-
         public StackItem(VocabStack stack)
         {
             InitializeComponent();

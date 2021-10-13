@@ -64,20 +64,7 @@ namespace FlashCards
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            Image image;
-            try
-            {
-                //byte[] imgarr = File.ReadAllBytes(openFileDialog1.FileName);
-                //image = ImageConversion.ByteToImg(imgarr);
-                image = Image.FromFile(openFileDialog1.FileName);
-                //TODO FOrmats?!
-                //TODO resize!!
-            }
-            catch
-            {
-                return;
-            }
-            pictureBox1.Image = image;
+            pictureBox1.Image = ImageConversion.ImgFromFile(openFileDialog1.FileName);
         }
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)

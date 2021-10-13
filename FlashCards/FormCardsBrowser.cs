@@ -17,6 +17,9 @@ namespace FlashCards
             foreach (VocabCard card in stack)
             {
                 CardItem crd = new CardItem(card);
+                crd.BackColor = CustomColors.TiffanyBlue;
+                crd.BackColorDefault = CustomColors.TiffanyBlue;
+                crd.BackColorSelected = CustomColors.OrangePeel;
                 crd.SelectionChanged += new EventHandler(ChildItemSelectChanged);
                 flowLayoutPanel1.Controls.Add(crd);
             }

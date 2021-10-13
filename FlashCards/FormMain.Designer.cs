@@ -36,9 +36,9 @@ namespace FlashCards
             this.buttonClose = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelNavi = new System.Windows.Forms.Panel();
-            this.buttonSettings = new System.Windows.Forms.Button();
-            this.buttonQiuz = new System.Windows.Forms.Button();
-            this.buttonStacks = new System.Windows.Forms.Button();
+            this.menuItemSettings = new FlashCards.MenuItem();
+            this.menuItemQiuz = new FlashCards.MenuItem();
+            this.menuItemStacks = new FlashCards.MenuItem();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
@@ -116,79 +116,78 @@ namespace FlashCards
             // panelNavi
             // 
             this.panelNavi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
-            this.panelNavi.Controls.Add(this.buttonSettings);
-            this.panelNavi.Controls.Add(this.buttonQiuz);
-            this.panelNavi.Controls.Add(this.buttonStacks);
+            this.panelNavi.Controls.Add(this.menuItemSettings);
+            this.panelNavi.Controls.Add(this.menuItemQiuz);
+            this.panelNavi.Controls.Add(this.menuItemStacks);
             this.panelNavi.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNavi.Location = new System.Drawing.Point(0, 48);
             this.panelNavi.Name = "panelNavi";
             this.panelNavi.Size = new System.Drawing.Size(200, 413);
             this.panelNavi.TabIndex = 4;
             // 
-            // buttonSettings
+            // menuItemSettings
             // 
-            this.buttonSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonSettings.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonSettings.FlatAppearance.BorderSize = 0;
-            this.buttonSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
-            this.buttonSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
-            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSettings.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonSettings.Image = global::FlashCards.Properties.Resources.settings_green;
-            this.buttonSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSettings.Location = new System.Drawing.Point(0, 136);
-            this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonSettings.Size = new System.Drawing.Size(200, 64);
-            this.buttonSettings.TabIndex = 2;
-            this.buttonSettings.Tag = "TextTranslatable";
-            this.buttonSettings.Text = "Settings";
-            this.buttonSettings.UseVisualStyleBackColor = true;
-            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click_1);
-            this.buttonSettings.MouseEnter += new System.EventHandler(this.buttonSettings_MouseEnter);
-            this.buttonSettings.MouseLeave += new System.EventHandler(this.buttonSettings_MouseLeave);
+            this.menuItemSettings.BackColorDefault = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
+            this.menuItemSettings.BackColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.menuItemSettings.BackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.menuItemSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.menuItemSettings.ImageDefault = global::FlashCards.Properties.Resources.settings_green;
+            this.menuItemSettings.ImageHover = global::FlashCards.Properties.Resources.settings_light;
+            this.menuItemSettings.ImageSelected = global::FlashCards.Properties.Resources.settings_light;
+            this.menuItemSettings.IsSelected = false;
+            this.menuItemSettings.Location = new System.Drawing.Point(0, 128);
+            this.menuItemSettings.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.menuItemSettings.Name = "menuItemSettings";
+            this.menuItemSettings.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.menuItemSettings.Size = new System.Drawing.Size(200, 64);
+            this.menuItemSettings.TabIndex = 5;
+            this.menuItemSettings.Tag = "TextTranslatable";
+            this.menuItemSettings.Text = "Settings";
+            this.menuItemSettings.ItemClickPerformed += new System.EventHandler(this.menuItemSettings_ItemClickPerformed);
+            this.menuItemSettings.SelectionChanged += new System.EventHandler(this.MenuItemSelectChanged);
             // 
-            // buttonQiuz
+            // menuItemQiuz
             // 
-            this.buttonQiuz.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonQiuz.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonQiuz.FlatAppearance.BorderSize = 0;
-            this.buttonQiuz.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
-            this.buttonQiuz.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
-            this.buttonQiuz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonQiuz.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonQiuz.Location = new System.Drawing.Point(0, 68);
-            this.buttonQiuz.Name = "buttonQiuz";
-            this.buttonQiuz.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonQiuz.Size = new System.Drawing.Size(200, 68);
-            this.buttonQiuz.TabIndex = 1;
-            this.buttonQiuz.Tag = "TextTranslatable";
-            this.buttonQiuz.Text = "Quiz";
-            this.buttonQiuz.UseVisualStyleBackColor = true;
-            this.buttonQiuz.Click += new System.EventHandler(this.buttonQiuz_Click);
+            this.menuItemQiuz.BackColorDefault = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
+            this.menuItemQiuz.BackColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.menuItemQiuz.BackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.menuItemQiuz.Dock = System.Windows.Forms.DockStyle.Top;
+            this.menuItemQiuz.ImageDefault = null;
+            this.menuItemQiuz.ImageHover = null;
+            this.menuItemQiuz.ImageSelected = null;
+            this.menuItemQiuz.IsSelected = false;
+            this.menuItemQiuz.Location = new System.Drawing.Point(0, 64);
+            this.menuItemQiuz.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.menuItemQiuz.Name = "menuItemQiuz";
+            this.menuItemQiuz.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.menuItemQiuz.Size = new System.Drawing.Size(200, 64);
+            this.menuItemQiuz.TabIndex = 4;
+            this.menuItemQiuz.Tag = "TextTranslatable";
+            this.menuItemQiuz.Text = "Quiz";
+            this.menuItemQiuz.ItemClickPerformed += new System.EventHandler(this.menuItemQiuz_ItemClickPerformed);
+            this.menuItemQiuz.SelectionChanged += new System.EventHandler(this.MenuItemSelectChanged);
             // 
-            // buttonStacks
+            // menuItemStacks
             // 
-            this.buttonStacks.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonStacks.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonStacks.FlatAppearance.BorderSize = 0;
-            this.buttonStacks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
-            this.buttonStacks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
-            this.buttonStacks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStacks.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonStacks.Image = global::FlashCards.Properties.Resources.stack_green;
-            this.buttonStacks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonStacks.Location = new System.Drawing.Point(0, 0);
-            this.buttonStacks.Name = "buttonStacks";
-            this.buttonStacks.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonStacks.Size = new System.Drawing.Size(200, 68);
-            this.buttonStacks.TabIndex = 0;
-            this.buttonStacks.Tag = "TextTranslatable";
-            this.buttonStacks.Text = "Stacks";
-            this.buttonStacks.UseVisualStyleBackColor = true;
-            this.buttonStacks.Click += new System.EventHandler(this.buttonStacks_Click);
-            this.buttonStacks.MouseEnter += new System.EventHandler(this.buttonStacks_MouseEnter);
-            this.buttonStacks.MouseLeave += new System.EventHandler(this.buttonStacks_MouseLeave);
+            this.menuItemStacks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
+            this.menuItemStacks.BackColorDefault = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
+            this.menuItemStacks.BackColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.menuItemStacks.BackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.menuItemStacks.Dock = System.Windows.Forms.DockStyle.Top;
+            this.menuItemStacks.ImageDefault = global::FlashCards.Properties.Resources.stack_green;
+            this.menuItemStacks.ImageHover = global::FlashCards.Properties.Resources.stack_light;
+            this.menuItemStacks.ImageSelected = global::FlashCards.Properties.Resources.stack_light;
+            this.menuItemStacks.IsSelected = false;
+            this.menuItemStacks.Location = new System.Drawing.Point(0, 0);
+            this.menuItemStacks.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.menuItemStacks.Name = "menuItemStacks";
+            this.menuItemStacks.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.menuItemStacks.Size = new System.Drawing.Size(200, 64);
+            this.menuItemStacks.TabIndex = 3;
+            this.menuItemStacks.Tag = "TextTranslatable";
+            this.menuItemStacks.Text = "Stacks";
+            this.menuItemStacks.ItemClickPerformed += new System.EventHandler(this.menuItemStacks_ItemClickPerformed);
+            this.menuItemStacks.SelectionChanged += new System.EventHandler(this.MenuItemSelectChanged);
             // 
             // panelBottom
             // 
@@ -233,15 +232,15 @@ namespace FlashCards
         #endregion
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Panel panelNavi;
-        private System.Windows.Forms.Button buttonStacks;
-        private System.Windows.Forms.Button buttonQiuz;
-        private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonMaximize;
         private System.Windows.Forms.Button buttonMinimize;
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Panel panelContainer;
+        private MenuItem menuItemStacks;
+        private MenuItem menuItemQiuz;
+        private MenuItem menuItemSettings;
     }
 }
 

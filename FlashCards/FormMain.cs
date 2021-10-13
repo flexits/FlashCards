@@ -26,22 +26,40 @@ namespace FlashCards
             MDIFormControls.PanelParent = panelContainer;
         }
 
-        private void buttonStacks_Click(object sender, EventArgs e)
+        private void menuItemStacks_ItemClickPerformed(object sender, EventArgs e)
         {
-            MenuVisualSelections.BtnSelect(sender as Button, panelNavi);
             MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
         }
 
-        private void buttonSettings_Click_1(object sender, EventArgs e)
+        private void menuItemQiuz_ItemClickPerformed(object sender, EventArgs e)
         {
-            MenuVisualSelections.BtnSelect(sender as Button, panelNavi);
+            MDIFormControls.OpenFormInPanel(null);
+        }
+
+        private void menuItemSettings_ItemClickPerformed(object sender, EventArgs e)
+        {
             MDIFormControls.OpenFormInPanel(new FormSettings());
         }
 
-        private void buttonQiuz_Click(object sender, EventArgs e)
+        private void MenuItemSelectChanged(object sender, EventArgs e)
         {
-            MenuVisualSelections.BtnSelect(sender as Button, panelNavi);
-            MDIFormControls.OpenFormInPanel(null);
+            // only one item can be selected at a time
+            if ((sender as MenuItem).IsSelected)
+            {
+                foreach (Control cl in panelNavi.Controls)
+                {
+                    if (cl.GetType() == typeof(MenuItem) && cl != (sender as MenuItem))
+                    {
+                        (cl as MenuItem).IsSelected = false;
+                    }
+                }
+            }
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            menuItemStacks.IsSelected = true;
+            MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
         }
 
         //Make panelHeader behave as a window header
@@ -94,31 +112,6 @@ namespace FlashCards
         private void buttonClose_MouseLeave(object sender, EventArgs e)
         {
             (sender as Button).Image = Properties.Resources.close_light;
-        }
-
-        private void buttonStacks_MouseEnter(object sender, EventArgs e)
-        {
-            (sender as Button).Image = Properties.Resources.stack_light;
-        }
-
-        private void buttonStacks_MouseLeave(object sender, EventArgs e)
-        {
-            (sender as Button).Image = Properties.Resources.stack_green;
-        }
-
-        private void buttonSettings_MouseEnter(object sender, EventArgs e)
-        {
-            (sender as Button).Image = Properties.Resources.settings_light;
-        }
-
-        private void buttonSettings_MouseLeave(object sender, EventArgs e)
-        {
-            (sender as Button).Image = Properties.Resources.settings_green;
-        }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            buttonStacks.PerformClick();
         }
     }
 }

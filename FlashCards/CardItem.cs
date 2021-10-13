@@ -37,21 +37,7 @@ namespace FlashCards
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            Image image;
-            try
-            {
-                //byte[] imgarr = File.ReadAllBytes(openFileDialog1.FileName);
-                //image = ImageConversion.ByteToImg(imgarr);
-                image = Image.FromFile(openFileDialog1.FileName);
-                //TODO FOrmats?!
-                //TODO resize!!
-            }
-            catch
-            {
-                return;
-            }
-            pictureBox1.Image = image;
-
+            pictureBox1.Image = ImageConversion.ImgFromFile(openFileDialog1.FileName);
         }
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
@@ -59,23 +45,24 @@ namespace FlashCards
             openFileDialog1.ShowDialog();
         }
 
-        protected override void SetFocusOnSelect()
+        protected override void ItemSelected()
+        //if the item got selection but no one of its controls have focus, make panel1 focused.
+
+        //without this workaround
+        //a textbox in another item sometimes remains active despite of selection loss
         {
-            bool focus = false;
             foreach (Control cl in panel1.Controls)
             {
                 if (cl.CanFocus && cl.ContainsFocus)
                 {
-                    focus = true;
+                    return;
                 }
             }
-            if (!focus)
-            {
-                panel1.Focus();
-            }
+            panel1.Focus();
         }
 
-        protected override void SaveChangesOnDeselect()
+        protected override void ItemDeselected()
+        //if there were changes, update db on item deselection
         {
             foreach (Control tb in panel1.Controls)
             {
@@ -84,7 +71,7 @@ namespace FlashCards
                     tb.Text = tb.Text.Trim();
                 }
             }
-            //if there were changes, update db
+            
             if (textBoxWord.Text != currentCard.WordForeign ||
                 textBoxTranslation.Text != currentCard.WordNative ||
                 textBoxComment.Text != currentCard.Comment ||
