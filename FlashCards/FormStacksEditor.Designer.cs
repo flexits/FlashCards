@@ -181,9 +181,9 @@ namespace FlashCards
             this.buttonCards.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
             this.buttonCards.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.buttonCards.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCards.Location = new System.Drawing.Point(391, 131);
+            this.buttonCards.Location = new System.Drawing.Point(379, 131);
             this.buttonCards.Name = "buttonCards";
-            this.buttonCards.Size = new System.Drawing.Size(100, 30);
+            this.buttonCards.Size = new System.Drawing.Size(112, 30);
             this.buttonCards.TabIndex = 15;
             this.buttonCards.Tag = "TextTranslatable";
             this.buttonCards.Text = "Open cards";
@@ -196,9 +196,9 @@ namespace FlashCards
             this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
             this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.Location = new System.Drawing.Point(391, 167);
+            this.buttonDelete.Location = new System.Drawing.Point(379, 167);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(100, 30);
+            this.buttonDelete.Size = new System.Drawing.Size(112, 30);
             this.buttonDelete.TabIndex = 16;
             this.buttonDelete.Tag = "TextTranslatable";
             this.buttonDelete.Text = "Delete stack";

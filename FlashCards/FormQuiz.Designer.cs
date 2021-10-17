@@ -35,6 +35,8 @@ namespace FlashCards
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonKnown = new System.Windows.Forms.Button();
             this.buttonUnknown = new System.Windows.Forms.Button();
+            this.comboBoxLang = new System.Windows.Forms.ComboBox();
+            this.labelLang = new System.Windows.Forms.Label();
             this.panelCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -85,26 +87,49 @@ namespace FlashCards
             this.buttonKnown.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
             this.buttonKnown.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.buttonKnown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonKnown.Location = new System.Drawing.Point(292, 184);
+            this.buttonKnown.Location = new System.Drawing.Point(386, 184);
             this.buttonKnown.Name = "buttonKnown";
             this.buttonKnown.Size = new System.Drawing.Size(100, 30);
             this.buttonKnown.TabIndex = 11;
             this.buttonKnown.Tag = "TextTranslatable";
             this.buttonKnown.Text = "Known!";
             this.buttonKnown.UseVisualStyleBackColor = true;
+            this.buttonKnown.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonKnown_MouseClick);
             // 
             // buttonUnknown
             // 
             this.buttonUnknown.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
             this.buttonUnknown.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.buttonUnknown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUnknown.Location = new System.Drawing.Point(175, 184);
+            this.buttonUnknown.Location = new System.Drawing.Point(250, 184);
             this.buttonUnknown.Name = "buttonUnknown";
             this.buttonUnknown.Size = new System.Drawing.Size(100, 30);
             this.buttonUnknown.TabIndex = 12;
             this.buttonUnknown.Tag = "TextTranslatable";
             this.buttonUnknown.Text = "Unknown!";
             this.buttonUnknown.UseVisualStyleBackColor = true;
+            this.buttonUnknown.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonUnknown_MouseClick);
+            // 
+            // comboBoxLang
+            // 
+            this.comboBoxLang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
+            this.comboBoxLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxLang.FormattingEnabled = true;
+            this.comboBoxLang.Location = new System.Drawing.Point(86, 191);
+            this.comboBoxLang.Name = "comboBoxLang";
+            this.comboBoxLang.Size = new System.Drawing.Size(82, 23);
+            this.comboBoxLang.TabIndex = 13;
+            // 
+            // labelLang
+            // 
+            this.labelLang.AutoSize = true;
+            this.labelLang.Location = new System.Drawing.Point(86, 173);
+            this.labelLang.Name = "labelLang";
+            this.labelLang.Size = new System.Drawing.Size(60, 15);
+            this.labelLang.TabIndex = 14;
+            this.labelLang.Tag = "TextTranslatable";
+            this.labelLang.Text = "Card face:";
             // 
             // FormQuiz
             // 
@@ -112,6 +137,8 @@ namespace FlashCards
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(568, 401);
+            this.Controls.Add(this.labelLang);
+            this.Controls.Add(this.comboBoxLang);
             this.Controls.Add(this.buttonUnknown);
             this.Controls.Add(this.buttonKnown);
             this.Controls.Add(this.labelTitle);
@@ -134,5 +161,7 @@ namespace FlashCards
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonKnown;
         private System.Windows.Forms.Button buttonUnknown;
+        private System.Windows.Forms.ComboBox comboBoxLang;
+        private System.Windows.Forms.Label labelLang;
     }
 }

@@ -100,7 +100,7 @@ namespace FlashCards
             // 
             this.labelCounter.AutoSize = true;
             this.labelCounter.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCounter.Location = new System.Drawing.Point(160, 85);
+            this.labelCounter.Location = new System.Drawing.Point(152, 85);
             this.labelCounter.Name = "labelCounter";
             this.labelCounter.Size = new System.Drawing.Size(49, 20);
             this.labelCounter.TabIndex = 2;

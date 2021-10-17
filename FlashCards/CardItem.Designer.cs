@@ -96,7 +96,7 @@ namespace FlashCards
             // labelComment
             // 
             this.labelComment.AutoSize = true;
-            this.labelComment.Location = new System.Drawing.Point(151, 73);
+            this.labelComment.Location = new System.Drawing.Point(141, 73);
             this.labelComment.Name = "labelComment";
             this.labelComment.Size = new System.Drawing.Size(64, 15);
             this.labelComment.TabIndex = 8;
@@ -107,7 +107,7 @@ namespace FlashCards
             // labelNative
             // 
             this.labelNative.AutoSize = true;
-            this.labelNative.Location = new System.Drawing.Point(151, 44);
+            this.labelNative.Location = new System.Drawing.Point(141, 44);
             this.labelNative.Name = "labelNative";
             this.labelNative.Size = new System.Drawing.Size(67, 15);
             this.labelNative.TabIndex = 7;
@@ -118,7 +118,7 @@ namespace FlashCards
             // labelForeign
             // 
             this.labelForeign.AutoSize = true;
-            this.labelForeign.Location = new System.Drawing.Point(151, 15);
+            this.labelForeign.Location = new System.Drawing.Point(141, 15);
             this.labelForeign.Name = "labelForeign";
             this.labelForeign.Size = new System.Drawing.Size(39, 15);
             this.labelForeign.TabIndex = 6;

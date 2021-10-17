@@ -63,6 +63,16 @@ namespace FlashCards.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap approval_green {
+            get {
+                object obj = ResourceManager.GetObject("approval_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_light {
             get {
                 object obj = ResourceManager.GetObject("close_light", resourceCulture);

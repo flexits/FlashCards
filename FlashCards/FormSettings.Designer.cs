@@ -33,6 +33,8 @@ namespace FlashCards
             this.comboBoxLang = new System.Windows.Forms.ComboBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelRestartWarning = new System.Windows.Forms.Label();
+            this.labelCardFace = new System.Windows.Forms.Label();
+            this.comboBoxCardFace = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelLang
@@ -53,7 +55,7 @@ namespace FlashCards
             this.comboBoxLang.Items.AddRange(new object[] {
             "English",
             "Русский"});
-            this.comboBoxLang.Location = new System.Drawing.Point(107, 12);
+            this.comboBoxLang.Location = new System.Drawing.Point(203, 12);
             this.comboBoxLang.Name = "comboBoxLang";
             this.comboBoxLang.Size = new System.Drawing.Size(109, 23);
             this.comboBoxLang.TabIndex = 1;
@@ -77,12 +79,33 @@ namespace FlashCards
             // 
             this.labelRestartWarning.AutoSize = true;
             this.labelRestartWarning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
-            this.labelRestartWarning.Location = new System.Drawing.Point(232, 15);
+            this.labelRestartWarning.Location = new System.Drawing.Point(328, 15);
             this.labelRestartWarning.Name = "labelRestartWarning";
             this.labelRestartWarning.Size = new System.Drawing.Size(232, 15);
             this.labelRestartWarning.TabIndex = 3;
             this.labelRestartWarning.Text = "Restart program for changes to take effect!";
             this.labelRestartWarning.Visible = false;
+            // 
+            // labelCardFace
+            // 
+            this.labelCardFace.AutoSize = true;
+            this.labelCardFace.Location = new System.Drawing.Point(12, 44);
+            this.labelCardFace.Name = "labelCardFace";
+            this.labelCardFace.Size = new System.Drawing.Size(112, 15);
+            this.labelCardFace.TabIndex = 4;
+            this.labelCardFace.Tag = "TextTranslatable";
+            this.labelCardFace.Text = "Card face language:";
+            // 
+            // comboBoxCardFace
+            // 
+            this.comboBoxCardFace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
+            this.comboBoxCardFace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCardFace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxCardFace.FormattingEnabled = true;
+            this.comboBoxCardFace.Location = new System.Drawing.Point(203, 41);
+            this.comboBoxCardFace.Name = "comboBoxCardFace";
+            this.comboBoxCardFace.Size = new System.Drawing.Size(109, 23);
+            this.comboBoxCardFace.TabIndex = 5;
             // 
             // FormSettings
             // 
@@ -90,6 +113,8 @@ namespace FlashCards
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBoxCardFace);
+            this.Controls.Add(this.labelCardFace);
             this.Controls.Add(this.labelRestartWarning);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.comboBoxLang);
@@ -107,5 +132,7 @@ namespace FlashCards
         private System.Windows.Forms.ComboBox comboBoxLang;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelRestartWarning;
+        private System.Windows.Forms.Label labelCardFace;
+        private System.Windows.Forms.ComboBox comboBoxCardFace;
     }
 }

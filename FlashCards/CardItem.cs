@@ -18,7 +18,7 @@ namespace FlashCards
             InitializeComponent();
             if (CustomLocales.TranslationNeeded)
             {
-                CustomLocales.TranslateControlsTextProp(Controls);
+                CustomLocales.TranslateControlsTextProp(panel1.Controls);
                 openFileDialog1.Title = CustomLocales.GetTranslation(openFileDialog1.Title);
             }
             currentCard = card;

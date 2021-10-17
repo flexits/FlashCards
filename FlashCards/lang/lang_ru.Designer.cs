@@ -70,6 +70,24 @@ namespace FlashCards.lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Лицевая сторона:.
+        /// </summary>
+        public static string Card_face_ {
+            get {
+                return ResourceManager.GetString("Card face:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Язык лицевой стороны карточки:.
+        /// </summary>
+        public static string Card_face_language_ {
+            get {
+                return ResourceManager.GetString("Card face language:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Карточек:.
         /// </summary>
         public static string Cards_ {
@@ -97,11 +115,29 @@ namespace FlashCards.lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить стопку.
+        /// </summary>
+        public static string Delete_stack {
+            get {
+                return ResourceManager.GetString("Delete stack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Редактирование стопки.
         /// </summary>
         public static string Editing_stack {
             get {
                 return ResourceManager.GetString("Editing stack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Иностраный.
+        /// </summary>
+        public static string Foreign {
+            get {
+                return ResourceManager.GetString("Foreign", resourceCulture);
             }
         }
         
@@ -115,11 +151,38 @@ namespace FlashCards.lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Знаю!.
+        /// </summary>
+        public static string Known_ {
+            get {
+                return ResourceManager.GetString("Known!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Родной.
+        /// </summary>
+        public static string Native {
+            get {
+                return ResourceManager.GetString("Native", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Родной язык:.
         /// </summary>
         public static string Native_language_ {
             get {
                 return ResourceManager.GetString("Native language:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Карточки.
+        /// </summary>
+        public static string Open_cards {
+            get {
+                return ResourceManager.GetString("Open cards", resourceCulture);
             }
         }
         
@@ -196,6 +259,15 @@ namespace FlashCards.lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Не знаю!.
+        /// </summary>
+        public static string Unknown_ {
+            get {
+                return ResourceManager.GetString("Unknown!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Слово:.
         /// </summary>
         public static string Word_ {
@@ -230,15 +302,6 @@ namespace FlashCards.lang {
             get {
                 return ResourceManager.GetString("You\'re going to delete stack with all cards in it. This action can\'t be undone. C" +
                         "ontinue anyway?", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на .
-        /// </summary>
-        public static string ее {
-            get {
-                return ResourceManager.GetString("ее", resourceCulture);
             }
         }
     }

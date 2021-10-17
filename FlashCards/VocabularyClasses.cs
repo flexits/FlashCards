@@ -81,9 +81,9 @@ namespace FlashCards
             set { picture = value; }
         }
 
-        public QuizSimpleRnd Quiz()
+        public VocabQuiz Quiz()
         {
-            return new QuizSimpleRnd(card_ids);
+            return new VocabQuiz(card_ids);
         }
     }
 
@@ -161,5 +161,11 @@ namespace FlashCards
             get { return picture; }
             set { picture = value; }
         }
+    }
+
+    public enum CardFaceLanguages : int
+    {
+        Foreign = 0,
+        Native = 1
     }
 }

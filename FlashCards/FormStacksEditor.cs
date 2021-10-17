@@ -101,7 +101,7 @@ namespace FlashCards
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            string text = "You're going to delete stack with all cards in it. This action can't be undone.Continue anyway?";
+            string text = "You're going to delete stack with all cards in it. This action can't be undone. Continue anyway?";
             string caption = "Delete file";
             if (CustomLocales.TranslationNeeded)
             {

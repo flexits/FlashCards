@@ -120,6 +120,12 @@
   <data name="Cancel" xml:space="preserve">
     <value>Отменить</value>
   </data>
+  <data name="Card face language:" xml:space="preserve">
+    <value>Язык лицевой стороны карточки:</value>
+  </data>
+  <data name="Card face:" xml:space="preserve">
+    <value>Лицевая сторона:</value>
+  </data>
   <data name="Cards:" xml:space="preserve">
     <value>Карточек:</value>
   </data>
@@ -129,14 +135,29 @@
   <data name="Delete file" xml:space="preserve">
     <value>Удаление файла</value>
   </data>
+  <data name="Delete stack" xml:space="preserve">
+    <value>Удалить стопку</value>
+  </data>
   <data name="Editing stack" xml:space="preserve">
     <value>Редактирование стопки</value>
+  </data>
+  <data name="Foreign" xml:space="preserve">
+    <value>Иностраный</value>
   </data>
   <data name="Foreign language:" xml:space="preserve">
     <value>Иностраный язык:</value>
   </data>
+  <data name="Known!" xml:space="preserve">
+    <value>Знаю!</value>
+  </data>
+  <data name="Native" xml:space="preserve">
+    <value>Родной</value>
+  </data>
   <data name="Native language:" xml:space="preserve">
     <value>Родной язык:</value>
+  </data>
+  <data name="Open cards" xml:space="preserve">
+    <value>Карточки</value>
   </data>
   <data name="Open picture..." xml:space="preserve">
     <value>Открыть изображение...</value>
@@ -162,6 +183,9 @@
   <data name="Translation:" xml:space="preserve">
     <value>Перевод:</value>
   </data>
+  <data name="Unknown!" xml:space="preserve">
+    <value>Не знаю!</value>
+  </data>
   <data name="Word:" xml:space="preserve">
     <value>Слово:</value>
   </data>
@@ -173,8 +197,5 @@
   </data>
   <data name="You're going to delete stack with all cards in it. This action can't be undone. Continue anyway?" xml:space="preserve">
     <value>Вы собираетесь удалить стопку со всеми карточками. Это действие нельзя отменить. Продолжить всё равно?</value>
-  </data>
-  <data name="ее" xml:space="preserve">
-    <value />
   </data>
 </root>

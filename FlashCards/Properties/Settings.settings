@@ -5,5 +5,8 @@
     <Setting Name="UseLocale" Type="System.String" Scope="User">
       <Value Profile="(Default)">English</Value>
     </Setting>
+    <Setting Name="CardFaceLang" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
