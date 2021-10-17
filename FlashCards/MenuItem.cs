@@ -130,5 +130,10 @@ namespace FlashCards
                 pictureBox1.Image = imgDefault;
             }
         }
+
+        public void PerformClick()
+        {
+            OnItemMouseClick(this, null);
+        }
     }
 }

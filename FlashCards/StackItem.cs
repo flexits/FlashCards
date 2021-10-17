@@ -35,6 +35,14 @@ namespace FlashCards
         private void OnItemSelection(object sender, MouseEventArgs e)
         {
             IsSelected = true;
+
+            //set stack selection in the main form
+            Form fm = Application.OpenForms["FormMain"];
+            if (fm != null)
+            {
+                (fm as FormMain).SelectedStack = currentStack;
+            }
+
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)

@@ -134,7 +134,6 @@ namespace FlashCards
             this.menuItemSettings.ImageDefault = global::FlashCards.Properties.Resources.settings_green;
             this.menuItemSettings.ImageHover = global::FlashCards.Properties.Resources.settings_light;
             this.menuItemSettings.ImageSelected = global::FlashCards.Properties.Resources.settings_light;
-            this.menuItemSettings.IsSelected = false;
             this.menuItemSettings.Location = new System.Drawing.Point(0, 128);
             this.menuItemSettings.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
             this.menuItemSettings.Name = "menuItemSettings";
@@ -152,10 +151,10 @@ namespace FlashCards
             this.menuItemQiuz.BackColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.menuItemQiuz.BackColorSelected = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.menuItemQiuz.Dock = System.Windows.Forms.DockStyle.Top;
+            this.menuItemQiuz.Enabled = false;
             this.menuItemQiuz.ImageDefault = null;
             this.menuItemQiuz.ImageHover = null;
             this.menuItemQiuz.ImageSelected = null;
-            this.menuItemQiuz.IsSelected = false;
             this.menuItemQiuz.Location = new System.Drawing.Point(0, 64);
             this.menuItemQiuz.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
             this.menuItemQiuz.Name = "menuItemQiuz";
@@ -177,7 +176,6 @@ namespace FlashCards
             this.menuItemStacks.ImageDefault = global::FlashCards.Properties.Resources.stack_green;
             this.menuItemStacks.ImageHover = global::FlashCards.Properties.Resources.stack_light;
             this.menuItemStacks.ImageSelected = global::FlashCards.Properties.Resources.stack_light;
-            this.menuItemStacks.IsSelected = false;
             this.menuItemStacks.Location = new System.Drawing.Point(0, 0);
             this.menuItemStacks.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
             this.menuItemStacks.Name = "menuItemStacks";

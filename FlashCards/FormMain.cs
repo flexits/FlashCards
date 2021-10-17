@@ -26,14 +26,37 @@ namespace FlashCards
             MDIFormControls.PanelParent = panelContainer;
         }
 
+        private VocabStack selectedStack;
+        public VocabStack SelectedStack
+        {
+            get { return selectedStack; }
+            set
+            {
+                selectedStack = value;
+                if (value == null)
+                {
+                    menuItemQiuz.Enabled = false;
+                }
+                else
+                {
+                    menuItemQiuz.Enabled = true;
+                }
+            }
+        }
+
         private void menuItemStacks_ItemClickPerformed(object sender, EventArgs e)
         {
+            //reset selection and open browser form;
+            SelectedStack = null;
             MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
         }
 
         private void menuItemQiuz_ItemClickPerformed(object sender, EventArgs e)
         {
-            MDIFormControls.OpenFormInPanel(null);
+            if (SelectedStack != null)
+            {
+                MDIFormControls.OpenFormInPanel(new FormQuiz(SelectedStack));
+            }
         }
 
         private void menuItemSettings_ItemClickPerformed(object sender, EventArgs e)
@@ -58,8 +81,7 @@ namespace FlashCards
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            menuItemStacks.IsSelected = true;
-            MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
+            menuItemStacks.PerformClick();
         }
 
         //Make panelHeader behave as a window header
@@ -92,8 +114,7 @@ namespace FlashCards
             WindowState = FormWindowState.Minimized;
         }
 
-        //long and ugly workaround to change buttons' images on mouse actions
-        //it'd be much shorter with imagelist, but the control spoils semi-trasparent backgrounds https://stackoverflow.com/a/50688895
+        //change buttons' images on mouse actions
         private void buttonMinimize_MouseEnter(object sender, EventArgs e)
         {
             (sender as Button).Image = Properties.Resources.minimize_yellow;
