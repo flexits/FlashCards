@@ -41,13 +41,6 @@ namespace FlashCards
             }
         }
 
-        public VocabCard GetUniqCard()
-        //the method returns random cards from the stack 
-        //until there's no more unique cads left
-        {
-            return null;
-        }
-
         public int Id
         {
             get { return id; }
@@ -86,6 +79,11 @@ namespace FlashCards
         {
             get { return picture; }
             set { picture = value; }
+        }
+
+        public QuizSimpleRnd Quiz()
+        {
+            return new QuizSimpleRnd(card_ids);
         }
     }
 

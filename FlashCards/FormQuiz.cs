@@ -23,6 +23,8 @@ namespace FlashCards
             MDIFormControls.CenterElementInPanel(panelCard, Width);
             MDIFormControls.CenterElementInPanel(labelWord, panelCard.Width);
             //in image not null, make offset
+
+            //stack.Quiz()
         }
 
         private void labelWord_MouseClick(object sender, MouseEventArgs e)
