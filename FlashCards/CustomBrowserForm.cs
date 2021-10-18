@@ -25,11 +25,11 @@ namespace FlashCards
         {
             if ((sender as ItemControl).IsSelected)
             {
-                foreach (ItemControl sti in flowLayoutPanel1.Controls)
+                foreach (Control cl in flowLayoutPanel1.Controls)
                 {
-                    if (sti != (sender as ItemControl))
+                    if (cl is ItemControl && cl != (sender as ItemControl))
                     {
-                        sti.IsSelected = false;
+                        (cl as ItemControl).IsSelected = false;
                     }
                 }
             }

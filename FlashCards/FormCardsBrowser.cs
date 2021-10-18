@@ -23,6 +23,24 @@ namespace FlashCards
                 crd.SelectionChanged += new EventHandler(ChildItemSelectChanged);
                 flowLayoutPanel1.Controls.Add(crd);
             }
+            Button btnAddItem = new Button
+            {
+                FlatStyle = FlatStyle.Flat,
+                BackColor = CustomColors.LightCyan,
+                BackgroundImage = Properties.Resources.add_green,
+                BackgroundImageLayout = ImageLayout.Zoom,
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
+                Size = new Size(64, 64),
+                Margin = new Padding(30, 25, 3, 20),
+            };
+            if (stack.StackLength > 0)
+            {
+                btnAddItem.Margin = new Padding(420, 3, 3, 20);
+            }
+            btnAddItem.FlatAppearance.BorderColor = CustomColors.TiffanyBlue;
+            btnAddItem.FlatAppearance.MouseDownBackColor = CustomColors.OrangePeel;
+            btnAddItem.FlatAppearance.MouseOverBackColor = CustomColors.MellowApricot;
+            flowLayoutPanel1.Controls.Add(btnAddItem);
         }
     }
 }

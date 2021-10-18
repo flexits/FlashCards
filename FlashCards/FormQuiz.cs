@@ -37,7 +37,7 @@ namespace FlashCards
             DisplayNextCard();
 
             MDIFormControls.CenterElementInPanel(labelTitle, Width);
-            MDIFormControls.CenterElementInPanel(panelCard, Width);
+            //MDIFormControls.CenterElementInPanel(panelCard, Width);
         }
 
         private void DisplayCardWord(VocabCard vcard, bool reversecard)

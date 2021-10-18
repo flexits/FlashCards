@@ -14,12 +14,23 @@ namespace FlashCards
         private VocabStack currentStack;
         public FormStacksEditor(VocabStack stack)
         {
+            InitializeComponent();
+            string title;
             if (stack == null)
             {
-                Close();
+                title = "Adding stack";
+                currentStack = null;
             }
-            InitializeComponent();
-            string title = "Editing stack";
+            else
+            {
+                title = "Editing stack";
+                textBoxTitle.Text = stack.Name;
+                textBoxNative.Text = stack.NativeLang;
+                textBoxForeign.Text = stack.ForeignLang;
+                textBoxComment.Text = stack.Comment;
+                pictureBox1.Image = stack.Picture;
+                currentStack = stack;
+            }
             //translate controls' text
             if (CustomLocales.TranslationNeeded)
             {
@@ -28,13 +39,8 @@ namespace FlashCards
                 title = CustomLocales.GetTranslation(title);
             }
 
-            Text = title + " \"" + stack.Name + "\"";
-            textBoxTitle.Text = stack.Name;
-            textBoxNative.Text = stack.NativeLang;
-            textBoxForeign.Text = stack.ForeignLang;
-            textBoxComment.Text = stack.Comment;
-            pictureBox1.Image = stack.Picture;
-            currentStack = stack;
+            //Text = title + " \"" + stack.Name + "\"";
+            
         }
 
         private void textBox_Leave(object sender, EventArgs e)
@@ -57,13 +63,21 @@ namespace FlashCards
                     tb.Text = tb.Text.Trim();
                 }
             }
-            //update object
-            currentStack.Name = textBoxTitle.Text;
-            currentStack.NativeLang = textBoxNative.Text;
-            currentStack.ForeignLang = textBoxForeign.Text;
-            currentStack.Comment = textBoxComment.Text;
-            currentStack.Picture = pictureBox1.Image;
-            DbOperations.UpdateStack(currentStack);
+            if (currentStack == null)
+            {
+                //add
+                DbOperations.AddStack(textBoxTitle.Text, textBoxNative.Text, textBoxForeign.Text, pictureBox1.Image, textBoxComment.Text);
+            }
+            else
+            {
+                //update object
+                currentStack.Name = textBoxTitle.Text;
+                currentStack.NativeLang = textBoxNative.Text;
+                currentStack.ForeignLang = textBoxForeign.Text;
+                currentStack.Comment = textBoxComment.Text;
+                currentStack.Picture = pictureBox1.Image;
+                DbOperations.UpdateStack(currentStack);
+            }
             //return to stacks browser
             MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
 

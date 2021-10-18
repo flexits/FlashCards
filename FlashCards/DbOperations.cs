@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 using System.Data.SQLite;
 using System.Data.SqlClient;
@@ -71,16 +72,16 @@ namespace FlashCards
             return dbconn.ExecuteScalar<int>(query, parameters);
         }
 
-        public static int AddStack(VocabStack modifiedstack)
+        public static int AddStack(string name, string native_lang, string foreign_lang, Image picture, string comment)
         //insert new stack record
         {
             DynamicParameters parameters = new DynamicParameters();
             string query = "INSERT INTO stacks (name, native_lang, foreign_lang, comment, picture) VALUES (@name, @native_lang, @foreign_lang, @comment, @picture)";
-            parameters.Add("name", modifiedstack.Name);
-            parameters.Add("native_lang", modifiedstack.NativeLang);
-            parameters.Add("foreign_lang", modifiedstack.ForeignLang);
-            parameters.Add("comment", modifiedstack.Comment);
-            parameters.Add("picture", ImageConversion.ImgToByte(modifiedstack.Picture));
+            parameters.Add("name", name);
+            parameters.Add("native_lang", native_lang);
+            parameters.Add("foreign_lang", foreign_lang);
+            parameters.Add("comment", comment);
+            parameters.Add("picture", ImageConversion.ImgToByte(picture));
             return dbconn.ExecuteScalar<int>(query, parameters);
         }
 

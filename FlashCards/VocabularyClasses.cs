@@ -33,6 +33,7 @@ namespace FlashCards
             this.picture = ImageConversion.ByteToImg(picture);
             card_ids = DbOperations.GetCardIdsInStack(this.id);
         }
+
         public IEnumerator<VocabCard> GetEnumerator()
         {
             foreach (int cid in card_ids)

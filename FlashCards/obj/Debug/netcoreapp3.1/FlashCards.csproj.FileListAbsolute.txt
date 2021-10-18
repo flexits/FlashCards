@@ -51,4 +51,4 @@ C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.Properties.Resources.resources
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.MenuItem.resources
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.FormQuiz.resources
-C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.csproj.CopyComplete
+C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Debug\netcoreapp3.1\FlashCards.csproj.AssemblyReference.cache
