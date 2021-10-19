@@ -12,6 +12,7 @@ namespace FlashCards
     {
         private VocabQuiz quiz;
         private VocabCard currentcrd;
+        private CardFaceLanguages currentfacelang;
 
         public FormQuiz(VocabStack stack)
         {
@@ -29,6 +30,8 @@ namespace FlashCards
 
             labelTitle.Text = stack.Name;
 
+            //TODO add counters
+
             comboBoxLang.Items.Add(stack.ForeignLang);
             comboBoxLang.Items.Add(stack.NativeLang);
             comboBoxLang.SelectedItem = comboBoxLang.Items[Properties.Settings.Default.CardFaceLang];
@@ -36,28 +39,38 @@ namespace FlashCards
             quiz = stack.Quiz();
             DisplayNextCard();
 
-            MDIFormControls.CenterElementInPanel(labelTitle, Width);
+            //MDIFormControls.CenterElementInPanel(labelTitle, Width);
             //MDIFormControls.CenterElementInPanel(panelCard, Width);
         }
 
-        private void DisplayCardWord(VocabCard vcard, bool reversecard)
+        private void DisplayCardWord()
         {
-            int selectionindex = comboBoxLang.SelectedIndex;
-            if (reversecard)
+            currentfacelang = (CardFaceLanguages)comboBoxLang.SelectedIndex;
+            if (currentfacelang == CardFaceLanguages.Foreign)
             {
-                selectionindex = 1 - selectionindex;
-            }
-            CardFaceLanguages facelang = (CardFaceLanguages)selectionindex;
-            if (facelang == CardFaceLanguages.Foreign)
-            {
-                labelWord.Text = vcard.WordForeign;
+                labelWord.Text = currentcrd.WordForeign;
             }
             else
             {
-                labelWord.Text = vcard.WordNative;
+                labelWord.Text = currentcrd.WordNative;
             }
             MDIFormControls.CenterElementInPanel(labelWord, panelCard.Width);
             //if image not null, make padding
+        }
+
+        private void ReverseCardWord()
+        {
+            if (currentfacelang == CardFaceLanguages.Foreign)
+            {
+                labelWord.Text = currentcrd.WordNative;
+                currentfacelang = CardFaceLanguages.Native;
+            }
+            else
+            {
+                labelWord.Text = currentcrd.WordForeign;
+                currentfacelang = CardFaceLanguages.Foreign;
+            }
+            MDIFormControls.CenterElementInPanel(labelWord, panelCard.Width);
         }
 
         private void DisplayNextCard()
@@ -70,16 +83,17 @@ namespace FlashCards
                 //insert text in labelWord (stats?)
                 buttonKnown.Enabled = false;
                 buttonUnknown.Enabled = false;
+                comboBoxLang.Enabled = false;
                 return;
             }
             pictureBox1.Image = currentcrd.Picture;
-            DisplayCardWord(currentcrd, false);
+            DisplayCardWord();
         }
 
         private void labelWord_MouseClick(object sender, MouseEventArgs e)
         {
             //turn card over
-            DisplayCardWord(currentcrd, true);
+            ReverseCardWord();
         }
 
         private void buttonKnown_MouseClick(object sender, MouseEventArgs e)

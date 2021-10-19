@@ -75,7 +75,7 @@ namespace FlashCards
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTitle.Location = new System.Drawing.Point(236, 18);
+            this.labelTitle.Location = new System.Drawing.Point(86, 18);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(100, 30);
             this.labelTitle.TabIndex = 1;

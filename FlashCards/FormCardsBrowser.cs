@@ -16,12 +16,7 @@ namespace FlashCards
             //get all cards from db relevant to stack_id and create a control for each
             foreach (VocabCard card in stack)
             {
-                CardItem crd = new CardItem(card);
-                crd.BackColor = CustomColors.TiffanyBlue;
-                crd.BackColorDefault = CustomColors.TiffanyBlue;
-                crd.BackColorSelected = CustomColors.OrangePeel;
-                crd.SelectionChanged += new EventHandler(ChildItemSelectChanged);
-                flowLayoutPanel1.Controls.Add(crd);
+                flowLayoutPanel1.Controls.Add(GenerateCardItem(card));
             }
             Button btnAddItem = new Button
             {
@@ -40,7 +35,20 @@ namespace FlashCards
             btnAddItem.FlatAppearance.BorderColor = CustomColors.TiffanyBlue;
             btnAddItem.FlatAppearance.MouseDownBackColor = CustomColors.OrangePeel;
             btnAddItem.FlatAppearance.MouseOverBackColor = CustomColors.MellowApricot;
+            btnAddItem.MouseClick += new MouseEventHandler(btnAddItemMouseClick);
             flowLayoutPanel1.Controls.Add(btnAddItem);
+        }
+
+        private CardItem GenerateCardItem(VocabCard card)
+        {
+            CardItem crd = new CardItem(card);
+            crd.SelectionChanged += new EventHandler(ChildItemSelectChanged);
+            return crd;
+        }
+
+        private void btnAddItemMouseClick(object sender, MouseEventArgs e)
+        {
+            flowLayoutPanel1.Controls.Add(GenerateCardItem(null));
         }
     }
 }

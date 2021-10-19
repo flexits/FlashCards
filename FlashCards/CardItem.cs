@@ -21,11 +21,22 @@ namespace FlashCards
                 CustomLocales.TranslateControlsTextProp(panel1.Controls);
                 openFileDialog1.Title = CustomLocales.GetTranslation(openFileDialog1.Title);
             }
-            currentCard = card;
-            textBoxWord.Text = currentCard.WordForeign;
-            textBoxTranslation.Text = currentCard.WordNative;
-            textBoxComment.Text = currentCard.Comment;
-            pictureBox1.Image = currentCard.Picture;
+            if (card == null)
+            {
+                //add new card
+                currentCard = null;
+            }
+            else
+            {
+                currentCard = card;
+                textBoxWord.Text = currentCard.WordForeign;
+                textBoxTranslation.Text = currentCard.WordNative;
+                textBoxComment.Text = currentCard.Comment;
+                pictureBox1.Image = currentCard.Picture;
+            }
+            BackColor = CustomColors.TiffanyBlue;
+            BackColorDefault = CustomColors.TiffanyBlue;
+            BackColorSelected = CustomColors.OrangePeel;
         }
 
         private VocabCard currentCard;
@@ -63,6 +74,7 @@ namespace FlashCards
 
         protected override void ItemDeselected()
         //if there were changes, update db on item deselection
+        //TODO add item
         {
             foreach (Control tb in panel1.Controls)
             {
@@ -71,17 +83,25 @@ namespace FlashCards
                     tb.Text = tb.Text.Trim();
                 }
             }
-            
-            if (textBoxWord.Text != currentCard.WordForeign ||
-                textBoxTranslation.Text != currentCard.WordNative ||
-                textBoxComment.Text != currentCard.Comment ||
-                pictureBox1.Image != pictureBox1.Image)
+
+            if (currentCard == null)
             {
-                currentCard.WordForeign = textBoxWord.Text;
-                currentCard.WordNative = textBoxTranslation.Text;
-                currentCard.Comment = textBoxComment.Text;
-                currentCard.Picture = pictureBox1.Image;
-                DbOperations.UpdateCard(currentCard);
+                //add
+                //DbOperations.AddCard
+            }
+            else
+            {
+                if (textBoxWord.Text != currentCard.WordForeign ||
+                    textBoxTranslation.Text != currentCard.WordNative ||
+                    textBoxComment.Text != currentCard.Comment ||
+                    pictureBox1.Image != pictureBox1.Image)
+                {
+                    currentCard.WordForeign = textBoxWord.Text;
+                    currentCard.WordNative = textBoxTranslation.Text;
+                    currentCard.Comment = textBoxComment.Text;
+                    currentCard.Picture = pictureBox1.Image;
+                    DbOperations.UpdateCard(currentCard);
+                }
             }
         }
 
