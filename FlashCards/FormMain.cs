@@ -48,7 +48,7 @@ namespace FlashCards
         {
             //reset selection and open browser form;
             SelectedStack = null;
-            MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
+            MDIFormControls.OpenFormInPanel(new FormBrowserStacks());
         }
 
         private void menuItemQiuz_ItemClickPerformed(object sender, EventArgs e)
@@ -67,13 +67,13 @@ namespace FlashCards
         private void MenuItemSelectChanged(object sender, EventArgs e)
         {
             // only one item can be selected at a time
-            if ((sender as MenuItem).IsSelected)
+            if ((sender as ControlMenuItem).IsSelected)
             {
                 foreach (Control cl in panelNavi.Controls)
                 {
-                    if (cl.GetType() == typeof(MenuItem) && cl != (sender as MenuItem))
+                    if (cl.GetType() == typeof(ControlMenuItem) && cl != (sender as ControlMenuItem))
                     {
-                        (cl as MenuItem).IsSelected = false;
+                        (cl as ControlMenuItem).IsSelected = false;
                     }
                 }
             }

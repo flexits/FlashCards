@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace FlashCards
 {
-    public partial class ItemControl : UserControl
+    public partial class ControlCustomItemParent : UserControl
     /*
     * Parent class holding a generic logic of custom UI items:
     * - visual selection/deselection via background color change;
@@ -25,7 +25,7 @@ namespace FlashCards
     * 
     */
     {
-        public ItemControl()
+        public ControlCustomItemParent()
         {
             InitializeComponent();
             BackColorDefault = BackColor;

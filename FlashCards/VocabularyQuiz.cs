@@ -4,21 +4,27 @@ using System.Text;
 
 namespace FlashCards
 {
+    /*
+     * Implemetation of card learning algorythm
+     * 
+     * It's like a stack. We pop a random card, show it to the user.
+     * If user confirms that they know the meaning, the card is gone.
+     * If user doesn't know the meaning, they return card and 
+     * the card is pushed back so therefore it'll pop again eventually.
+     * When/If there's no cards left, we pop null.
+     */
     public class VocabQuiz
     {
         public VocabQuiz(int[] card_ids)
         {
-            //make list of cardss (ids) and populate it
             allcards = new List<int>(card_ids);
-            //make empty list of returned cards
             returnedcards = new List<int>(card_ids.Length);
-            //init random
             rnd = new Random();
         }
 
-        private List<int> allcards;
-        private List<int> returnedcards;
-        private Random rnd;
+        private readonly List<int> allcards;
+        private readonly List<int> returnedcards;
+        private readonly Random rnd;
 
         public VocabCard PopRandomCard()
         {
@@ -26,14 +32,16 @@ namespace FlashCards
             //return corresponding card and remove id from list
             //if list is empty - populate it from returnedcards
             //if both are empty - return null
-            //DbOperations.GetCardById(id)
-            //
             int index;
             VocabCard vcard;
 
             if (allcards.Count <= 0)
             {
-                if (returnedcards.Count > 0)
+                if (returnedcards.Count <= 0)
+                {
+                    return null;
+                }
+                else
                 {
                     allcards.Clear();
                     foreach (int id in returnedcards)
@@ -41,10 +49,6 @@ namespace FlashCards
                         allcards.Add(id);
                     }
                     returnedcards.Clear();
-                }
-                else
-                {
-                    return null;
                 }
             }
             index = rnd.Next(0, allcards.Count - 1);

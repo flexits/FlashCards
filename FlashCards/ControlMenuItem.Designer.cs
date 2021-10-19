@@ -1,7 +1,7 @@
 ﻿
 namespace FlashCards
 {
-    partial class MenuItem
+    partial class ControlMenuItem
     {
         /// <summary> 
         /// Обязательная переменная конструктора.

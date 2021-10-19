@@ -1,7 +1,7 @@
 ﻿
 namespace FlashCards
 {
-    partial class ItemControl
+    partial class ControlCustomItemParent
     {
         /// <summary> 
         /// Обязательная переменная конструктора.

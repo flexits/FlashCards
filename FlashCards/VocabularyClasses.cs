@@ -108,7 +108,7 @@ namespace FlashCards
             }
             if (stack_id >= 0)
             {
-                this.stack_id = Convert.ToInt32(id);
+                this.stack_id = Convert.ToInt32(stack_id);
             }
             this.native_word = native_word;
             this.foreign_word = foreign_word;
@@ -116,6 +116,13 @@ namespace FlashCards
             this.picture = ImageConversion.ByteToImg(picture);
             this.sound = sound;
             this.hyperlink = hyperlink;
+        }
+
+        public VocabCard(int stack_id)
+        //constructs an empty card belonging to a particular stack
+        {
+            this.id = -1;
+            this.stack_id = stack_id;
         }
 
         public int Id

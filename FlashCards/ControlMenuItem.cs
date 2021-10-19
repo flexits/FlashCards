@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace FlashCards
 {
-    public partial class MenuItem : ItemControl
+    public partial class ControlMenuItem : ControlCustomItemParent
     /*
      * Custom UI item to represent a menu item
      * - in addition to inherited logic, contains switchable image 
@@ -18,7 +18,7 @@ namespace FlashCards
      * - invokes event ItemClickPerformed on mouse click.
      */
     {
-        public MenuItem()
+        public ControlMenuItem()
         {
             InitializeComponent();
         }

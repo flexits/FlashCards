@@ -59,7 +59,6 @@ namespace FlashCards
         }
 
         public static int UpdateStack(VocabStack modifiedstack)
-        //update the stack record
         {
             DynamicParameters parameters = new DynamicParameters();
             string query = "UPDATE stacks SET name = @name, native_lang = @native_lang, foreign_lang = @foreign_lang, comment = @comment, picture = @picture WHERE id = @stackid";
@@ -69,11 +68,10 @@ namespace FlashCards
             parameters.Add("comment", modifiedstack.Comment);
             parameters.Add("picture", ImageConversion.ImgToByte(modifiedstack.Picture));
             parameters.Add("stackid", modifiedstack.Id);
-            return dbconn.ExecuteScalar<int>(query, parameters);
+            return dbconn.ExecuteScalar<int>(query, parameters); //returns stack id
         }
 
         public static int AddStack(string name, string native_lang, string foreign_lang, Image picture, string comment)
-        //insert new stack record
         {
             DynamicParameters parameters = new DynamicParameters();
             string query = "INSERT INTO stacks (name, native_lang, foreign_lang, comment, picture) VALUES (@name, @native_lang, @foreign_lang, @comment, @picture)";
@@ -82,11 +80,15 @@ namespace FlashCards
             parameters.Add("foreign_lang", foreign_lang);
             parameters.Add("comment", comment);
             parameters.Add("picture", ImageConversion.ImgToByte(picture));
-            return dbconn.ExecuteScalar<int>(query, parameters);
+            return dbconn.ExecuteScalar<int>(query, parameters); //returns stack id
         }
 
         public static int RemoveStack(int stack_id)
         {
+            if (stack_id < 0)
+            {
+                return 0;
+            }
             string query = "DELETE FROM cards WHERE stack_id = @stackid";
             int affectedrows = dbconn.Execute(query, new { stackid = stack_id });
             query = "DELETE FROM stacks WHERE id = @stackid";
@@ -95,7 +97,6 @@ namespace FlashCards
         }
 
         public static int UpdateCard(VocabCard modifiedcard)
-        //update the card record
         {
             DynamicParameters parameters = new DynamicParameters();
             string query = "UPDATE cards SET native_word = @native_word, foreign_word = @foreign_word, comment = @comment, picture = @picture WHERE id = @cardid";
@@ -104,20 +105,41 @@ namespace FlashCards
             parameters.Add("comment", modifiedcard.Comment);
             parameters.Add("picture", ImageConversion.ImgToByte(modifiedcard.Picture));
             parameters.Add("cardid", modifiedcard.Id);
-            return dbconn.ExecuteScalar<int>(query, parameters);
+            return dbconn.ExecuteScalar<int>(query, parameters); //returns card id
         }
 
-        public static int AddCard(VocabCard modifiedcard)
-        //insert new card record
+        public static int AddCard(VocabCard newcard)
         {
             DynamicParameters parameters = new DynamicParameters();
             string query = "INSERT INTO cards (stack_id, native_word, foreign_word, comment, picture) VALUES (@stack_id, @native_word, @foreign_word, @comment, @picture)";
-            parameters.Add("native_word", modifiedcard.WordNative);
-            parameters.Add("foreign_word", modifiedcard.WordForeign);
-            parameters.Add("comment", modifiedcard.Comment);
-            parameters.Add("picture", ImageConversion.ImgToByte(modifiedcard.Picture));
-            parameters.Add("stack_id", modifiedcard.StackId);
-            return dbconn.ExecuteScalar<int>(query, parameters);
+            parameters.Add("native_word", newcard.WordNative);
+            parameters.Add("foreign_word", newcard.WordForeign);
+            parameters.Add("comment", newcard.Comment);
+            parameters.Add("picture", ImageConversion.ImgToByte(newcard.Picture));
+            parameters.Add("stack_id", newcard.StackId);
+            return dbconn.ExecuteScalar<int>(query, parameters); //returns card id
+        }
+
+        public static int AddCard(int stack_id, string native_word, string foreign_word, string comment, Image picture)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            string query = "INSERT INTO cards (stack_id, native_word, foreign_word, comment, picture) VALUES (@stack_id, @native_word, @foreign_word, @comment, @picture)";
+            parameters.Add("native_word", native_word);
+            parameters.Add("foreign_word", foreign_word);
+            parameters.Add("comment", comment);
+            parameters.Add("picture", ImageConversion.ImgToByte(picture));
+            parameters.Add("stack_id", stack_id);
+            return dbconn.ExecuteScalar<int>(query, parameters); //returns card id
+        }
+
+        public static int RemoveCard(int card_id)
+        {
+            if (card_id < 0)
+            {
+                return 0;
+            }
+            string query = "DELETE FROM cards WHERE id = @cardid";
+            return dbconn.Execute(query, new { cardid = card_id });
         }
     }
 }

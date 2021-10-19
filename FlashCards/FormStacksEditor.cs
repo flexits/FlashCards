@@ -14,16 +14,18 @@ namespace FlashCards
         private VocabStack currentStack;
         public FormStacksEditor(VocabStack stack)
         {
+            //if stack==null we're adding a new stack
+            //otherwise we're in edit mode
             InitializeComponent();
             string title;
             if (stack == null)
             {
-                title = "Adding stack";
+                //title = "Adding stack";
                 currentStack = null;
             }
             else
             {
-                title = "Editing stack";
+                //title = "Editing stack";
                 textBoxTitle.Text = stack.Name;
                 textBoxNative.Text = stack.NativeLang;
                 textBoxForeign.Text = stack.ForeignLang;
@@ -36,11 +38,7 @@ namespace FlashCards
             {
                 CustomLocales.TranslateControlsTextProp(Controls);
                 openFileDialog1.Title = CustomLocales.GetTranslation(openFileDialog1.Title);
-                title = CustomLocales.GetTranslation(title);
             }
-
-            //Text = title + " \"" + stack.Name + "\"";
-            
         }
 
         private void textBox_Leave(object sender, EventArgs e)
@@ -51,11 +49,12 @@ namespace FlashCards
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             //return to stacks browser
-            MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
+            MDIFormControls.OpenFormInPanel(new FormBrowserStacks());
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            //trim text in boxes 
             foreach (Control tb in Controls)
             {
                 if (tb.GetType() == typeof(TextBox))
@@ -79,7 +78,7 @@ namespace FlashCards
                 DbOperations.UpdateStack(currentStack);
             }
             //return to stacks browser
-            MDIFormControls.OpenFormInPanel(new FormStacksBrowser());
+            MDIFormControls.OpenFormInPanel(new FormBrowserStacks());
 
         }
 
@@ -95,7 +94,7 @@ namespace FlashCards
 
         private void buttonCards_Click(object sender, EventArgs e)
         {
-            MDIFormControls.OpenFormInPanel(new FormCardsBrowser(currentStack));
+            MDIFormControls.OpenFormInPanel(new FormBrowserCards(currentStack));
         }
 
         private void buttonImgRemove_Click(object sender, EventArgs e)
@@ -127,7 +126,7 @@ namespace FlashCards
                 text = CustomLocales.GetTranslation("Records removed:") + " ";
                 text += DbOperations.RemoveStack(currentStack.Id).ToString();
                 _ = MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                buttonCancel.PerformClick();
+                buttonCancel.PerformClick(); //close form when deleted 
             }
         }
     }

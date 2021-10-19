@@ -106,6 +106,7 @@ namespace FlashCards
         }
 
         public static string GetShortString(string source, int maxlength)
+        //remove extra symbols or echo string back if maxlength not exceeded
         {
             if (source.Length > maxlength)
             {
@@ -148,5 +149,28 @@ namespace FlashCards
         public static Color OrangePeel => Color.FromArgb(255, 159, 28);
         public static Color TiffanyBlue => Color.FromArgb(46, 196, 182);
         public static Color LightCyan => Color.FromArgb(203, 243, 240);
+    }
+
+    internal static class CustomBtnAdd
+    //generate button "Add" for control panels
+    {
+        public static Button Generate(Padding pad)
+        {
+            Button btnAddItem = new Button
+            {
+                FlatStyle = FlatStyle.Flat,
+                BackColor = CustomColors.LightCyan,
+                BackgroundImage = Properties.Resources.add_green,
+                BackgroundImageLayout = ImageLayout.Zoom,
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Right,
+                Size = new Size(64, 64),
+                Margin = pad,
+                Name = "btnAdd",
+            };
+            btnAddItem.FlatAppearance.BorderColor = CustomColors.TiffanyBlue;
+            btnAddItem.FlatAppearance.MouseDownBackColor = CustomColors.OrangePeel;
+            btnAddItem.FlatAppearance.MouseOverBackColor = CustomColors.MellowApricot;
+            return btnAddItem;
+        }
     }
 }

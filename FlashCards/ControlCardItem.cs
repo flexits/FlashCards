@@ -8,12 +8,12 @@ using System.Windows.Forms;
 
 namespace FlashCards
 {
-    public partial class CardItem : ItemControl
+    public partial class ControlCardItem : ControlCustomItemParent
     /*
      * Custom UI item to represent a card in a stack
      */
     {
-        public CardItem(VocabCard card)
+        public ControlCardItem(VocabCard card)
         {
             InitializeComponent();
             if (CustomLocales.TranslationNeeded)
@@ -21,14 +21,13 @@ namespace FlashCards
                 CustomLocales.TranslateControlsTextProp(panel1.Controls);
                 openFileDialog1.Title = CustomLocales.GetTranslation(openFileDialog1.Title);
             }
-            if (card == null)
+            currentCard = card;
+            if (card.Id == -1)
             {
                 //add new card
-                currentCard = null;
             }
             else
             {
-                currentCard = card;
                 textBoxWord.Text = currentCard.WordForeign;
                 textBoxTranslation.Text = currentCard.WordNative;
                 textBoxComment.Text = currentCard.Comment;
@@ -74,7 +73,6 @@ namespace FlashCards
 
         protected override void ItemDeselected()
         //if there were changes, update db on item deselection
-        //TODO add item
         {
             foreach (Control tb in panel1.Controls)
             {
@@ -84,10 +82,14 @@ namespace FlashCards
                 }
             }
 
-            if (currentCard == null)
+            if (currentCard.Id == -1)
             {
                 //add
-                //DbOperations.AddCard
+                currentCard.WordForeign = textBoxWord.Text;
+                currentCard.WordNative = textBoxTranslation.Text;
+                currentCard.Comment = textBoxComment.Text;
+                currentCard.Picture = pictureBox1.Image;
+                DbOperations.AddCard(currentCard);
             }
             else
             {
@@ -108,6 +110,31 @@ namespace FlashCards
         private void TextBox_Leave(object sender, EventArgs e)
         {
             (sender as TextBox).Text = (sender as TextBox).Text.Trim();
+        }
+
+        public event EventHandler ItemDeleted;
+
+        private void buttonDelete_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (currentCard.Id == -1)
+            {
+                //delete item from panel
+                return;
+            }
+            string text = "You're going to delete card with all its contents. This action can't be undone. Continue anyway?";
+            string caption = "Delete file";
+            if (CustomLocales.TranslationNeeded)
+            {
+                text = CustomLocales.GetTranslation(text);
+                caption = CustomLocales.GetTranslation(caption);
+            }
+            if (MessageBox.Show(text, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                text = CustomLocales.GetTranslation("Records removed:") + " ";
+                text += DbOperations.RemoveCard(currentCard.Id).ToString();
+                _ = MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ItemDeleted?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }

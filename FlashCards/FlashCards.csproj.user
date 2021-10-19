@@ -4,13 +4,13 @@
     <ShowAllFiles>false</ShowAllFiles>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="CardItem.cs">
+    <Compile Update="ControlCardItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="CustomBrowserForm.cs">
+    <Compile Update="FormBrowserParent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormCardsBrowser.cs">
+    <Compile Update="FormBrowserCards.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormMain.cs">
@@ -22,19 +22,19 @@
     <Compile Update="FormSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormStacksBrowser.cs">
+    <Compile Update="FormBrowserStacks.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormStacksEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ItemControl.cs">
+    <Compile Update="ControlCustomItemParent.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="MenuItem.cs">
+    <Compile Update="ControlMenuItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="StackItem.cs">
+    <Compile Update="ControlStackItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

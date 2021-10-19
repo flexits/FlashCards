@@ -1,7 +1,7 @@
 ﻿
 namespace FlashCards
 {
-    partial class CardItem
+    partial class ControlCardItem
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -30,6 +30,7 @@ namespace FlashCards
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.textBoxTranslation = new System.Windows.Forms.TextBox();
             this.textBoxWord = new System.Windows.Forms.TextBox();
@@ -46,6 +47,7 @@ namespace FlashCards
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.buttonDelete);
             this.panel1.Controls.Add(this.textBoxComment);
             this.panel1.Controls.Add(this.textBoxTranslation);
             this.panel1.Controls.Add(this.textBoxWord);
@@ -56,9 +58,19 @@ namespace FlashCards
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(444, 106);
+            this.panel1.Size = new System.Drawing.Size(490, 106);
             this.panel1.TabIndex = 0;
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(447, 53);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(26, 23);
+            this.buttonDelete.TabIndex = 12;
+            this.buttonDelete.Text = "-";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonDelete_MouseClick);
             // 
             // textBoxComment
             // 
@@ -155,13 +167,13 @@ namespace FlashCards
             this.openFileDialog1.Title = "Open picture...";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // CardItem
+            // ControlCardItem
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(30, 3, 3, 10);
-            this.Name = "CardItem";
-            this.Size = new System.Drawing.Size(454, 116);
+            this.Name = "ControlCardItem";
+            this.Size = new System.Drawing.Size(500, 116);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -182,5 +194,6 @@ namespace FlashCards
         private System.Windows.Forms.TextBox textBoxWord;
         private System.Windows.Forms.TextBox textBoxComment;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }

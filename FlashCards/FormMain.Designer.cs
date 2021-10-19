@@ -36,9 +36,9 @@ namespace FlashCards
             this.buttonClose = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelNavi = new System.Windows.Forms.Panel();
-            this.menuItemSettings = new FlashCards.MenuItem();
-            this.menuItemQiuz = new FlashCards.MenuItem();
-            this.menuItemStacks = new FlashCards.MenuItem();
+            this.menuItemSettings = new FlashCards.ControlMenuItem();
+            this.menuItemQiuz = new FlashCards.ControlMenuItem();
+            this.menuItemStacks = new FlashCards.ControlMenuItem();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
@@ -236,9 +236,9 @@ namespace FlashCards
         private System.Windows.Forms.Button buttonMinimize;
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Panel panelContainer;
-        private MenuItem menuItemStacks;
-        private MenuItem menuItemQiuz;
-        private MenuItem menuItemSettings;
+        private ControlMenuItem menuItemStacks;
+        private ControlMenuItem menuItemQiuz;
+        private ControlMenuItem menuItemSettings;
     }
 }
 
