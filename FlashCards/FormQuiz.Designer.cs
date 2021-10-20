@@ -120,6 +120,7 @@ namespace FlashCards
             this.comboBoxLang.Name = "comboBoxLang";
             this.comboBoxLang.Size = new System.Drawing.Size(82, 23);
             this.comboBoxLang.TabIndex = 13;
+            this.comboBoxLang.SelectedIndexChanged += new System.EventHandler(this.comboBoxLang_SelectedIndexChanged);
             // 
             // labelLang
             // 

@@ -73,6 +73,10 @@ namespace FlashCards
         private void ReverseCardWord()
         {
             //display card word in another language (turn card over)
+            if (currentcard == null)
+            {
+                return;
+            }
             if (currentcardfacelang == CardFaceLanguages.Foreign)
             {
                 labelWord.Text = currentcard.WordNative;
@@ -94,6 +98,7 @@ namespace FlashCards
             {
                 //quiz ended
                 pictureBox1.Image = Properties.Resources.approval_green;
+                labelWord.Text = CustomLocales.GetTranslation("Congratulations!");
                 //TODO insert text in labelWord (stats? counters?)
                 buttonKnown.Enabled = false;
                 buttonUnknown.Enabled = false;
@@ -102,6 +107,11 @@ namespace FlashCards
             }
             pictureBox1.Image = currentcard.Picture;
             DisplayCardWord();
+        }
+
+        private void comboBoxLang_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            ReverseCardWord();
         }
     }
 }
