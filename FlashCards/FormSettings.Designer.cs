@@ -35,6 +35,7 @@ namespace FlashCards
             this.labelRestartWarning = new System.Windows.Forms.Label();
             this.labelCardFace = new System.Windows.Forms.Label();
             this.comboBoxCardFace = new System.Windows.Forms.ComboBox();
+            this.labelCopyright = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelLang
@@ -107,12 +108,22 @@ namespace FlashCards
             this.comboBoxCardFace.Size = new System.Drawing.Size(109, 23);
             this.comboBoxCardFace.TabIndex = 5;
             // 
+            // labelCopyright
+            // 
+            this.labelCopyright.AutoSize = true;
+            this.labelCopyright.Location = new System.Drawing.Point(328, 205);
+            this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.Size = new System.Drawing.Size(133, 30);
+            this.labelCopyright.TabIndex = 6;
+            this.labelCopyright.Text = "(c) Alexander Korostelin\r\n4d.41.49.4c@gmail.com";
+            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.comboBoxCardFace);
             this.Controls.Add(this.labelCardFace);
             this.Controls.Add(this.labelRestartWarning);
@@ -134,5 +145,6 @@ namespace FlashCards
         private System.Windows.Forms.Label labelRestartWarning;
         private System.Windows.Forms.Label labelCardFace;
         private System.Windows.Forms.ComboBox comboBoxCardFace;
+        private System.Windows.Forms.Label labelCopyright;
     }
 }
