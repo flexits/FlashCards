@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FlashCards
@@ -31,6 +26,18 @@ namespace FlashCards
                     {
                         (cl as ControlCustomItemParent).IsSelected = false;
                     }
+                }
+            }
+        }
+
+        private void flowLayoutPanel1_MouseClick(object sender, MouseEventArgs e)
+        //deselect all items upon click on an empty space
+        {
+            foreach (Control cl in flowLayoutPanel1.Controls)
+            {
+                if (cl is ControlCustomItemParent)
+                {
+                    (cl as ControlCustomItemParent).IsSelected = false;
                 }
             }
         }

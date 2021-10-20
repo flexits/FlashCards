@@ -160,6 +160,15 @@ namespace FlashCards.lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Учить!.
+        /// </summary>
+        public static string Learn_ {
+            get {
+                return ResourceManager.GetString("Learn!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Родной.
         /// </summary>
         public static string Native {

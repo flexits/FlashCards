@@ -40,6 +40,7 @@ namespace FlashCards
             this.labelImage = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.buttonImgRemove = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +48,7 @@ namespace FlashCards
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.buttonImgRemove);
             this.panel1.Controls.Add(this.buttonDelete);
             this.panel1.Controls.Add(this.textBoxComment);
             this.panel1.Controls.Add(this.textBoxTranslation);
@@ -64,12 +66,18 @@ namespace FlashCards
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(447, 53);
+            this.buttonDelete.BackColor = System.Drawing.Color.White;
+            this.buttonDelete.BackgroundImage = global::FlashCards.Properties.Resources.delete;
+            this.buttonDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
+            this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
+            this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Location = new System.Drawing.Point(441, 73);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(26, 23);
+            this.buttonDelete.Size = new System.Drawing.Size(28, 28);
             this.buttonDelete.TabIndex = 12;
-            this.buttonDelete.Text = "-";
-            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonDelete_MouseClick);
             // 
             // textBoxComment
@@ -167,6 +175,22 @@ namespace FlashCards
             this.openFileDialog1.Title = "Open picture...";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // buttonImgRemove
+            // 
+            this.buttonImgRemove.BackColor = System.Drawing.Color.White;
+            this.buttonImgRemove.BackgroundImage = global::FlashCards.Properties.Resources.remove_image;
+            this.buttonImgRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonImgRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
+            this.buttonImgRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
+            this.buttonImgRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonImgRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImgRemove.Location = new System.Drawing.Point(69, 73);
+            this.buttonImgRemove.Name = "buttonImgRemove";
+            this.buttonImgRemove.Size = new System.Drawing.Size(28, 28);
+            this.buttonImgRemove.TabIndex = 18;
+            this.buttonImgRemove.UseVisualStyleBackColor = false;
+            this.buttonImgRemove.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonImgRemove_MouseClick);
+            // 
             // ControlCardItem
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -195,5 +219,6 @@ namespace FlashCards
         private System.Windows.Forms.TextBox textBoxComment;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonImgRemove;
     }
 }

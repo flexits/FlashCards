@@ -208,7 +208,8 @@ namespace FlashCards
             // buttonImgRemove
             // 
             this.buttonImgRemove.BackColor = System.Drawing.Color.White;
-            this.buttonImgRemove.BackgroundImage = global::FlashCards.Properties.Resources.minus;
+            this.buttonImgRemove.BackgroundImage = global::FlashCards.Properties.Resources.remove_image;
+            this.buttonImgRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonImgRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
             this.buttonImgRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
             this.buttonImgRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;

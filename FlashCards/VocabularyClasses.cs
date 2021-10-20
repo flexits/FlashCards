@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 
 namespace FlashCards
 {
@@ -120,6 +119,7 @@ namespace FlashCards
 
         public VocabCard(int stack_id)
         //constructs an empty card belonging to a particular stack
+        //negative id is the distinctive feature of a new card absent in database
         {
             this.id = -1;
             this.stack_id = stack_id;

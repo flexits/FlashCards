@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FlashCards
@@ -35,14 +30,23 @@ namespace FlashCards
         private void OnItemSelection(object sender, MouseEventArgs e)
         {
             IsSelected = true;
+            SelectStackInMainForm(currentStack);
+        }
 
+        protected override void ItemDeselected()
+        {
+            IsSelected = false;
+            SelectStackInMainForm(null);
+        }
+
+        private void SelectStackInMainForm(VocabStack stack)
+        {
             //set stack selection in the main form
             Form fm = Application.OpenForms["FormMain"];
             if (fm != null)
             {
-                (fm as FormMain).SelectedStack = currentStack;
+                (fm as FormMain).SelectedStack = stack;
             }
-
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)

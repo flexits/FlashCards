@@ -150,6 +150,9 @@
   <data name="Known!" xml:space="preserve">
     <value>Знаю!</value>
   </data>
+  <data name="Learn!" xml:space="preserve">
+    <value>Учить!</value>
+  </data>
   <data name="Native" xml:space="preserve">
     <value>Родной</value>
   </data>
