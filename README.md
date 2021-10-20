@@ -11,3 +11,4 @@ TODO list:
 - show card's comment on face or back side in learning mode
 
 You're free to use the app anyway you want, preserving original author notice.
+If you don't need souce codes, **download** just the FlashCards.zip file, unzip anywhere and run .exe
