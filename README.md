@@ -8,5 +8,6 @@ TODO list:
 - counters of words and attempts
 - test mode in addition to learning mode
 - image operations (check format, auto resize)
+- show card's comment on face or back side in learning mode
 
 You're free to use the app anyway you want, preserving original author notice.
