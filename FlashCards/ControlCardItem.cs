@@ -31,7 +31,7 @@ namespace FlashCards
              textBoxWord.Text = currentCard.WordForeign;
              textBoxTranslation.Text = currentCard.WordNative;
              textBoxComment.Text = currentCard.Comment;
-             pictureBox1.Image = currentCard.Picture;
+             pictureBox1.Image = ImageConversion.ByteToImg(currentCard.Picture);
             
             //form style
             BackColor = CustomColors.TiffanyBlue;
@@ -103,12 +103,12 @@ namespace FlashCards
             if (textBoxWord.Text != currentCard.WordForeign ||
                 textBoxTranslation.Text != currentCard.WordNative ||
                 textBoxComment.Text != currentCard.Comment ||
-                pictureBox1.Image != currentCard.Picture)
+                pictureBox1.Image != ImageConversion.ByteToImg(currentCard.Picture))
             {
                 currentCard.WordForeign = textBoxWord.Text;
                 currentCard.WordNative = textBoxTranslation.Text;
                 currentCard.Comment = textBoxComment.Text;
-                currentCard.Picture = pictureBox1.Image;
+                currentCard.Picture = ImageConversion.ImgToByte(pictureBox1.Image);
                 return true;
             }
             return false;

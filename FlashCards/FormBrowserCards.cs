@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace FlashCards
@@ -12,7 +13,8 @@ namespace FlashCards
             InitializeComponent();
             currentstack = stack;
             //get all cards from db relevant to stack_id and create a control for each
-            foreach (VocabCard card in currentstack)
+            List<VocabCard> cards = DbOperations.GetAllCardsInStack(currentstack.Id);
+            foreach (VocabCard card in cards)
             {
                 ControlCardItem crd = new ControlCardItem(card);
                 crd.SelectionChanged += new EventHandler(ChildItemSelectChanged);

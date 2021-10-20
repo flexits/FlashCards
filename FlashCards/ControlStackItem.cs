@@ -21,7 +21,7 @@ namespace FlashCards
             labelTitle.Text = currentStack.Name;
             labelComment.Text = currentStack.Comment;
             labelCounter.Text += " " + currentStack.StackLength.ToString();
-            pictureBox1.Image = currentStack.Picture;
+            pictureBox1.Image = ImageConversion.ByteToImg(currentStack.Picture);
             labelLang.Text = CustomLocales.GetShortString(currentStack.ForeignLang, 6) + " / " + CustomLocales.GetShortString(currentStack.NativeLang, 6);
         }
 

@@ -45,6 +45,8 @@ namespace FlashCards
             this.buttonCards = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonImgRemove = new System.Windows.Forms.Button();
+            this.buttonExport = new System.Windows.Forms.Button();
+            this.buttonImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -221,12 +223,46 @@ namespace FlashCards
             this.buttonImgRemove.UseVisualStyleBackColor = false;
             this.buttonImgRemove.Click += new System.EventHandler(this.buttonImgRemove_Click);
             // 
+            // buttonExport
+            // 
+            this.buttonExport.BackColor = System.Drawing.Color.White;
+            this.buttonExport.BackgroundImage = global::FlashCards.Properties.Resources.remove_image;
+            this.buttonExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
+            this.buttonExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
+            this.buttonExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExport.Location = new System.Drawing.Point(516, 169);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(28, 28);
+            this.buttonExport.TabIndex = 18;
+            this.buttonExport.UseVisualStyleBackColor = false;
+            this.buttonExport.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonExport_MouseClick);
+            // 
+            // buttonImport
+            // 
+            this.buttonImport.BackColor = System.Drawing.Color.White;
+            this.buttonImport.BackgroundImage = global::FlashCards.Properties.Resources.remove_image;
+            this.buttonImport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonImport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
+            this.buttonImport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
+            this.buttonImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImport.Location = new System.Drawing.Point(516, 131);
+            this.buttonImport.Name = "buttonImport";
+            this.buttonImport.Size = new System.Drawing.Size(28, 28);
+            this.buttonImport.TabIndex = 19;
+            this.buttonImport.UseVisualStyleBackColor = false;
+            this.buttonImport.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonImport_MouseClick);
+            // 
             // FormStacksEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(568, 218);
+            this.Controls.Add(this.buttonImport);
+            this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.buttonImgRemove);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonCards);
@@ -269,5 +305,7 @@ namespace FlashCards
         private System.Windows.Forms.Button buttonCards;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonImgRemove;
+        private System.Windows.Forms.Button buttonExport;
+        private System.Windows.Forms.Button buttonImport;
     }
 }

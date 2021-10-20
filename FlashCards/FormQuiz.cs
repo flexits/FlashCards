@@ -29,7 +29,7 @@ namespace FlashCards
             comboBoxLang.Items.Add(stack.ForeignLang);
             comboBoxLang.Items.Add(stack.NativeLang);
             comboBoxLang.SelectedItem = comboBoxLang.Items[Properties.Settings.Default.CardFaceLang];
-            quiz = stack.Quiz();
+            quiz = new VocabQuiz(stack.Id);
             DisplayNextCard();
             //MDIFormControls.CenterElementInPanel(labelTitle, Width);
             //MDIFormControls.CenterElementInPanel(panelCard, Width);
@@ -105,7 +105,7 @@ namespace FlashCards
                 comboBoxLang.Enabled = false;
                 return;
             }
-            pictureBox1.Image = currentcard.Picture;
+            pictureBox1.Image = ImageConversion.ByteToImg(currentcard.Picture);
             DisplayCardWord();
         }
 

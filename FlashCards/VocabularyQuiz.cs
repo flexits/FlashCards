@@ -14,10 +14,10 @@ namespace FlashCards
      */
     public class VocabQuiz
     {
-        public VocabQuiz(int[] card_ids)
+        public VocabQuiz(int stack_id)
         {
-            allcards = new List<int>(card_ids);
-            returnedcards = new List<int>(card_ids.Length);
+            allcards = DbOperations.GetAllCardsIDsInStack(stack_id);
+            returnedcards = new List<int>(allcards.Count);
             rnd = new Random();
         }
 

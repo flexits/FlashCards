@@ -21,19 +21,32 @@ namespace FlashCards
             return dbconn.Query<VocabStack>(query).AsList();
         }
 
-        /* not needed anymore
+        public static VocabStack GetStackById(int stack_id)
+        //return particular card
+        {
+            string query = "SELECT * FROM stacks WHERE id = @stackid";
+            return dbconn.QuerySingleOrDefault<VocabStack>(query, new { stackid = stack_id });
+        }
+
         public static int CardsCountInStack(int stack_id)
         //return the number of cards relevant to a particular stack
         {
             string query = "SELECT COUNT(*) FROM cards WHERE stack_id = @stackid";
             return dbconn.ExecuteScalar<int>(query, new { stackid = stack_id });
-        }*/
+        }
 
         public static List<VocabCard> GetAllCardsInStack(int stack_id)
         //return all cards relevant to a particular stack
         {
             string query = "SELECT * FROM cards WHERE stack_id = @stackid ORDER BY id ASC";
             return dbconn.Query<VocabCard>(query, new { stackid = stack_id }).AsList();
+        }
+
+        public static List<int> GetAllCardsIDsInStack(int stack_id)
+        //return all cards ids relevant to a particular stack
+        {
+            string query = "SELECT id FROM cards WHERE stack_id = @stackid ORDER BY id ASC";
+            return dbconn.Query<int>(query, new { stackid = stack_id }).AsList();
         }
 
         public static int[] GetCardIdsInStack(int stack_id)
@@ -64,7 +77,7 @@ namespace FlashCards
             parameters.Add("native_lang", modifiedstack.NativeLang);
             parameters.Add("foreign_lang", modifiedstack.ForeignLang);
             parameters.Add("comment", modifiedstack.Comment);
-            parameters.Add("picture", ImageConversion.ImgToByte(modifiedstack.Picture));
+            parameters.Add("picture", modifiedstack.Picture);
             parameters.Add("stackid", modifiedstack.Id);
             return dbconn.ExecuteScalar<int>(query, parameters); //returns stack id
         }
@@ -101,7 +114,7 @@ namespace FlashCards
             parameters.Add("native_word", modifiedcard.WordNative);
             parameters.Add("foreign_word", modifiedcard.WordForeign);
             parameters.Add("comment", modifiedcard.Comment);
-            parameters.Add("picture", ImageConversion.ImgToByte(modifiedcard.Picture));
+            parameters.Add("picture", modifiedcard.Picture);
             parameters.Add("cardid", modifiedcard.Id);
             return dbconn.ExecuteScalar<int>(query, parameters); //returns card id
         }
@@ -113,7 +126,7 @@ namespace FlashCards
             parameters.Add("native_word", newcard.WordNative);
             parameters.Add("foreign_word", newcard.WordForeign);
             parameters.Add("comment", newcard.Comment);
-            parameters.Add("picture", ImageConversion.ImgToByte(newcard.Picture));
+            parameters.Add("picture", newcard.Picture);
             parameters.Add("stack_id", newcard.StackId);
             return dbconn.ExecuteScalar<int>(query, parameters); //returns card id
         }

@@ -15,30 +15,11 @@ namespace FlashCards
         private string comment;
         private string native_lang;
         private string foreign_lang;
-        private Image picture;
-        private int[] card_ids;
+        private byte[] picture;
 
-        public VocabStack(long id, string name, string native_lang, string foreign_lang, byte[] picture, string comment)
-        //constructor for database object materialization
+        public VocabStack()
+        //parameterless constructor for deserialization
         {
-            if (id >= 0)
-            {
-                this.id = Convert.ToInt32(id);
-            }
-            this.name = name;
-            this.native_lang = native_lang;
-            this.foreign_lang = foreign_lang;
-            this.comment = comment;
-            this.picture = ImageConversion.ByteToImg(picture);
-            card_ids = DbOperations.GetCardIdsInStack(this.id);
-        }
-
-        public IEnumerator<VocabCard> GetEnumerator()
-        {
-            foreach (int cid in card_ids)
-            {
-                yield return DbOperations.GetCardById(cid);
-            }
         }
 
         public int Id
@@ -72,19 +53,10 @@ namespace FlashCards
 
         public int StackLength
         {
-            get { return card_ids.Length; }
+            get { return DbOperations.CardsCountInStack(id); }
         }
 
-        public Image Picture
-        {
-            get { return picture; }
-            set { picture = value; }
-        }
-
-        public VocabQuiz Quiz()
-        {
-            return new VocabQuiz(card_ids);
-        }
+        public byte[] Picture { get; set; }
     }
 
     public class VocabCard
@@ -95,26 +67,12 @@ namespace FlashCards
         private string foreign_word;
         private string comment;
         private string hyperlink;
-        private Image picture;
+        private byte[] picture;
         private byte[] sound;
 
-        public VocabCard(long id, long stack_id, string native_word, string foreign_word, string comment, byte[] picture, byte[] sound, string hyperlink)
-        //constructor for database object materialization
+        public VocabCard()
         {
-            if (id >= 0)
-            {
-                this.id = Convert.ToInt32(id);
-            }
-            if (stack_id >= 0)
-            {
-                this.stack_id = Convert.ToInt32(stack_id);
-            }
-            this.native_word = native_word;
-            this.foreign_word = foreign_word;
-            this.comment = comment;
-            this.picture = ImageConversion.ByteToImg(picture);
-            this.sound = sound;
-            this.hyperlink = hyperlink;
+
         }
 
         public VocabCard(int stack_id)
@@ -164,11 +122,7 @@ namespace FlashCards
             set { hyperlink = value; }
         }
 
-        public Image Picture
-        {
-            get { return picture; }
-            set { picture = value; }
-        }
+        public byte[] Picture { get; set; }
     }
 
     public enum CardFaceLanguages : int

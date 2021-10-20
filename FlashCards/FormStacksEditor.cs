@@ -1,5 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
+using System.IO;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Windows.Forms;
 
 namespace FlashCards
@@ -25,7 +28,7 @@ namespace FlashCards
                 textBoxNative.Text = stack.NativeLang;
                 textBoxForeign.Text = stack.ForeignLang;
                 textBoxComment.Text = stack.Comment;
-                pictureBox1.Image = stack.Picture;
+                pictureBox1.Image = ImageConversion.ByteToImg(stack.Picture);
                 currentStack = stack;
             }
             //translate controls' text
@@ -69,7 +72,7 @@ namespace FlashCards
                 currentStack.NativeLang = textBoxNative.Text;
                 currentStack.ForeignLang = textBoxForeign.Text;
                 currentStack.Comment = textBoxComment.Text;
-                currentStack.Picture = pictureBox1.Image;
+                currentStack.Picture = ImageConversion.ImgToByte(pictureBox1.Image);
                 DbOperations.UpdateStack(currentStack);
             }
             //return to stacks browser
@@ -123,6 +126,26 @@ namespace FlashCards
                 _ = MessageBox.Show(text, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 buttonCancel.PerformClick(); //close form when deleted 
             }
+        }
+
+        private void buttonExport_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (currentStack == null)
+            {
+                return;
+            }
+            StackWrapper stwrp = new StackWrapper(currentStack.Id);
+            string jsoncontents = JsonSerializer.Serialize<StackWrapper>(stwrp);
+            string filename = "test.json";
+            File.WriteAllText(filename, jsoncontents);
+        }
+
+        private void buttonImport_MouseClick(object sender, MouseEventArgs e)
+        {
+            string filename = "test.json";
+            string jsoncontents = File.ReadAllText(filename);
+            StackWrapper stwrp = JsonSerializer.Deserialize<StackWrapper>(jsoncontents);
+            int id = stwrp.Stack.Id;
         }
     }
 }
