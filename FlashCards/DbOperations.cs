@@ -82,6 +82,18 @@ namespace FlashCards
             return dbconn.ExecuteScalar<int>(query, parameters); //returns stack id
         }
 
+        public static int AddStack(VocabStack newstack)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            string query = "INSERT INTO stacks (name, native_lang, foreign_lang, comment, picture) VALUES (@name, @native_lang, @foreign_lang, @comment, @picture)";
+            parameters.Add("name", newstack.Name);
+            parameters.Add("native_lang", newstack.NativeLang);
+            parameters.Add("foreign_lang", newstack.ForeignLang);
+            parameters.Add("comment", newstack.Comment);
+            parameters.Add("picture", newstack.Picture);
+            return dbconn.ExecuteScalar<int>(query, parameters); //returns stack id
+        }
+
         public static int AddStack(string name, string native_lang, string foreign_lang, Image picture, string comment)
         {
             DynamicParameters parameters = new DynamicParameters();

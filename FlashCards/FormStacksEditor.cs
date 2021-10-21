@@ -1,8 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Windows.Forms;
 
 namespace FlashCards
@@ -134,8 +132,7 @@ namespace FlashCards
             {
                 return;
             }
-            StackWrapper stwrp = new StackWrapper(currentStack.Id);
-            string jsoncontents = JsonSerializer.Serialize<StackWrapper>(stwrp);
+            string jsoncontents = (new StackWrapper(currentStack.Id)).Serialize();
             string filename = "test.json";
             File.WriteAllText(filename, jsoncontents);
         }
@@ -144,8 +141,9 @@ namespace FlashCards
         {
             string filename = "test.json";
             string jsoncontents = File.ReadAllText(filename);
-            StackWrapper stwrp = JsonSerializer.Deserialize<StackWrapper>(jsoncontents);
-            int id = stwrp.Stack.Id;
+            //StackWrapper stwrp = StackWrapper.Deserialize(jsoncontents);
+            //int id = stwrp.Stack.Id;
+            _ = StackWrapper.Deserialize(jsoncontents).FlushToDb();
         }
     }
 }
