@@ -37,7 +37,6 @@ namespace FlashCards
         public int FlushToDb()
         {
             int stackid = DbOperations.AddStack(stack);
-            //incorrect id
             foreach (VocabCard vc in cards)
             {
                 vc.StackId = stackid;

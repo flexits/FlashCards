@@ -79,13 +79,13 @@ namespace FlashCards
             parameters.Add("comment", modifiedstack.Comment);
             parameters.Add("picture", modifiedstack.Picture);
             parameters.Add("stackid", modifiedstack.Id);
-            return dbconn.ExecuteScalar<int>(query, parameters); //returns stack id
+            return dbconn.ExecuteScalar<int>(query, parameters);
         }
 
         public static int AddStack(VocabStack newstack)
         {
             DynamicParameters parameters = new DynamicParameters();
-            string query = "INSERT INTO stacks (name, native_lang, foreign_lang, comment, picture) VALUES (@name, @native_lang, @foreign_lang, @comment, @picture)";
+            string query = "INSERT INTO stacks (name, native_lang, foreign_lang, comment, picture) VALUES (@name, @native_lang, @foreign_lang, @comment, @picture); SELECT last_insert_rowid()";
             parameters.Add("name", newstack.Name);
             parameters.Add("native_lang", newstack.NativeLang);
             parameters.Add("foreign_lang", newstack.ForeignLang);
@@ -97,7 +97,7 @@ namespace FlashCards
         public static int AddStack(string name, string native_lang, string foreign_lang, Image picture, string comment)
         {
             DynamicParameters parameters = new DynamicParameters();
-            string query = "INSERT INTO stacks (name, native_lang, foreign_lang, comment, picture) VALUES (@name, @native_lang, @foreign_lang, @comment, @picture)";
+            string query = "INSERT INTO stacks (name, native_lang, foreign_lang, comment, picture) VALUES (@name, @native_lang, @foreign_lang, @comment, @picture); SELECT last_insert_rowid()";
             parameters.Add("name", name);
             parameters.Add("native_lang", native_lang);
             parameters.Add("foreign_lang", foreign_lang);
@@ -128,13 +128,13 @@ namespace FlashCards
             parameters.Add("comment", modifiedcard.Comment);
             parameters.Add("picture", modifiedcard.Picture);
             parameters.Add("cardid", modifiedcard.Id);
-            return dbconn.ExecuteScalar<int>(query, parameters); //returns card id
+            return dbconn.ExecuteScalar<int>(query, parameters);
         }
 
         public static int AddCard(VocabCard newcard)
         {
             DynamicParameters parameters = new DynamicParameters();
-            string query = "INSERT INTO cards (stack_id, native_word, foreign_word, comment, picture) VALUES (@stack_id, @native_word, @foreign_word, @comment, @picture)";
+            string query = "INSERT INTO cards (stack_id, native_word, foreign_word, comment, picture) VALUES (@stack_id, @native_word, @foreign_word, @comment, @picture); SELECT last_insert_rowid()";
             parameters.Add("native_word", newcard.WordNative);
             parameters.Add("foreign_word", newcard.WordForeign);
             parameters.Add("comment", newcard.Comment);
@@ -146,7 +146,7 @@ namespace FlashCards
         public static int AddCard(int stack_id, string native_word, string foreign_word, string comment, Image picture)
         {
             DynamicParameters parameters = new DynamicParameters();
-            string query = "INSERT INTO cards (stack_id, native_word, foreign_word, comment, picture) VALUES (@stack_id, @native_word, @foreign_word, @comment, @picture)";
+            string query = "INSERT INTO cards (stack_id, native_word, foreign_word, comment, picture) VALUES (@stack_id, @native_word, @foreign_word, @comment, @picture); SELECT last_insert_rowid()";
             parameters.Add("native_word", native_word);
             parameters.Add("foreign_word", foreign_word);
             parameters.Add("comment", comment);

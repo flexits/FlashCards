@@ -141,8 +141,6 @@ namespace FlashCards
         {
             string filename = "test.json";
             string jsoncontents = File.ReadAllText(filename);
-            //StackWrapper stwrp = StackWrapper.Deserialize(jsoncontents);
-            //int id = stwrp.Stack.Id;
             _ = StackWrapper.Deserialize(jsoncontents).FlushToDb();
         }
     }
