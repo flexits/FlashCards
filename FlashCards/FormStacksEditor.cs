@@ -108,6 +108,10 @@ namespace FlashCards
 
         private void buttonImgRemove_Click(object sender, EventArgs e)
         {
+            if (pictureBox1.Image == null)
+            {
+                return;
+            }
             string text = "You're going to delete picture. This action can't be undone. Continue anyway?";
             string caption = "Delete file";
             if (CustomLocales.TranslationNeeded)
