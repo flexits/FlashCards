@@ -11,6 +11,7 @@ namespace FlashCards
         private VocabQuiz quiz;
         private VocabCard currentcard;
         private CardFaceLanguages currentcardfacelang;
+        private int counter;
 
         public FormQuiz(VocabStack stack)
         {
@@ -24,8 +25,9 @@ namespace FlashCards
                 CustomLocales.TranslateControlsTextProp(Controls);
             }
 
+            counter = stack.StackLength;
             labelTitle.Text = stack.Name;
-            //TODO add counters
+            labelCounter.Text = counter.ToString();
             comboBoxLang.Items.Add(stack.ForeignLang);
             comboBoxLang.Items.Add(stack.NativeLang);
             comboBoxLang.SelectedItem = comboBoxLang.Items[Properties.Settings.Default.CardFaceLang];
@@ -45,6 +47,10 @@ namespace FlashCards
         {
             //pop next card
             DisplayNextCard();
+            if (counter > 0)
+            {
+                labelCounter.Text = (--counter).ToString();
+            }
         }
 
         private void buttonUnknown_MouseClick(object sender, MouseEventArgs e)
@@ -66,8 +72,9 @@ namespace FlashCards
             {
                 labelWord.Text = currentcard.WordNative;
             }
+
+            //center label
             MDIFormControls.CenterElementInPanel(labelWord, panelCard.Width);
-            
         }
 
         private void ReverseCardWord()
@@ -87,8 +94,9 @@ namespace FlashCards
                 labelWord.Text = currentcard.WordForeign;
                 currentcardfacelang = CardFaceLanguages.Foreign;
             }
+
+            //center label
             MDIFormControls.CenterElementInPanel(labelWord, panelCard.Width);
-            //TODO if image not null, pad label left
         }
 
         private void DisplayNextCard()
@@ -98,7 +106,7 @@ namespace FlashCards
             {
                 //quiz ended
                 pictureBox1.Image = Properties.Resources.approval_green;
-                labelWord.Text = CustomLocales.GetTranslation("Congratulations!");
+                labelWord.Text = CustomLocales.GetTranslation("Finished!");
                 //TODO insert text in labelWord (stats? counters?)
                 buttonKnown.Enabled = false;
                 buttonUnknown.Enabled = false;

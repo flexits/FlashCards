@@ -133,6 +133,33 @@ namespace FlashCards.lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Экспорт.
+        /// </summary>
+        public static string Export {
+            get {
+                return ResourceManager.GetString("Export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Экпортировать стопку в файл....
+        /// </summary>
+        public static string Export_stack_to_file___ {
+            get {
+                return ResourceManager.GetString("Export stack to file...", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Готово!.
+        /// </summary>
+        public static string Finished_ {
+            get {
+                return ResourceManager.GetString("Finished!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Иностраный.
         /// </summary>
         public static string Foreign {
@@ -147,6 +174,33 @@ namespace FlashCards.lang {
         public static string Foreign_language_ {
             get {
                 return ResourceManager.GetString("Foreign language:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Изображения|*.jpg;*.png;*.gif|Все файлы|*.*.
+        /// </summary>
+        public static string Image_files___jpg___png___gif_All_files____ {
+            get {
+                return ResourceManager.GetString("Image files|*.jpg;*.png;*.gif|All files|*.*", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Импорт.
+        /// </summary>
+        public static string Import {
+            get {
+                return ResourceManager.GetString("Import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Импортировать стопку из файла....
+        /// </summary>
+        public static string Import_stack_from_file___ {
+            get {
+                return ResourceManager.GetString("Import stack from file...", resourceCulture);
             }
         }
         
@@ -237,6 +291,15 @@ namespace FlashCards.lang {
         public static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Стопки |*.stk|Все файлы|*.*.
+        /// </summary>
+        public static string Stack_files___stk_All_files____ {
+            get {
+                return ResourceManager.GetString("Stack files|*.stk|All files|*.*", resourceCulture);
             }
         }
         

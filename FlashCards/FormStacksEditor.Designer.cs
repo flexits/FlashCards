@@ -45,8 +45,10 @@ namespace FlashCards
             this.buttonCards = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonImgRemove = new System.Windows.Forms.Button();
-            this.buttonExport = new System.Windows.Forms.Button();
             this.buttonImport = new System.Windows.Forms.Button();
+            this.buttonExport = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,7 +164,7 @@ namespace FlashCards
             this.buttonCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
             this.buttonCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Location = new System.Drawing.Point(210, 167);
+            this.buttonCancel.Location = new System.Drawing.Point(179, 167);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(100, 30);
             this.buttonCancel.TabIndex = 11;
@@ -175,6 +177,7 @@ namespace FlashCards
             // 
             this.openFileDialog1.DefaultExt = "*.jpg";
             this.openFileDialog1.Filter = "Image files|*.jpg;*.png;*.gif|All files|*.*";
+            this.openFileDialog1.InitialDirectory = "%documents%";
             this.openFileDialog1.Title = "Open picture...";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
@@ -223,37 +226,47 @@ namespace FlashCards
             this.buttonImgRemove.UseVisualStyleBackColor = false;
             this.buttonImgRemove.Click += new System.EventHandler(this.buttonImgRemove_Click);
             // 
-            // buttonExport
-            // 
-            this.buttonExport.BackColor = System.Drawing.Color.White;
-            this.buttonExport.BackgroundImage = global::FlashCards.Properties.Resources.remove_image;
-            this.buttonExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
-            this.buttonExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
-            this.buttonExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.buttonExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExport.Location = new System.Drawing.Point(516, 169);
-            this.buttonExport.Name = "buttonExport";
-            this.buttonExport.Size = new System.Drawing.Size(28, 28);
-            this.buttonExport.TabIndex = 18;
-            this.buttonExport.UseVisualStyleBackColor = false;
-            this.buttonExport.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonExport_MouseClick);
-            // 
             // buttonImport
             // 
-            this.buttonImport.BackColor = System.Drawing.Color.White;
-            this.buttonImport.BackgroundImage = global::FlashCards.Properties.Resources.remove_image;
-            this.buttonImport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonImport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
-            this.buttonImport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
-            this.buttonImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonImport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
+            this.buttonImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
             this.buttonImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonImport.Location = new System.Drawing.Point(516, 131);
+            this.buttonImport.Location = new System.Drawing.Point(73, 131);
             this.buttonImport.Name = "buttonImport";
-            this.buttonImport.Size = new System.Drawing.Size(28, 28);
-            this.buttonImport.TabIndex = 19;
-            this.buttonImport.UseVisualStyleBackColor = false;
+            this.buttonImport.Size = new System.Drawing.Size(100, 30);
+            this.buttonImport.TabIndex = 20;
+            this.buttonImport.Tag = "TextTranslatable";
+            this.buttonImport.Text = "Import";
+            this.buttonImport.UseVisualStyleBackColor = true;
             this.buttonImport.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonImport_MouseClick);
+            // 
+            // buttonExport
+            // 
+            this.buttonExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(105)))));
+            this.buttonExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(196)))), ((int)(((byte)(182)))));
+            this.buttonExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExport.Location = new System.Drawing.Point(179, 131);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(100, 30);
+            this.buttonExport.TabIndex = 21;
+            this.buttonExport.Tag = "TextTranslatable";
+            this.buttonExport.Text = "Export";
+            this.buttonExport.UseVisualStyleBackColor = true;
+            this.buttonExport.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonExport_MouseClick);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "*.stk";
+            this.saveFileDialog1.Filter = "Stack files|*.stk|All files|*.*";
+            this.saveFileDialog1.InitialDirectory = "%documents%";
+            this.saveFileDialog1.Title = "Export stack to file...";
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.DefaultExt = "*.stk";
+            this.openFileDialog2.Filter = "Stack files|*.stk|All files|*.*";
+            this.openFileDialog2.InitialDirectory = "%documents%";
+            this.openFileDialog2.Title = "Import stack from file...";
             // 
             // FormStacksEditor
             // 
@@ -261,8 +274,8 @@ namespace FlashCards
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(568, 218);
-            this.Controls.Add(this.buttonImport);
             this.Controls.Add(this.buttonExport);
+            this.Controls.Add(this.buttonImport);
             this.Controls.Add(this.buttonImgRemove);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonCards);
@@ -305,7 +318,9 @@ namespace FlashCards
         private System.Windows.Forms.Button buttonCards;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonImgRemove;
-        private System.Windows.Forms.Button buttonExport;
         private System.Windows.Forms.Button buttonImport;
+        private System.Windows.Forms.Button buttonExport;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
     }
 }

@@ -141,11 +141,29 @@
   <data name="Editing stack" xml:space="preserve">
     <value>Редактирование стопки</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Экспорт</value>
+  </data>
+  <data name="Export stack to file..." xml:space="preserve">
+    <value>Экпортировать стопку в файл...</value>
+  </data>
+  <data name="Finished!" xml:space="preserve">
+    <value>Готово!</value>
+  </data>
   <data name="Foreign" xml:space="preserve">
     <value>Иностраный</value>
   </data>
   <data name="Foreign language:" xml:space="preserve">
     <value>Иностраный язык:</value>
+  </data>
+  <data name="Image files|*.jpg;*.png;*.gif|All files|*.*" xml:space="preserve">
+    <value>Изображения|*.jpg;*.png;*.gif|Все файлы|*.*</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Импорт</value>
+  </data>
+  <data name="Import stack from file..." xml:space="preserve">
+    <value>Импортировать стопку из файла...</value>
   </data>
   <data name="Known!" xml:space="preserve">
     <value>Знаю!</value>
@@ -176,6 +194,9 @@
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Настройки</value>
+  </data>
+  <data name="Stack files|*.stk|All files|*.*" xml:space="preserve">
+    <value>Стопки |*.stk|Все файлы|*.*</value>
   </data>
   <data name="Stacks" xml:space="preserve">
     <value>Стопки</value>

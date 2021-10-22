@@ -29,7 +29,6 @@ C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Release\netcoreapp
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Release\netcoreapp3.1\FlashCards.AssemblyInfoInputs.cache
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Release\netcoreapp3.1\FlashCards.AssemblyInfo.cs
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Release\netcoreapp3.1\FlashCards.csproj.CoreCompileInputs.cache
-C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Release\netcoreapp3.1\FlashCards.csproj.CopyComplete
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Release\netcoreapp3.1\FlashCards.dll
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Release\netcoreapp3.1\FlashCards.pdb
 C:\Users\4d414\source\repos\flexits\FlashCards\FlashCards\obj\Release\netcoreapp3.1\FlashCards.genruntimeconfig.cache

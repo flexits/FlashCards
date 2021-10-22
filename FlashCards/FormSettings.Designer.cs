@@ -36,6 +36,7 @@ namespace FlashCards
             this.labelCardFace = new System.Windows.Forms.Label();
             this.comboBoxCardFace = new System.Windows.Forms.ComboBox();
             this.labelCopyright = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelLang
@@ -115,7 +116,16 @@ namespace FlashCards
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(133, 30);
             this.labelCopyright.TabIndex = 6;
-            this.labelCopyright.Text = "(c) Alexander Korostelin\r\n4d.41.49.4c@gmail.com";
+            this.labelCopyright.Text = " © Alexander Korostelin\r\n4d.41.49.4c@gmail.com";
+            // 
+            // labelVersion
+            // 
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Location = new System.Drawing.Point(203, 205);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(64, 30);
+            this.labelVersion.TabIndex = 7;
+            this.labelVersion.Text = "FlashCards\r\nv.1b01";
             // 
             // FormSettings
             // 
@@ -123,6 +133,7 @@ namespace FlashCards
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.comboBoxCardFace);
             this.Controls.Add(this.labelCardFace);
@@ -146,5 +157,6 @@ namespace FlashCards
         private System.Windows.Forms.Label labelCardFace;
         private System.Windows.Forms.ComboBox comboBoxCardFace;
         private System.Windows.Forms.Label labelCopyright;
+        private System.Windows.Forms.Label labelVersion;
     }
 }

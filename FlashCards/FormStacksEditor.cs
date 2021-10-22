@@ -18,6 +18,9 @@ namespace FlashCards
             {
                 //title = "Adding stack";
                 currentStack = null;
+                buttonCards.Enabled = false;
+                buttonDelete.Enabled = false;
+                buttonExport.Enabled = false;
             }
             else
             {
@@ -34,7 +37,13 @@ namespace FlashCards
             {
                 CustomLocales.TranslateControlsTextProp(Controls);
                 openFileDialog1.Title = CustomLocales.GetTranslation(openFileDialog1.Title);
+                openFileDialog1.Filter = CustomLocales.GetTranslation(openFileDialog1.Filter);
+                openFileDialog2.Title = CustomLocales.GetTranslation(openFileDialog2.Title);
+                openFileDialog2.Filter = CustomLocales.GetTranslation(openFileDialog2.Filter);
+                saveFileDialog1.Title = CustomLocales.GetTranslation(saveFileDialog1.Title);
+                saveFileDialog1.Filter = CustomLocales.GetTranslation(saveFileDialog1.Filter);
             }
+
         }
 
         private void textBox_Leave(object sender, EventArgs e)
@@ -90,6 +99,10 @@ namespace FlashCards
 
         private void buttonCards_Click(object sender, EventArgs e)
         {
+            if (currentStack == null)
+            {
+                return;
+            }
             MDIFormControls.OpenFormInPanel(new FormBrowserCards(currentStack));
         }
 
@@ -110,6 +123,11 @@ namespace FlashCards
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            if (currentStack == null)
+            {
+                buttonCancel.PerformClick();
+                return;
+            }
             string text = "You're going to delete stack with all cards in it. This action can't be undone. Continue anyway?";
             string caption = "Delete file";
             if (CustomLocales.TranslationNeeded)
@@ -132,16 +150,23 @@ namespace FlashCards
             {
                 return;
             }
+            if (saveFileDialog1.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
             string jsoncontents = (new StackWrapper(currentStack.Id)).Serialize();
-            string filename = "test.json";
-            File.WriteAllText(filename, jsoncontents);
+            File.WriteAllText(saveFileDialog1.FileName, jsoncontents);
         }
 
         private void buttonImport_MouseClick(object sender, MouseEventArgs e)
         {
-            string filename = "test.json";
-            string jsoncontents = File.ReadAllText(filename);
+            if (openFileDialog2.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            string jsoncontents = File.ReadAllText(openFileDialog2.FileName);
             _ = StackWrapper.Deserialize(jsoncontents).FlushToDb();
+            buttonCancel.PerformClick(); //close form when imported 
         }
     }
 }

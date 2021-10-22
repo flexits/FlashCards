@@ -46,7 +46,7 @@ namespace FlashCards
 
         public static void CenterElementInPanel(Control elem, int panelwidth)
         {
-            elem.Location = new Point((panelwidth / 2 - elem.Width / 2), elem.Location.Y);
+            elem.Location = new Point(panelwidth / 2 - elem.Width / 2, elem.Location.Y);
         }
     }
 

@@ -37,6 +37,7 @@ namespace FlashCards
             this.buttonUnknown = new System.Windows.Forms.Button();
             this.comboBoxLang = new System.Windows.Forms.ComboBox();
             this.labelLang = new System.Windows.Forms.Label();
+            this.labelCounter = new System.Windows.Forms.Label();
             this.panelCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +76,7 @@ namespace FlashCards
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelTitle.Location = new System.Drawing.Point(86, 18);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(100, 30);
@@ -132,12 +134,24 @@ namespace FlashCards
             this.labelLang.Tag = "TextTranslatable";
             this.labelLang.Text = "Card face:";
             // 
+            // labelCounter
+            // 
+            this.labelCounter.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCounter.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelCounter.Location = new System.Drawing.Point(386, 18);
+            this.labelCounter.Name = "labelCounter";
+            this.labelCounter.Size = new System.Drawing.Size(100, 30);
+            this.labelCounter.TabIndex = 15;
+            this.labelCounter.Text = "00";
+            this.labelCounter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FormQuiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(568, 401);
+            this.Controls.Add(this.labelCounter);
             this.Controls.Add(this.labelLang);
             this.Controls.Add(this.comboBoxLang);
             this.Controls.Add(this.buttonUnknown);
@@ -164,5 +178,6 @@ namespace FlashCards
         private System.Windows.Forms.Button buttonUnknown;
         private System.Windows.Forms.ComboBox comboBoxLang;
         private System.Windows.Forms.Label labelLang;
+        private System.Windows.Forms.Label labelCounter;
     }
 }
