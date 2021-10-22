@@ -30,6 +30,7 @@ namespace FlashCards
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonImgRemove = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.textBoxComment = new System.Windows.Forms.TextBox();
             this.textBoxTranslation = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@ namespace FlashCards
             this.labelImage = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.buttonImgRemove = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +63,22 @@ namespace FlashCards
             this.panel1.Size = new System.Drawing.Size(490, 106);
             this.panel1.TabIndex = 0;
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnItemSelection);
+            // 
+            // buttonImgRemove
+            // 
+            this.buttonImgRemove.BackColor = System.Drawing.Color.White;
+            this.buttonImgRemove.BackgroundImage = global::FlashCards.Properties.Resources.remove_image;
+            this.buttonImgRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonImgRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
+            this.buttonImgRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
+            this.buttonImgRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonImgRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImgRemove.Location = new System.Drawing.Point(69, 73);
+            this.buttonImgRemove.Name = "buttonImgRemove";
+            this.buttonImgRemove.Size = new System.Drawing.Size(28, 28);
+            this.buttonImgRemove.TabIndex = 18;
+            this.buttonImgRemove.UseVisualStyleBackColor = false;
+            this.buttonImgRemove.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonImgRemove_MouseClick);
             // 
             // buttonDelete
             // 
@@ -172,24 +188,9 @@ namespace FlashCards
             // 
             this.openFileDialog1.DefaultExt = "*.jpg";
             this.openFileDialog1.Filter = "Image files|*.jpg;*.png;*.gif|All files|*.*";
+            this.openFileDialog1.InitialDirectory = "%documents%";
             this.openFileDialog1.Title = "Open picture...";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
-            // buttonImgRemove
-            // 
-            this.buttonImgRemove.BackColor = System.Drawing.Color.White;
-            this.buttonImgRemove.BackgroundImage = global::FlashCards.Properties.Resources.remove_image;
-            this.buttonImgRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonImgRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
-            this.buttonImgRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
-            this.buttonImgRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.buttonImgRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonImgRemove.Location = new System.Drawing.Point(69, 73);
-            this.buttonImgRemove.Name = "buttonImgRemove";
-            this.buttonImgRemove.Size = new System.Drawing.Size(28, 28);
-            this.buttonImgRemove.TabIndex = 18;
-            this.buttonImgRemove.UseVisualStyleBackColor = false;
-            this.buttonImgRemove.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonImgRemove_MouseClick);
             // 
             // ControlCardItem
             // 

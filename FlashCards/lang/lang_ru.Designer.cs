@@ -70,6 +70,15 @@ namespace FlashCards.lang {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Комментарий карточки на стороне:.
+        /// </summary>
+        public static string Card_comment_refers_to_ {
+            get {
+                return ResourceManager.GetString("Card comment refers to:", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Лицевая сторона:.
         /// </summary>
         public static string Card_face_ {

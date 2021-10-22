@@ -53,26 +53,29 @@ namespace FlashCards
             this.panelCard.Name = "panelCard";
             this.panelCard.Size = new System.Drawing.Size(400, 100);
             this.panelCard.TabIndex = 0;
+            this.panelCard.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Card_MouseClick);
             // 
             // labelComment
             // 
             this.labelComment.AutoSize = true;
-            this.labelComment.Location = new System.Drawing.Point(164, 72);
+            this.labelComment.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelComment.Location = new System.Drawing.Point(164, 62);
             this.labelComment.Name = "labelComment";
-            this.labelComment.Size = new System.Drawing.Size(59, 15);
+            this.labelComment.Size = new System.Drawing.Size(72, 20);
             this.labelComment.TabIndex = 3;
             this.labelComment.Text = "comment";
+            this.labelComment.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Card_MouseClick);
             // 
             // labelWord
             // 
             this.labelWord.AutoSize = true;
             this.labelWord.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelWord.Location = new System.Drawing.Point(164, 36);
+            this.labelWord.Location = new System.Drawing.Point(164, 18);
             this.labelWord.Name = "labelWord";
             this.labelWord.Size = new System.Drawing.Size(67, 30);
             this.labelWord.TabIndex = 2;
             this.labelWord.Text = "Word";
-            this.labelWord.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelWord_MouseClick);
+            this.labelWord.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Card_MouseClick);
             // 
             // pictureBox1
             // 
@@ -82,6 +85,7 @@ namespace FlashCards
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Card_MouseClick);
             // 
             // labelTitle
             // 
@@ -183,7 +187,6 @@ namespace FlashCards
 
         private System.Windows.Forms.Panel panelCard;
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.Label labelWord;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonKnown;
         private System.Windows.Forms.Button buttonUnknown;
@@ -191,5 +194,6 @@ namespace FlashCards
         private System.Windows.Forms.Label labelLang;
         private System.Windows.Forms.Label labelCounter;
         private System.Windows.Forms.Label labelComment;
+        private System.Windows.Forms.Label labelWord;
     }
 }

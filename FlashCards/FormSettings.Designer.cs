@@ -59,7 +59,7 @@ namespace FlashCards
             this.comboBoxLang.Items.AddRange(new object[] {
             "English",
             "Русский"});
-            this.comboBoxLang.Location = new System.Drawing.Point(203, 12);
+            this.comboBoxLang.Location = new System.Drawing.Point(261, 12);
             this.comboBoxLang.Name = "comboBoxLang";
             this.comboBoxLang.Size = new System.Drawing.Size(109, 23);
             this.comboBoxLang.TabIndex = 1;
@@ -83,7 +83,7 @@ namespace FlashCards
             // 
             this.labelRestartWarning.AutoSize = true;
             this.labelRestartWarning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(28)))));
-            this.labelRestartWarning.Location = new System.Drawing.Point(328, 15);
+            this.labelRestartWarning.Location = new System.Drawing.Point(386, 15);
             this.labelRestartWarning.Name = "labelRestartWarning";
             this.labelRestartWarning.Size = new System.Drawing.Size(232, 15);
             this.labelRestartWarning.TabIndex = 3;
@@ -106,7 +106,7 @@ namespace FlashCards
             this.comboBoxCardFace.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCardFace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxCardFace.FormattingEnabled = true;
-            this.comboBoxCardFace.Location = new System.Drawing.Point(203, 41);
+            this.comboBoxCardFace.Location = new System.Drawing.Point(261, 41);
             this.comboBoxCardFace.Name = "comboBoxCardFace";
             this.comboBoxCardFace.Size = new System.Drawing.Size(109, 23);
             this.comboBoxCardFace.TabIndex = 5;
@@ -135,7 +135,7 @@ namespace FlashCards
             this.comboBoxCommentSide.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCommentSide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxCommentSide.FormattingEnabled = true;
-            this.comboBoxCommentSide.Location = new System.Drawing.Point(203, 70);
+            this.comboBoxCommentSide.Location = new System.Drawing.Point(261, 70);
             this.comboBoxCommentSide.Name = "comboBoxCommentSide";
             this.comboBoxCommentSide.Size = new System.Drawing.Size(109, 23);
             this.comboBoxCommentSide.TabIndex = 8;

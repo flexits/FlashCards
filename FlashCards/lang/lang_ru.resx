@@ -120,6 +120,9 @@
   <data name="Cancel" xml:space="preserve">
     <value>Отменить</value>
   </data>
+  <data name="Card comment refers to:" xml:space="preserve">
+    <value>Комментарий карточки на стороне:</value>
+  </data>
   <data name="Card face language:" xml:space="preserve">
     <value>Язык лицевой стороны карточки:</value>
   </data>

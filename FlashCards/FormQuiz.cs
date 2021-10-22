@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace FlashCards
 {
@@ -37,7 +38,7 @@ namespace FlashCards
             //MDIFormControls.CenterElementInPanel(panelCard, Width);
         }
 
-        private void labelWord_MouseClick(object sender, MouseEventArgs e)
+        private void Card_MouseClick(object sender, MouseEventArgs e)
         {
             //turn card over = change language of the word shown
             ReverseCardWord();
@@ -60,8 +61,22 @@ namespace FlashCards
             DisplayNextCard();
         }
 
-        private void DisplayCardWord()
+        private void DisplayNextCard()
         {
+            currentcard = quiz.PopRandomCard();
+            if (currentcard == null)
+            {
+                //quiz ended
+                pictureBox1.Image = Properties.Resources.approval_green;
+                labelWord.Text = CustomLocales.GetTranslation("Finished!");
+                //TODO insert text in labelWord (stats? counters?)
+                buttonKnown.Enabled = false;
+                buttonUnknown.Enabled = false;
+                comboBoxLang.Enabled = false;
+                return;
+            }
+            pictureBox1.Image = ImageConversion.ByteToImg(currentcard.Picture);
+
             //display card word in the selected language
             currentcardfacelang = (CardFaceLanguages)comboBoxLang.SelectedIndex;
             if (currentcardfacelang == CardFaceLanguages.Foreign)
@@ -73,19 +88,32 @@ namespace FlashCards
                 labelWord.Text = currentcard.WordNative;
             }
 
-            labelComment.Text = currentcard.Comment;
-            if ((int)currentcardfacelang == Properties.Settings.Default.CommentSide)
+            DisplayComment();
+
+            //center label
+            MDIFormControls.CenterElementInPanel(labelWord, panelCard.Width);
+        }
+
+        private void DisplayComment()
+        {
+            //if card is up the corresponding side, display its comment
+            if (!string.IsNullOrWhiteSpace(currentcard.Comment) && ((int)currentcardfacelang == Properties.Settings.Default.CommentSide))
             {
                 labelComment.Visible = true;
+                labelWord.Location = new Point(labelWord.Location.X, 18);
+                labelComment.Text = currentcard.Comment;
+                MDIFormControls.CenterElementInPanel(labelComment, panelCard.Width);
             }
             else
             {
                 labelComment.Visible = false;
+                labelWord.Location = new Point(labelWord.Location.X, 36);
             }
+        }
 
-            //center label
-            MDIFormControls.CenterElementInPanel(labelWord, panelCard.Width);
-            MDIFormControls.CenterElementInPanel(labelComment, panelCard.Width);
+        private void comboBoxLang_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            ReverseCardWord();
         }
 
         private void ReverseCardWord()
@@ -106,41 +134,10 @@ namespace FlashCards
                 currentcardfacelang = CardFaceLanguages.Foreign;
             }
 
-            if ((int)currentcardfacelang == Properties.Settings.Default.CommentSide)
-            {
-                labelComment.Visible = true;
-            }
-            else
-            {
-                labelComment.Visible = false;
-            }
+            DisplayComment();
 
             //center label
             MDIFormControls.CenterElementInPanel(labelWord, panelCard.Width);
-            MDIFormControls.CenterElementInPanel(labelComment, panelCard.Width);
-        }
-
-        private void DisplayNextCard()
-        {
-            currentcard = quiz.PopRandomCard();
-            if (currentcard == null)
-            {
-                //quiz ended
-                pictureBox1.Image = Properties.Resources.approval_green;
-                labelWord.Text = CustomLocales.GetTranslation("Finished!");
-                //TODO insert text in labelWord (stats? counters?)
-                buttonKnown.Enabled = false;
-                buttonUnknown.Enabled = false;
-                comboBoxLang.Enabled = false;
-                return;
-            }
-            pictureBox1.Image = ImageConversion.ByteToImg(currentcard.Picture);
-            DisplayCardWord();
-        }
-
-        private void comboBoxLang_SelectedIndexChanged(object sender, System.EventArgs e)
-        {
-            ReverseCardWord();
         }
     }
 }
