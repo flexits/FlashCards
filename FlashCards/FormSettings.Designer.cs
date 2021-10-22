@@ -37,6 +37,8 @@ namespace FlashCards
             this.comboBoxCardFace = new System.Windows.Forms.ComboBox();
             this.labelCopyright = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
+            this.comboBoxCommentSide = new System.Windows.Forms.ComboBox();
+            this.labelComment = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelLang
@@ -127,12 +129,35 @@ namespace FlashCards
             this.labelVersion.TabIndex = 7;
             this.labelVersion.Text = "FlashCards\r\nv.1b01";
             // 
+            // comboBoxCommentSide
+            // 
+            this.comboBoxCommentSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
+            this.comboBoxCommentSide.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCommentSide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxCommentSide.FormattingEnabled = true;
+            this.comboBoxCommentSide.Location = new System.Drawing.Point(203, 70);
+            this.comboBoxCommentSide.Name = "comboBoxCommentSide";
+            this.comboBoxCommentSide.Size = new System.Drawing.Size(109, 23);
+            this.comboBoxCommentSide.TabIndex = 8;
+            // 
+            // labelComment
+            // 
+            this.labelComment.AutoSize = true;
+            this.labelComment.Location = new System.Drawing.Point(12, 73);
+            this.labelComment.Name = "labelComment";
+            this.labelComment.Size = new System.Drawing.Size(136, 15);
+            this.labelComment.TabIndex = 9;
+            this.labelComment.Tag = "TextTranslatable";
+            this.labelComment.Text = "Card comment refers to:";
+            // 
             // FormSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(243)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelComment);
+            this.Controls.Add(this.comboBoxCommentSide);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.labelCopyright);
             this.Controls.Add(this.comboBoxCardFace);
@@ -158,5 +183,7 @@ namespace FlashCards
         private System.Windows.Forms.ComboBox comboBoxCardFace;
         private System.Windows.Forms.Label labelCopyright;
         private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.ComboBox comboBoxCommentSide;
+        private System.Windows.Forms.Label labelComment;
     }
 }

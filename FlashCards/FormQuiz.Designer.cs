@@ -30,6 +30,7 @@ namespace FlashCards
         private void InitializeComponent()
         {
             this.panelCard = new System.Windows.Forms.Panel();
+            this.labelComment = new System.Windows.Forms.Label();
             this.labelWord = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -45,12 +46,22 @@ namespace FlashCards
             // panelCard
             // 
             this.panelCard.BackColor = System.Drawing.SystemColors.Window;
+            this.panelCard.Controls.Add(this.labelComment);
             this.panelCard.Controls.Add(this.labelWord);
             this.panelCard.Controls.Add(this.pictureBox1);
             this.panelCard.Location = new System.Drawing.Point(86, 64);
             this.panelCard.Name = "panelCard";
             this.panelCard.Size = new System.Drawing.Size(400, 100);
             this.panelCard.TabIndex = 0;
+            // 
+            // labelComment
+            // 
+            this.labelComment.AutoSize = true;
+            this.labelComment.Location = new System.Drawing.Point(164, 72);
+            this.labelComment.Name = "labelComment";
+            this.labelComment.Size = new System.Drawing.Size(59, 15);
+            this.labelComment.TabIndex = 3;
+            this.labelComment.Text = "comment";
             // 
             // labelWord
             // 
@@ -179,5 +190,6 @@ namespace FlashCards
         private System.Windows.Forms.ComboBox comboBoxLang;
         private System.Windows.Forms.Label labelLang;
         private System.Windows.Forms.Label labelCounter;
+        private System.Windows.Forms.Label labelComment;
     }
 }

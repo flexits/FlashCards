@@ -73,8 +73,19 @@ namespace FlashCards
                 labelWord.Text = currentcard.WordNative;
             }
 
+            labelComment.Text = currentcard.Comment;
+            if ((int)currentcardfacelang == Properties.Settings.Default.CommentSide)
+            {
+                labelComment.Visible = true;
+            }
+            else
+            {
+                labelComment.Visible = false;
+            }
+
             //center label
             MDIFormControls.CenterElementInPanel(labelWord, panelCard.Width);
+            MDIFormControls.CenterElementInPanel(labelComment, panelCard.Width);
         }
 
         private void ReverseCardWord()
@@ -95,8 +106,18 @@ namespace FlashCards
                 currentcardfacelang = CardFaceLanguages.Foreign;
             }
 
+            if ((int)currentcardfacelang == Properties.Settings.Default.CommentSide)
+            {
+                labelComment.Visible = true;
+            }
+            else
+            {
+                labelComment.Visible = false;
+            }
+
             //center label
             MDIFormControls.CenterElementInPanel(labelWord, panelCard.Width);
+            MDIFormControls.CenterElementInPanel(labelComment, panelCard.Width);
         }
 
         private void DisplayNextCard()

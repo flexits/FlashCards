@@ -19,6 +19,8 @@ namespace FlashCards
             }
             comboBoxCardFace.Items.Add(foreign);
             comboBoxCardFace.Items.Add(native);
+            comboBoxCommentSide.Items.Add(foreign);
+            comboBoxCommentSide.Items.Add(native);
             LoadSettings();
         }
 
@@ -26,12 +28,14 @@ namespace FlashCards
         {
             comboBoxLang.SelectedIndex = comboBoxLang.Items.IndexOf(Properties.Settings.Default.UseLocale);
             comboBoxCardFace.SelectedIndex = Properties.Settings.Default.CardFaceLang;
+            comboBoxCommentSide.SelectedIndex = Properties.Settings.Default.CommentSide;
         }
 
         private void SaveSettings()
         {
             Properties.Settings.Default.UseLocale = comboBoxLang.SelectedItem.ToString();
             Properties.Settings.Default.CardFaceLang = comboBoxCardFace.SelectedIndex;
+            Properties.Settings.Default.CommentSide = comboBoxCommentSide.SelectedIndex;
             Properties.Settings.Default.Save();
         }
 

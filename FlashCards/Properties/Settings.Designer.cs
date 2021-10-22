@@ -46,5 +46,17 @@ namespace FlashCards.Properties {
                 this["CardFaceLang"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int CommentSide {
+            get {
+                return ((int)(this["CommentSide"]));
+            }
+            set {
+                this["CommentSide"] = value;
+            }
+        }
     }
 }
