@@ -14,3 +14,5 @@ TODO list:
 
 You're free to use the app anyway you want, preserving original author notice.
 If you don't need souce codes, **download** just the FlashCards.zip file, unzip anywhere and run .exe
+
+![Clipboard01](https://user-images.githubusercontent.com/86118729/147366197-7870855e-2462-4010-9f96-0d2c651c06c0.jpg)
